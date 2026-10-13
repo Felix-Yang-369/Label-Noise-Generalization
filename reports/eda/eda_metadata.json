@@ -1,0 +1,36 @@
+{
+  "training_rows": 8125,
+  "train_csv_sha256": "953b04256548bd9a093877b1d57c7635964c092e35ae42d57ae1439007dad62b",
+  "eda_code_sha256": "8824176ae83c97c318daf35ce5eb465d74af6e7763f68a190a08f5e4c06e467f",
+  "scope": "training split only; validation and test were not read for EDA",
+  "features_retained": [
+    "Area",
+    "Perimeter",
+    "MajorAxisLength",
+    "MinorAxisLength",
+    "AspectRation",
+    "Eccentricity",
+    "ConvexArea",
+    "EquivDiameter",
+    "Extent",
+    "Solidity",
+    "roundness",
+    "Compactness",
+    "ShapeFactor1",
+    "ShapeFactor2",
+    "ShapeFactor3",
+    "ShapeFactor4"
+  ],
+  "missing_cells": 0,
+  "class_counts": {
+    "BARBUNYA": 793,
+    "BOMBAY": 313,
+    "CALI": 978,
+    "DERMASON": 2127,
+    "HOROZ": 1116,
+    "SEKER": 1216,
+    "SIRA": 1582
+  },
+  "feature_decision": "keep all 16 original features; train-fitted StandardScaler for LR/MLP",
+  "outliers": "not removed; boxplot hides fliers for readability only"
+}

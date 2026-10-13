@@ -1,0 +1,245 @@
+{
+  "status": "Current project plan, version 2; proposal drafted; training not executed",
+  "title": "Memorization and Generalization under Training-Label Randomization on Tabular Data",
+  "dataset": {
+    "uci_id": 602,
+    "source": "https://archive.ics.uci.edu/dataset/602/dry+bean+dataset",
+    "archive_sha256": "0a64eff5be87f48c3dbbfc0a12a56c5d5b5167ef8e61cd45d69b3e7c7130c06f",
+    "raw_rows": 13611,
+    "rows_after_exact_dedup": 13543,
+    "features": [
+      "Area",
+      "Perimeter",
+      "MajorAxisLength",
+      "MinorAxisLength",
+      "AspectRation",
+      "Eccentricity",
+      "ConvexArea",
+      "EquivDiameter",
+      "Extent",
+      "Solidity",
+      "roundness",
+      "Compactness",
+      "ShapeFactor1",
+      "ShapeFactor2",
+      "ShapeFactor3",
+      "ShapeFactor4"
+    ],
+    "target": "Class",
+    "dedup_keep": "first",
+    "row_id": "original Excel row number, first data row = 2",
+    "classes": [
+      "BARBUNYA",
+      "BOMBAY",
+      "CALI",
+      "DERMASON",
+      "HOROZ",
+      "SEKER",
+      "SIRA"
+    ]
+  },
+  "split": {
+    "algorithm": "sklearn.model_selection.train_test_split, stratified",
+    "first_test_size": 0.2,
+    "first_random_state": 171,
+    "second_validation_size_of_remaining": 0.25,
+    "second_random_state": 172,
+    "expected_counts": {
+      "train": 8125,
+      "validation": 2709,
+      "test": 2709
+    },
+    "test_policy": "sealed until all choices frozen; evaluate predeclared conditions once"
+  },
+  "primary_metric": "test_macro_f1_clean",
+  "metric_labels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "f1_zero_division": 0,
+  "preprocessing": {
+    "LR": "StandardScaler fitted on train only",
+    "RF": "original numeric features",
+    "MLP": "StandardScaler fitted on train only"
+  },
+  "noise": {
+    "p": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "rng": "numpy.random.default_rng(seed); u=rng.random(n_train); z=rng.integers(0,7,size=n_train); reuse same u,z across p",
+    "rule": "where u<p, replace clean label by z, including original class",
+    "expected_changed_fraction": "6*p/7",
+    "scope": "train labels only",
+    "fixed_within_fit": true,
+    "shared_across_models": true
+  },
+  "models": {
+    "LR": {
+      "estimator": "LogisticRegression",
+      "fixed": {
+        "penalty": "l2",
+        "solver": "lbfgs",
+        "max_iter": 2000,
+        "tol": 0.0001,
+        "class_weight": null
+      },
+      "tune_grid": {
+        "C": [
+          0.1,
+          1,
+          10
+        ]
+      },
+      "initial_default": {
+        "C": 1
+      }
+    },
+    "RF": {
+      "estimator": "RandomForestClassifier",
+      "fixed": {
+        "n_estimators": 200,
+        "max_features": "sqrt",
+        "bootstrap": true,
+        "n_jobs": 4,
+        "class_weight": null
+      },
+      "tune_grid": {
+        "max_depth": [
+          8,
+          null
+        ],
+        "min_samples_leaf": [
+          1,
+          5
+        ]
+      },
+      "initial_default": {
+        "max_depth": null,
+        "min_samples_leaf": 1
+      }
+    },
+    "MLP": {
+      "estimator": "MLPClassifier",
+      "fixed": {
+        "hidden_layer_sizes": [
+          128,
+          64
+        ],
+        "activation": "relu",
+        "solver": "adam",
+        "batch_size": 128,
+        "learning_rate_init": 0.001,
+        "max_iter": 500,
+        "tol": 1e-05,
+        "n_iter_no_change": 20,
+        "early_stopping": false,
+        "shuffle": true
+      },
+      "tune_grid": {
+        "alpha": [
+          0,
+          0.0001,
+          0.01
+        ]
+      },
+      "initial_default": {
+        "alpha": 0.0001
+      }
+    }
+  },
+  "tuning": {
+    "label_condition": "p=0, clean train labels",
+    "random_state": 17,
+    "total_fits": 10,
+    "metric": "validation macro-F1 only",
+    "tie_tolerance": 0.001,
+    "tie_rules": {
+      "LR": "smaller C",
+      "RF": "shallower max_depth, then larger min_samples_leaf",
+      "MLP": "larger alpha"
+    },
+    "freeze": "selected_params.json before main runs; no per-noise tuning"
+  },
+  "main": {
+    "fits": 45,
+    "fresh_fit_per_run": true,
+    "model_random_state": "same replicate seed as noise",
+    "dataset_split_fixed": true
+  },
+  "optional_capacity": {
+    "fits": 18,
+    "subset_n": 3000,
+    "subset_seed": 173,
+    "stratified_from": "training split only",
+    "hidden_layer_sizes": [
+      [
+        32
+      ],
+      [
+        128,
+        64
+      ],
+      [
+        512,
+        256
+      ]
+    ],
+    "p": [
+      0,
+      1
+    ],
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "fixed": {
+      "activation": "relu",
+      "solver": "adam",
+      "alpha": 0,
+      "max_iter": 1000,
+      "tol": 0,
+      "n_iter_no_change": 1001,
+      "early_stopping": false,
+      "batch_size": 128,
+      "learning_rate_init": 0.001,
+      "shuffle": true
+    },
+    "subset_noise": "generate on fixed subset order, shared across capacities"
+  },
+  "total_required_research_fits": 55,
+  "total_with_optional_capacity": 73,
+  "smoke_runs_excluded_from_research": true,
+  "target_environment": {
+    "python": "3.11 or 3.12",
+    "scikit-learn": "1.7.2",
+    "other_packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "openpyxl",
+      "matplotlib",
+      "joblib",
+      "Flask"
+    ],
+    "tested_training_environment": false
+  },
+  "training_completed": false,
+  "performance_results": null,
+  "document_version": 2,
+  "authoring_scope": "proposal and complete plan authorized by user on 2026-10-12; no submission or messaging requested"
+}

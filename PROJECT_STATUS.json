@@ -1,0 +1,29 @@
+{
+  "phase": "environment, data, EDA, tuning and main experiments complete",
+  "training_complete": true,
+  "tuning_fits_current": 10,
+  "main_fits_current": 45,
+  "test_evaluation_complete": true,
+  "data_counts": {
+    "raw": 13611,
+    "deduplicated": 13543,
+    "train": 8125,
+    "validation": 2709,
+    "test": 2709
+  },
+  "tests": "17 passed; one known sklearn warning in a single-class synthetic fixture",
+  "independent_review": "three Important integrity findings reproduced and fixed before current tuning/main and before holdout access",
+  "final_evaluation_receipt_sha256": "665849d63859cba60ce348b0e43f71c387456d2bd64b367972f17db3cda90d0f",
+  "total_research_fit_seconds": 462.835090000066,
+  "main_warning_runs": 14,
+  "operator": "Codex implementation and execution under user instruction; planned teammate roles do not prove individual human contributions",
+  "not_run": [
+    "18 optional capacity fits",
+    "live inference web interface",
+    "deployment",
+    "course submission",
+    "email",
+    "Git push"
+  ],
+  "excluded_history": "pre-review tuning/smoke assets preserved, not included in current research summaries"
+}

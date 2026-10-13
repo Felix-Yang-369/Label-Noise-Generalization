@@ -1,0 +1,49 @@
+F............                                                            [100%]
+================================== FAILURES ===================================
+_________________ test_eda_statistics_use_only_training_rows __________________
+
+tmp_path = WindowsPath('C:/Users/Felix/Documents/Codex/2026-10-12/phonetics/outputs/ECS171 Project/12_Implementation/.tmp/pytest-of-Felix/pytest-4/test_eda_statistics_use_only_t0')
+
+    def test_eda_statistics_use_only_training_rows(tmp_path):
+>       try:m=importlib.import_module('src.visuals')
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_eda.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Felix\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'src.visuals', import_ = <function _gcd_import at 0x000002AB650C80E0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'src.visuals'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/Felix/Documents/Codex/2026-10-12/phonetics/outputs/ECS171 Project/12_Implementation/.tmp/pytest-of-Felix/pytest-4/test_eda_statistics_use_only_t0')
+
+    def test_eda_statistics_use_only_training_rows(tmp_path):
+        try:m=importlib.import_module('src.visuals')
+        except ModuleNotFoundError as exc:
+>           if exc.name=='src.visuals':pytest.fail('Training-only EDA is not implemented yet')
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: Training-only EDA is not implemented yet
+
+tests\test_eda.py:10: Failed
+============================== warnings summary ===============================
+tests/test_protocol.py::test_macro_f1_counts_absent_classes_as_zero_when_predeclared
+  C:\Users\Felix\Documents\Codex\2026-10-12\phonetics\outputs\ECS171 Project\12_Implementation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:534: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_eda.py::test_eda_statistics_use_only_training_rows - Failed...
+1 failed, 12 passed, 1 warning in 20.66s

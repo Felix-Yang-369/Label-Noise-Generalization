@@ -1,0 +1,449 @@
+FFFFFFFFFF                                                               [100%]
+================================== FAILURES ===================================
+______ test_exact_duplicates_removed_before_split_keep_original_identity ______
+
+    def api():
+        try:
+>           return importlib.import_module('src.core')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_protocol.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Felix\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'src.core', import_ = <function _gcd_import at 0x000001E895F280E0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'src.core'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+    def test_exact_duplicates_removed_before_split_keep_original_identity():
+>       m=api()
+          ^^^^^
+
+tests\test_protocol.py:24: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+        try:
+            return importlib.import_module('src.core')
+        except ModuleNotFoundError as exc:
+            if exc.name in ('src.core', 'src'):
+>               pytest.fail('Scientific pipeline API is not implemented yet')
+E               Failed: Scientific pipeline API is not implemented yet
+
+tests\test_protocol.py:13: Failed
+_________ test_conflicting_labels_for_identical_features_are_rejected _________
+
+    def api():
+        try:
+>           return importlib.import_module('src.core')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_protocol.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Felix\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'src.core', import_ = <function _gcd_import at 0x000001E895F280E0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'src.core'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+    def test_conflicting_labels_for_identical_features_are_rejected():
+>       m=api();df=fixture_frame()
+          ^^^^^
+
+tests\test_protocol.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+        try:
+            return importlib.import_module('src.core')
+        except ModuleNotFoundError as exc:
+            if exc.name in ('src.core', 'src'):
+>               pytest.fail('Scientific pipeline API is not implemented yet')
+E               Failed: Scientific pipeline API is not implemented yet
+
+tests\test_protocol.py:13: Failed
+________________ test_missing_or_nonfinite_feature_is_rejected ________________
+
+    def api():
+        try:
+>           return importlib.import_module('src.core')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_protocol.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Felix\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'src.core', import_ = <function _gcd_import at 0x000001E895F280E0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'src.core'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+    def test_missing_or_nonfinite_feature_is_rejected():
+>       m=api();df=fixture_frame();df.loc[0,'a']=np.inf
+          ^^^^^
+
+tests\test_protocol.py:46: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+        try:
+            return importlib.import_module('src.core')
+        except ModuleNotFoundError as exc:
+            if exc.name in ('src.core', 'src'):
+>               pytest.fail('Scientific pipeline API is not implemented yet')
+E               Failed: Scientific pipeline API is not implemented yet
+
+tests\test_protocol.py:13: Failed
+_______ test_noise_zero_preserves_labels_and_full_noise_allows_matches ________
+
+    def api():
+        try:
+>           return importlib.import_module('src.core')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_protocol.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Felix\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'src.core', import_ = <function _gcd_import at 0x000001E895F280E0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'src.core'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+    def test_noise_zero_preserves_labels_and_full_noise_allows_matches():
+>       m=api();y=np.arange(1001)%7
+          ^^^^^
+
+tests\test_protocol.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+        try:
+            return importlib.import_module('src.core')
+        except ModuleNotFoundError as exc:
+            if exc.name in ('src.core', 'src'):
+>               pytest.fail('Scientific pipeline API is not implemented yet')
+E               Failed: Scientific pipeline API is not implemented yet
+
+tests\test_protocol.py:13: Failed
+__________ test_noise_is_nested_and_invalid_probability_is_rejected ___________
+
+    def api():
+        try:
+>           return importlib.import_module('src.core')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_protocol.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Felix\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'src.core', import_ = <function _gcd_import at 0x000001E895F280E0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'src.core'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+    def test_noise_is_nested_and_invalid_probability_is_rejected():
+>       m=api();y=np.arange(1001)%7
+          ^^^^^
+
+tests\test_protocol.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+        try:
+            return importlib.import_module('src.core')
+        except ModuleNotFoundError as exc:
+            if exc.name in ('src.core', 'src'):
+>               pytest.fail('Scientific pipeline API is not implemented yet')
+E               Failed: Scientific pipeline API is not implemented yet
+
+tests\test_protocol.py:13: Failed
+__________________ test_macro_f1_is_unweighted_class_average __________________
+
+    def api():
+        try:
+>           return importlib.import_module('src.core')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_protocol.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Felix\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'src.core', import_ = <function _gcd_import at 0x000001E895F280E0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'src.core'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+    def test_macro_f1_is_unweighted_class_average():
+>       m=api();result=m.scores([0,0,1,1,2,2],[0,1,1,1,2,0],[0,1,2])
+          ^^^^^
+
+tests\test_protocol.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+        try:
+            return importlib.import_module('src.core')
+        except ModuleNotFoundError as exc:
+            if exc.name in ('src.core', 'src'):
+>               pytest.fail('Scientific pipeline API is not implemented yet')
+E               Failed: Scientific pipeline API is not implemented yet
+
+tests\test_protocol.py:13: Failed
+_______ test_hyperparameter_ties_choose_simpler_candidate_not_first_row _______
+
+    def api():
+        try:
+>           return importlib.import_module('src.core')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_protocol.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Felix\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'src.core', import_ = <function _gcd_import at 0x000001E895F280E0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'src.core'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+    def test_hyperparameter_ties_choose_simpler_candidate_not_first_row():
+>       m=api()
+          ^^^^^
+
+tests\test_protocol.py:80: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+        try:
+            return importlib.import_module('src.core')
+        except ModuleNotFoundError as exc:
+            if exc.name in ('src.core', 'src'):
+>               pytest.fail('Scientific pipeline API is not implemented yet')
+E               Failed: Scientific pipeline API is not implemented yet
+
+tests\test_protocol.py:13: Failed
+__________ test_saved_pipeline_scaler_uses_training_only_and_reloads __________
+
+    def api():
+        try:
+>           return importlib.import_module('src.core')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_protocol.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Felix\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'src.core', import_ = <function _gcd_import at 0x000001E895F280E0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'src.core'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/Felix/Documents/Codex/2026-10-12/phonetics/outputs/ECS171 Project/12_Implementation/.tmp/pytest-of-Felix/pytest-0/test_saved_pipeline_scaler_use0')
+
+    def test_saved_pipeline_scaler_uses_training_only_and_reloads(tmp_path):
+>       m=api()
+          ^^^^^
+
+tests\test_protocol.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+        try:
+            return importlib.import_module('src.core')
+        except ModuleNotFoundError as exc:
+            if exc.name in ('src.core', 'src'):
+>               pytest.fail('Scientific pipeline API is not implemented yet')
+E               Failed: Scientific pipeline API is not implemented yet
+
+tests\test_protocol.py:13: Failed
+___________ test_resume_refuses_changed_config_or_corrupt_artifact ____________
+
+    def api():
+        try:
+>           return importlib.import_module('src.core')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_protocol.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Felix\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'src.core', import_ = <function _gcd_import at 0x000001E895F280E0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'src.core'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/Felix/Documents/Codex/2026-10-12/phonetics/outputs/ECS171 Project/12_Implementation/.tmp/pytest-of-Felix/pytest-0/test_resume_refuses_changed_co0')
+
+    def test_resume_refuses_changed_config_or_corrupt_artifact(tmp_path):
+        import json,hashlib
+>       m=api();artifact=tmp_path/'model.joblib';artifact.write_bytes(b'known model bytes')
+          ^^^^^
+
+tests\test_protocol.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+        try:
+            return importlib.import_module('src.core')
+        except ModuleNotFoundError as exc:
+            if exc.name in ('src.core', 'src'):
+>               pytest.fail('Scientific pipeline API is not implemented yet')
+E               Failed: Scientific pipeline API is not implemented yet
+
+tests\test_protocol.py:13: Failed
+________ test_macro_f1_counts_absent_classes_as_zero_when_predeclared _________
+
+    def api():
+        try:
+>           return importlib.import_module('src.core')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_protocol.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Felix\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'src.core', import_ = <function _gcd_import at 0x000001E895F280E0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'src.core'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+    def test_macro_f1_counts_absent_classes_as_zero_when_predeclared():
+>       m=api();result=m.scores([0,0],[0,0],[0,1,2])
+          ^^^^^
+
+tests\test_protocol.py:123: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+        try:
+            return importlib.import_module('src.core')
+        except ModuleNotFoundError as exc:
+            if exc.name in ('src.core', 'src'):
+>               pytest.fail('Scientific pipeline API is not implemented yet')
+E               Failed: Scientific pipeline API is not implemented yet
+
+tests\test_protocol.py:13: Failed
+=========================== short test summary info ===========================
+FAILED tests/test_protocol.py::test_exact_duplicates_removed_before_split_keep_original_identity
+FAILED tests/test_protocol.py::test_conflicting_labels_for_identical_features_are_rejected
+FAILED tests/test_protocol.py::test_missing_or_nonfinite_feature_is_rejected
+FAILED tests/test_protocol.py::test_noise_zero_preserves_labels_and_full_noise_allows_matches
+FAILED tests/test_protocol.py::test_noise_is_nested_and_invalid_probability_is_rejected
+FAILED tests/test_protocol.py::test_macro_f1_is_unweighted_class_average - Fa...
+FAILED tests/test_protocol.py::test_hyperparameter_ties_choose_simpler_candidate_not_first_row
+FAILED tests/test_protocol.py::test_saved_pipeline_scaler_uses_training_only_and_reloads
+FAILED tests/test_protocol.py::test_resume_refuses_changed_config_or_corrupt_artifact
+FAILED tests/test_protocol.py::test_macro_f1_counts_absent_classes_as_zero_when_predeclared
+10 failed in 1.76s

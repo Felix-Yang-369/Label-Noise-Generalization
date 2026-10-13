@@ -1,0 +1,3057 @@
+[
+  {
+    "run_id": "LR_p000_s17",
+    "model": "LR",
+    "p": 0,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": {
+      "C": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "0aa6138720df1ced28f616c23f382e1db84f0f3c3fdebbca72c20bac3c1cb4d0",
+    "selected_fraction": 0.0,
+    "changed_fraction": 0.0,
+    "fingerprint": "057f93b456a63716a0cd44053ebbf2b173be4132680f65fbb2147c6cb96c6196",
+    "started_utc": "2026-10-13T05:31:48.220845+00:00",
+    "completed_utc": "2026-10-13T05:31:48.807847+00:00",
+    "fit_seconds": 0.5718465999816544,
+    "train_noisy": {
+      "macro_f1": 0.9359245035743279,
+      "accuracy": 0.9246769230769231,
+      "balanced_accuracy": 0.9348073238820681
+    },
+    "train_clean": {
+      "macro_f1": 0.9359245035743279,
+      "accuracy": 0.9246769230769231,
+      "balanced_accuracy": 0.9348073238820681
+    },
+    "validation": {
+      "macro_f1": 0.9328197963125037,
+      "accuracy": 0.917312661498708,
+      "balanced_accuracy": 0.9316188799405941
+    },
+    "iterations": [
+      89
+    ],
+    "stop_reason": "training_objective_or_convergence_stop",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "e2f8aa1e184e90a6375f649e79430eafb700bed4cdac33f98f6532588a24f8be",
+      "train_predictions.csv": "1b41316dc31bf197c6747f9055f6a27fe0dab5cab202415773ff81e1359d8686",
+      "validation_predictions.csv": "ab2f9765c2278fbec5465122bef3f620861ac44f558c988ff0d4199f37b074ac",
+      "training_trace.json": "e772206fc27423ba2566e7cc5bbd7aab919b56bd792cb81f0c30b0d8d962992a"
+    }
+  },
+  {
+    "run_id": "LR_p000_s29",
+    "model": "LR",
+    "p": 0,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": {
+      "C": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "0aa6138720df1ced28f616c23f382e1db84f0f3c3fdebbca72c20bac3c1cb4d0",
+    "selected_fraction": 0.0,
+    "changed_fraction": 0.0,
+    "fingerprint": "47615d8fcd56dc88b8b478c67d4c8b87d1725bcc1d569ed4efdb32724ac64777",
+    "started_utc": "2026-10-13T05:31:48.849025+00:00",
+    "completed_utc": "2026-10-13T05:31:48.958460+00:00",
+    "fit_seconds": 0.09674549999181181,
+    "train_noisy": {
+      "macro_f1": 0.9359245035743279,
+      "accuracy": 0.9246769230769231,
+      "balanced_accuracy": 0.9348073238820681
+    },
+    "train_clean": {
+      "macro_f1": 0.9359245035743279,
+      "accuracy": 0.9246769230769231,
+      "balanced_accuracy": 0.9348073238820681
+    },
+    "validation": {
+      "macro_f1": 0.9328197963125037,
+      "accuracy": 0.917312661498708,
+      "balanced_accuracy": 0.9316188799405941
+    },
+    "iterations": [
+      89
+    ],
+    "stop_reason": "training_objective_or_convergence_stop",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "f3f689c422cf430a4bd28149967505bd0a368841552fa0240dbb2120c2725e9f",
+      "train_predictions.csv": "1b41316dc31bf197c6747f9055f6a27fe0dab5cab202415773ff81e1359d8686",
+      "validation_predictions.csv": "ab2f9765c2278fbec5465122bef3f620861ac44f558c988ff0d4199f37b074ac",
+      "training_trace.json": "e772206fc27423ba2566e7cc5bbd7aab919b56bd792cb81f0c30b0d8d962992a"
+    }
+  },
+  {
+    "run_id": "LR_p000_s43",
+    "model": "LR",
+    "p": 0,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": {
+      "C": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "0aa6138720df1ced28f616c23f382e1db84f0f3c3fdebbca72c20bac3c1cb4d0",
+    "selected_fraction": 0.0,
+    "changed_fraction": 0.0,
+    "fingerprint": "d5fa0c1bfd74ae4e8863d007f2987b292905cc23826b3ff2b19ca016413ddb1d",
+    "started_utc": "2026-10-13T05:31:49.006318+00:00",
+    "completed_utc": "2026-10-13T05:31:49.112458+00:00",
+    "fit_seconds": 0.09328590001678094,
+    "train_noisy": {
+      "macro_f1": 0.9359245035743279,
+      "accuracy": 0.9246769230769231,
+      "balanced_accuracy": 0.9348073238820681
+    },
+    "train_clean": {
+      "macro_f1": 0.9359245035743279,
+      "accuracy": 0.9246769230769231,
+      "balanced_accuracy": 0.9348073238820681
+    },
+    "validation": {
+      "macro_f1": 0.9328197963125037,
+      "accuracy": 0.917312661498708,
+      "balanced_accuracy": 0.9316188799405941
+    },
+    "iterations": [
+      89
+    ],
+    "stop_reason": "training_objective_or_convergence_stop",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "79fe216e10b59133794ab4a5bb74b4bd488054c6142f2c614c9f557e108ca095",
+      "train_predictions.csv": "1b41316dc31bf197c6747f9055f6a27fe0dab5cab202415773ff81e1359d8686",
+      "validation_predictions.csv": "ab2f9765c2278fbec5465122bef3f620861ac44f558c988ff0d4199f37b074ac",
+      "training_trace.json": "e772206fc27423ba2566e7cc5bbd7aab919b56bd792cb81f0c30b0d8d962992a"
+    }
+  },
+  {
+    "run_id": "LR_p025_s17",
+    "model": "LR",
+    "p": 0.25,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": {
+      "C": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "e8c66dcacc5f1c141fe821619fe45a4383f3f6897930e31ca890232a610a3272",
+    "selected_fraction": 0.2521846153846154,
+    "changed_fraction": 0.21723076923076923,
+    "fingerprint": "c8c85c4e9f6f8e565529e54555f05587fe70dd9a87d3132ab7823319e34bf56b",
+    "started_utc": "2026-10-13T05:31:49.157467+00:00",
+    "completed_utc": "2026-10-13T05:31:49.337658+00:00",
+    "fit_seconds": 0.1685363999567926,
+    "train_noisy": {
+      "macro_f1": 0.6874420350080371,
+      "accuracy": 0.7084307692307692,
+      "balanced_accuracy": 0.6724851856024652
+    },
+    "train_clean": {
+      "macro_f1": 0.912906004989717,
+      "accuracy": 0.9008,
+      "balanced_accuracy": 0.9060270835855367
+    },
+    "validation": {
+      "macro_f1": 0.9053144873739049,
+      "accuracy": 0.8837209302325582,
+      "balanced_accuracy": 0.899159152156926
+    },
+    "iterations": [
+      170
+    ],
+    "stop_reason": "training_objective_or_convergence_stop",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "83e868e82538c077e470acbf885fac89d1c778287d30406794440d8444699229",
+      "train_predictions.csv": "864a9b087c1f0d78595821d9126866561312c05cb3bde7ec20b2cd5d98759f50",
+      "validation_predictions.csv": "73c0d4e737578fd47f1bb2d266e1f7623b3c5d515f39f42b9d35d14d21b7392e",
+      "training_trace.json": "d20c26ebdc35c85ada8bccc471979f06b675c49e91bfa8dafcb1604a37177d4a"
+    }
+  },
+  {
+    "run_id": "LR_p025_s29",
+    "model": "LR",
+    "p": 0.25,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": {
+      "C": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "1e0b0852de8cfb00960efb27bbdf2e4ed7e9c1397e42036bb6ef5d4d6b4b3d2c",
+    "selected_fraction": 0.24652307692307693,
+    "changed_fraction": 0.20972307692307693,
+    "fingerprint": "58cf60dfc93de9e7731edf65fd03dd4f33aaf13ea00b257d1960d15f329755f7",
+    "started_utc": "2026-10-13T05:31:49.395754+00:00",
+    "completed_utc": "2026-10-13T05:31:49.558648+00:00",
+    "fit_seconds": 0.14999160001752898,
+    "train_noisy": {
+      "macro_f1": 0.6999498489812604,
+      "accuracy": 0.7165538461538462,
+      "balanced_accuracy": 0.6848288498828768
+    },
+    "train_clean": {
+      "macro_f1": 0.9168867380704918,
+      "accuracy": 0.9030153846153847,
+      "balanced_accuracy": 0.9112552354542768
+    },
+    "validation": {
+      "macro_f1": 0.904758585843373,
+      "accuracy": 0.8822443706164637,
+      "balanced_accuracy": 0.8991521870261405
+    },
+    "iterations": [
+      157
+    ],
+    "stop_reason": "training_objective_or_convergence_stop",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "d419dd86e2d3836d178a54c51c1f0b14ecf8452c14286ebbb30e036be114da6a",
+      "train_predictions.csv": "223934c2a4ccc0054eae42c4ea20c34b5c1dc9959068fb322de76b20ce0651a5",
+      "validation_predictions.csv": "db71315dcd209b458fee4e22cd7e00afd6a3254e0b8f52d5d54c36ded8bfc968",
+      "training_trace.json": "6e4a594267999972024068bde8749a589a49a5c5069939839ac747a645ec912c"
+    }
+  },
+  {
+    "run_id": "LR_p025_s43",
+    "model": "LR",
+    "p": 0.25,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": {
+      "C": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "126ee448a6f4a1ad8d27ffa9c9949c707ef0f924c77a10c85dce4a705a46b4d6",
+    "selected_fraction": 0.2552615384615385,
+    "changed_fraction": 0.2198153846153846,
+    "fingerprint": "aa6cef2e079df30558cb28e7fae1cd37d5aab0160226ccefcb459f260987943e",
+    "started_utc": "2026-10-13T05:31:49.616018+00:00",
+    "completed_utc": "2026-10-13T05:31:49.799950+00:00",
+    "fit_seconds": 0.16966930002672598,
+    "train_noisy": {
+      "macro_f1": 0.6900233328254071,
+      "accuracy": 0.7051076923076923,
+      "balanced_accuracy": 0.6744395759093044
+    },
+    "train_clean": {
+      "macro_f1": 0.9152067463874252,
+      "accuracy": 0.9005538461538461,
+      "balanced_accuracy": 0.9104060758038787
+    },
+    "validation": {
+      "macro_f1": 0.9064808120980361,
+      "accuracy": 0.8826135105204873,
+      "balanced_accuracy": 0.9017430751981801
+    },
+    "iterations": [
+      169
+    ],
+    "stop_reason": "training_objective_or_convergence_stop",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "26556da2accb6356cdbdf2a2f9acd213a1d679c58dd53ffaf7b83ecf6a6ac5ae",
+      "train_predictions.csv": "6dba341d0adbde729a797bec8992af98c8b10acf80e9c1c4375ec609aeaa9998",
+      "validation_predictions.csv": "5abf4ede7a1f13c7c70ab3732cc1fa9bf674b23345ae282a7684206e41158ef2",
+      "training_trace.json": "39cbdbb97698d6807d53185ac140755a625c1bb39f4683c818639ef39ae73ad2"
+    }
+  },
+  {
+    "run_id": "LR_p050_s17",
+    "model": "LR",
+    "p": 0.5,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": {
+      "C": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "4c4b934cb0fe5d24c4ed86abb0e6772077827d60358e459b1809a405f5b46f55",
+    "selected_fraction": 0.5101538461538462,
+    "changed_fraction": 0.43864615384615385,
+    "fingerprint": "74db826f0ff9069576e151c1a46d77391a8f01f17c824c001c4b4a8e0e4bcb17",
+    "started_utc": "2026-10-13T05:31:49.856972+00:00",
+    "completed_utc": "2026-10-13T05:31:50.086532+00:00",
+    "fit_seconds": 0.21585570002207533,
+    "train_noisy": {
+      "macro_f1": 0.48624195564842954,
+      "accuracy": 0.5115076923076923,
+      "balanced_accuracy": 0.4821366075997378
+    },
+    "train_clean": {
+      "macro_f1": 0.9084202099811051,
+      "accuracy": 0.8978461538461538,
+      "balanced_accuracy": 0.8996955289633705
+    },
+    "validation": {
+      "macro_f1": 0.8956152585396211,
+      "accuracy": 0.8774455518641565,
+      "balanced_accuracy": 0.8866870393784555
+    },
+    "iterations": [
+      207
+    ],
+    "stop_reason": "training_objective_or_convergence_stop",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "ec4a3db8dbfd8c5a5a2a0eb4275bc67fea8a4631ea00c8807e3beec43e60efdd",
+      "train_predictions.csv": "ed5b30ba74820cd480c8bfa03de6cdfcd5c54ec3ab676e192e65140c9193ba45",
+      "validation_predictions.csv": "be4f0c440460d69d06f82aee9006e8634585d2ac4b9ddfab79cb2d0e529827f9",
+      "training_trace.json": "5540cb2700df90113532a3939ed10b361c20f81c9feb2e883c85baaef8541230"
+    }
+  },
+  {
+    "run_id": "LR_p050_s29",
+    "model": "LR",
+    "p": 0.5,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": {
+      "C": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "06ff9d511ce24706536c97a6db64e79cd736f94af853192b23d4215a2483aaa2",
+    "selected_fraction": 0.49846153846153846,
+    "changed_fraction": 0.42756923076923076,
+    "fingerprint": "6d5b4b01c16ed3b3d90183b06fe7b2c9c78831d38dced02dc4cbe73011741c66",
+    "started_utc": "2026-10-13T05:31:50.138479+00:00",
+    "completed_utc": "2026-10-13T05:31:50.339631+00:00",
+    "fit_seconds": 0.18683189997682348,
+    "train_noisy": {
+      "macro_f1": 0.49521661895114377,
+      "accuracy": 0.52,
+      "balanced_accuracy": 0.4905381463858223
+    },
+    "train_clean": {
+      "macro_f1": 0.9086664318982792,
+      "accuracy": 0.8958769230769231,
+      "balanced_accuracy": 0.9009889324857548
+    },
+    "validation": {
+      "macro_f1": 0.8974115351750402,
+      "accuracy": 0.875968992248062,
+      "balanced_accuracy": 0.8899601270062483
+    },
+    "iterations": [
+      176
+    ],
+    "stop_reason": "training_objective_or_convergence_stop",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "b95cee12637d6c2a281f9200900fd08fdb3783179bf38d96bdd520cf1fd4c1f0",
+      "train_predictions.csv": "30818d6f61b3facef08f3f7472700a7968a97765c3ce28e9cf88f91a3180365e",
+      "validation_predictions.csv": "77e488d527ad377c3af521217ff823d124df6f90c6083ed38cbbd35529aef8c5",
+      "training_trace.json": "a741d4f960146b2c3648256ac5b5fd5eebdf50654c304c876f9e6d7633ea3e12"
+    }
+  },
+  {
+    "run_id": "LR_p050_s43",
+    "model": "LR",
+    "p": 0.5,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": {
+      "C": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "d558bbd8721f943b50553f9971db79ddbfbc9ef17c7a7f87f92896fa64fe6303",
+    "selected_fraction": 0.4987076923076923,
+    "changed_fraction": 0.4254769230769231,
+    "fingerprint": "20a098e7b9481321388b6558d7937daaee4a94439dbd7cc5f4903802efcc8195",
+    "started_utc": "2026-10-13T05:31:50.393435+00:00",
+    "completed_utc": "2026-10-13T05:31:50.586279+00:00",
+    "fit_seconds": 0.17854320001788437,
+    "train_noisy": {
+      "macro_f1": 0.5037344470602418,
+      "accuracy": 0.5244307692307693,
+      "balanced_accuracy": 0.4959859727361687
+    },
+    "train_clean": {
+      "macro_f1": 0.9103956856035177,
+      "accuracy": 0.896,
+      "balanced_accuracy": 0.9039172302181742
+    },
+    "validation": {
+      "macro_f1": 0.8987745093863285,
+      "accuracy": 0.8744924326319675,
+      "balanced_accuracy": 0.8917221121488458
+    },
+    "iterations": [
+      177
+    ],
+    "stop_reason": "training_objective_or_convergence_stop",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "ae78b4310c634f94e0665483a91982a4d7643eda9801039378cdd16e51a4591d",
+      "train_predictions.csv": "fb53cdd6b6221d266b4d48144a25c47fbb4da87fa0f5b64f8c0b9a482c783d6e",
+      "validation_predictions.csv": "3d003b77ea7d0ebacb60f45dd9d8fc3c5b31857124325d69e947f6eccce2126d",
+      "training_trace.json": "b3a263d4ff65332839d01a273a7ed5d36a002bb768177c0730388d8c8ce9b8ac"
+    }
+  },
+  {
+    "run_id": "LR_p075_s17",
+    "model": "LR",
+    "p": 0.75,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": {
+      "C": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "b21d9b72ee5fe3d4bd9f80168d03a2bd429e7d325cc35d1c638d06f8ef2a0135",
+    "selected_fraction": 0.7613538461538462,
+    "changed_fraction": 0.6553846153846153,
+    "fingerprint": "752fc5a00858839687a6c1a173f93dd9237244238a7048e6f34caec88c5528d4",
+    "started_utc": "2026-10-13T05:31:50.638524+00:00",
+    "completed_utc": "2026-10-13T05:31:50.842971+00:00",
+    "fit_seconds": 0.19126700004562736,
+    "train_noisy": {
+      "macro_f1": 0.3028977417385594,
+      "accuracy": 0.3220923076923077,
+      "balanced_accuracy": 0.3099328709417761
+    },
+    "train_clean": {
+      "macro_f1": 0.9059511263123372,
+      "accuracy": 0.9000615384615385,
+      "balanced_accuracy": 0.8978690919411175
+    },
+    "validation": {
+      "macro_f1": 0.8917887997160039,
+      "accuracy": 0.8792912513842747,
+      "balanced_accuracy": 0.8833125182937213
+    },
+    "iterations": [
+      179
+    ],
+    "stop_reason": "training_objective_or_convergence_stop",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "a04e576baf596c924a5afa67b0c45c52cfb8a6f8b028b1ae01de78ad14405646",
+      "train_predictions.csv": "8ef1220b61fa9aaf43ace57a5592968faf4e1b5164b67e7519829d0f8c79e229",
+      "validation_predictions.csv": "901fdb6986f90c29c2fcc41885f8e22636efbcd57ed28b4048e451a97208d144",
+      "training_trace.json": "33fa1621575beba84d11fffdec6842533520d09b86a4e7da0ff7fd36e9ddb855"
+    }
+  },
+  {
+    "run_id": "LR_p075_s29",
+    "model": "LR",
+    "p": 0.75,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": {
+      "C": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "b1277eb03d4aae441b17188523370ef6c7740108429a6ee84400ffadde524db7",
+    "selected_fraction": 0.7555692307692308,
+    "changed_fraction": 0.6503384615384615,
+    "fingerprint": "66adc9cc7a458ca1d1032ff92fc38b817815957de061a5f83862505ab8c6e94c",
+    "started_utc": "2026-10-13T05:31:50.913838+00:00",
+    "completed_utc": "2026-10-13T05:31:51.081093+00:00",
+    "fit_seconds": 0.15280759998131543,
+    "train_noisy": {
+      "macro_f1": 0.30529659805403464,
+      "accuracy": 0.3248,
+      "balanced_accuracy": 0.3124923091330073
+    },
+    "train_clean": {
+      "macro_f1": 0.8991409327176539,
+      "accuracy": 0.8915692307692308,
+      "balanced_accuracy": 0.8899738647983267
+    },
+    "validation": {
+      "macro_f1": 0.8963690051503967,
+      "accuracy": 0.8840900701365818,
+      "balanced_accuracy": 0.8895140953054678
+    },
+    "iterations": [
+      135
+    ],
+    "stop_reason": "training_objective_or_convergence_stop",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "4bfb41f16ef0f39fb26f49b9a1b1c1ea561e5132db5d779168a8068173cb23e4",
+      "train_predictions.csv": "79aaa0f73dd0af77ebb80a2cc3f2c2bc81da995eba5eff85419fa4d0f8c7da09",
+      "validation_predictions.csv": "56b06d7f36c03a47fe2fb6402a06fd7a96c235f7712c4f69b7babbdcbd1a6d3a",
+      "training_trace.json": "f5cb1bf308ce85c4da31d9018fbb0abd8d538a74518fd1c3df9cfcacbb8cd2e1"
+    }
+  },
+  {
+    "run_id": "LR_p075_s43",
+    "model": "LR",
+    "p": 0.75,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": {
+      "C": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "9f109abe27a3a0eca30a2831be39a98b28f212fca7126a6b1c743bc1edfd65d8",
+    "selected_fraction": 0.7490461538461538,
+    "changed_fraction": 0.64,
+    "fingerprint": "04e6f66ba37f6e9b4e7196ceb089f1b87392476f2e36a4dbd2a53460cdff9909",
+    "started_utc": "2026-10-13T05:31:51.138086+00:00",
+    "completed_utc": "2026-10-13T05:31:51.284901+00:00",
+    "fit_seconds": 0.1320253000012599,
+    "train_noisy": {
+      "macro_f1": 0.31449350367396667,
+      "accuracy": 0.3328,
+      "balanced_accuracy": 0.31749026855526513
+    },
+    "train_clean": {
+      "macro_f1": 0.8993329162108266,
+      "accuracy": 0.8855384615384615,
+      "balanced_accuracy": 0.8914196900704147
+    },
+    "validation": {
+      "macro_f1": 0.8869961398875211,
+      "accuracy": 0.8615725359911407,
+      "balanced_accuracy": 0.8794701928565429
+    },
+    "iterations": [
+      121
+    ],
+    "stop_reason": "training_objective_or_convergence_stop",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "405e5d72c0c05621b2bfd6d61a27ec56bc8bfbcc933cdd8507ec835ac316c49a",
+      "train_predictions.csv": "d94f0c2841e4d228927c86571efe12d9d72751f6793a53ccc7db7bd56ceb446b",
+      "validation_predictions.csv": "9d3ef316215efeb9f0be9ce7dc54daf70a9a5f5a98caa81a1337cb9b73ecbd76",
+      "training_trace.json": "b17fae01595c5b76c5614d7cd199ef0ca6ecce7b120a9c3fe2f7763e4fea1f92"
+    }
+  },
+  {
+    "run_id": "LR_p100_s17",
+    "model": "LR",
+    "p": 1,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": {
+      "C": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "cc6be3653a7486913bccef102335c7c71680d5842f66173c8af838f6a19acb3a",
+    "selected_fraction": 1.0,
+    "changed_fraction": 0.862276923076923,
+    "fingerprint": "7e670a4ccb0822298c65588b8955d9a2041e49a5e92acd2992ddc205c9a2945a",
+    "started_utc": "2026-10-13T05:31:51.340416+00:00",
+    "completed_utc": "2026-10-13T05:31:51.446771+00:00",
+    "fit_seconds": 0.09186280000722036,
+    "train_noisy": {
+      "macro_f1": 0.1534555140089793,
+      "accuracy": 0.16455384615384616,
+      "balanced_accuracy": 0.16392381712333712
+    },
+    "train_clean": {
+      "macro_f1": 0.1555489285507487,
+      "accuracy": 0.16467692307692308,
+      "balanced_accuracy": 0.1583914262940436
+    },
+    "validation": {
+      "macro_f1": 0.15525203197272844,
+      "accuracy": 0.16758951642672573,
+      "balanced_accuracy": 0.16102319976754695
+    },
+    "iterations": [
+      74
+    ],
+    "stop_reason": "training_objective_or_convergence_stop",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "e9cf00a46e465660377d0a7bb2ea43fb5152c06c9e9c84a78d85256f431ad261",
+      "train_predictions.csv": "6017b566ebd8302ab0825e267b2bcdb8a1349c71843bcd803eca5313bbd39bc9",
+      "validation_predictions.csv": "6883c3a634b81edb29f24c4ac7d8475c9b7ee6b97c8fafbbc3dc0106515b7ace",
+      "training_trace.json": "4b88424a2c989346b733cf680f778525c6c7b415d34da3e02a2f53d35cbb253d"
+    }
+  },
+  {
+    "run_id": "LR_p100_s29",
+    "model": "LR",
+    "p": 1,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": {
+      "C": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "442dd03bc8b0e1fe4e1eef5c6491b05ad511fdefc3905ecd4a45a93def3831f9",
+    "selected_fraction": 1.0,
+    "changed_fraction": 0.8630153846153846,
+    "fingerprint": "1acbf8906664331d0f905e4e0748ea678880961a753df5e22a54ced10f8a17b0",
+    "started_utc": "2026-10-13T05:31:51.501936+00:00",
+    "completed_utc": "2026-10-13T05:31:51.610726+00:00",
+    "fit_seconds": 0.09570529998745769,
+    "train_noisy": {
+      "macro_f1": 0.13727188995423406,
+      "accuracy": 0.1611076923076923,
+      "balanced_accuracy": 0.15823814976864972
+    },
+    "train_clean": {
+      "macro_f1": 0.05096518084040006,
+      "accuracy": 0.07101538461538462,
+      "balanced_accuracy": 0.07148404936503426
+    },
+    "validation": {
+      "macro_f1": 0.057250597076385204,
+      "accuracy": 0.07788851974898486,
+      "balanced_accuracy": 0.08175197070894277
+    },
+    "iterations": [
+      83
+    ],
+    "stop_reason": "training_objective_or_convergence_stop",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "c213af1ee408663f157bd8615111242ee8d2a888fa66fd6fc09092fb60c70fb0",
+      "train_predictions.csv": "e93262d4d055daacccf896ce9186a30ab288b36ed5b8c1ae92f9d467f9bc1039",
+      "validation_predictions.csv": "c6ac4845cde42fcfca4c68ae4acafcbbe3df03ffcfaafd0bc2ca4010f4136315",
+      "training_trace.json": "04cb1f88a9f145c631a79e2d7f48c20475c5cacb44c488615f3eee9843f7b255"
+    }
+  },
+  {
+    "run_id": "LR_p100_s43",
+    "model": "LR",
+    "p": 1,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": {
+      "C": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "497058612351ec8141486fbd98fb0deaba9064c635af0fee0b979a0129910840",
+    "selected_fraction": 1.0,
+    "changed_fraction": 0.8525538461538461,
+    "fingerprint": "6680e5901369b03a6a733df32ee4038a2b78fc5d7c596fec0e90c06d7645fdb6",
+    "started_utc": "2026-10-13T05:31:51.665112+00:00",
+    "completed_utc": "2026-10-13T05:31:51.796345+00:00",
+    "fit_seconds": 0.11748080002143979,
+    "train_noisy": {
+      "macro_f1": 0.13316838869152278,
+      "accuracy": 0.15507692307692308,
+      "balanced_accuracy": 0.15280413980746174
+    },
+    "train_clean": {
+      "macro_f1": 0.14188911839158408,
+      "accuracy": 0.16516923076923076,
+      "balanced_accuracy": 0.16476281458817615
+    },
+    "validation": {
+      "macro_f1": 0.13772628230963832,
+      "accuracy": 0.1638981173864895,
+      "balanced_accuracy": 0.1584554927962666
+    },
+    "iterations": [
+      98
+    ],
+    "stop_reason": "training_objective_or_convergence_stop",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "8ba0427b3eed2003d43c6717038f924f9d730cb7b7002d2c1847789410eae907",
+      "train_predictions.csv": "088a9edcc64a40f6c214d07557e4ab12a7d7d29846ceeb7ddb2b89df34252d6f",
+      "validation_predictions.csv": "996289b4d2dfd634d481da22fed6cee09a5be46ac1551aabe9ffaae7fbc61ee0",
+      "training_trace.json": "481c4bb1de47bca1970fb37aa93c7f3193bf3a1e9fb4a2920faca3b7987242f5"
+    }
+  },
+  {
+    "run_id": "RF_p000_s17",
+    "model": "RF",
+    "p": 0,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": {
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "0aa6138720df1ced28f616c23f382e1db84f0f3c3fdebbca72c20bac3c1cb4d0",
+    "selected_fraction": 0.0,
+    "changed_fraction": 0.0,
+    "fingerprint": "b2e463006bda365bb80db32830c9d4ec7e4650d2f3fe1385a1f98b35191d7e4f",
+    "started_utc": "2026-10-13T05:31:51.849727+00:00",
+    "completed_utc": "2026-10-13T05:31:53.569697+00:00",
+    "fit_seconds": 1.4165219000424258,
+    "train_noisy": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "train_clean": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "validation": {
+      "macro_f1": 0.9238726078857845,
+      "accuracy": 0.9091915836101883,
+      "balanced_accuracy": 0.9224062116828181
+    },
+    "iterations": null,
+    "stop_reason": "not_applicable",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": null,
+    "artifact_hashes": {
+      "model.joblib": "311334d2559a30b9def3600e8b80a771e9c21a8cd1f227657dca7eee1b34a6a4",
+      "train_predictions.csv": "ceeb4269b80e3871729bc900ac5d3b4e328abbdb00e083f254d6d015ea46619f",
+      "validation_predictions.csv": "8724d736b27a9cf9968cb89e2080b6a64eca65a289222a0338f3981067529b2f",
+      "training_trace.json": "4c66ab92803f27990fa87e47995af928fcbadd6218e76a24a18c24c525ee44a9"
+    }
+  },
+  {
+    "run_id": "RF_p000_s29",
+    "model": "RF",
+    "p": 0,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": {
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "0aa6138720df1ced28f616c23f382e1db84f0f3c3fdebbca72c20bac3c1cb4d0",
+    "selected_fraction": 0.0,
+    "changed_fraction": 0.0,
+    "fingerprint": "15f17296b237f92860a07d898b55509f6fc75fde2353470507e708ee46145746",
+    "started_utc": "2026-10-13T05:31:53.628935+00:00",
+    "completed_utc": "2026-10-13T05:31:55.367940+00:00",
+    "fit_seconds": 1.43265039997641,
+    "train_noisy": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "train_clean": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "validation": {
+      "macro_f1": 0.9245469693527429,
+      "accuracy": 0.9095607235142119,
+      "balanced_accuracy": 0.9232698924159431
+    },
+    "iterations": null,
+    "stop_reason": "not_applicable",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": null,
+    "artifact_hashes": {
+      "model.joblib": "37c565fc08da44e207a9f28a5f28e08f74c0f46938b32af12d321c90a965f0f4",
+      "train_predictions.csv": "ceeb4269b80e3871729bc900ac5d3b4e328abbdb00e083f254d6d015ea46619f",
+      "validation_predictions.csv": "33c28bbc6a4787289bc4d023e362c7c38aae1c1c1ef9b7a999feff7829b5708e",
+      "training_trace.json": "4c66ab92803f27990fa87e47995af928fcbadd6218e76a24a18c24c525ee44a9"
+    }
+  },
+  {
+    "run_id": "RF_p000_s43",
+    "model": "RF",
+    "p": 0,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": {
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "0aa6138720df1ced28f616c23f382e1db84f0f3c3fdebbca72c20bac3c1cb4d0",
+    "selected_fraction": 0.0,
+    "changed_fraction": 0.0,
+    "fingerprint": "e7d2b1142dead858b38a94d382d579d993d6e14deb4e77c2c52e66a2d4cd6671",
+    "started_utc": "2026-10-13T05:31:55.422033+00:00",
+    "completed_utc": "2026-10-13T05:31:57.157143+00:00",
+    "fit_seconds": 1.4262266000150703,
+    "train_noisy": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "train_clean": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "validation": {
+      "macro_f1": 0.9246393444337979,
+      "accuracy": 0.9106681432262828,
+      "balanced_accuracy": 0.9231428843527029
+    },
+    "iterations": null,
+    "stop_reason": "not_applicable",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": null,
+    "artifact_hashes": {
+      "model.joblib": "68c82b96e36bb7a4d98c133e3615129153d431b19c36d0d66baa7321f6bd4774",
+      "train_predictions.csv": "ceeb4269b80e3871729bc900ac5d3b4e328abbdb00e083f254d6d015ea46619f",
+      "validation_predictions.csv": "18220f328aca30b8e634d3d5ea79199c50feccaf79655d3a00ceb2c6785b024a",
+      "training_trace.json": "4c66ab92803f27990fa87e47995af928fcbadd6218e76a24a18c24c525ee44a9"
+    }
+  },
+  {
+    "run_id": "RF_p025_s17",
+    "model": "RF",
+    "p": 0.25,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": {
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "e8c66dcacc5f1c141fe821619fe45a4383f3f6897930e31ca890232a610a3272",
+    "selected_fraction": 0.2521846153846154,
+    "changed_fraction": 0.21723076923076923,
+    "fingerprint": "bb14761546d22f6474d8cae6aab38ee2b20954dd33271ce620ebc9069f7a375d",
+    "started_utc": "2026-10-13T05:31:57.213060+00:00",
+    "completed_utc": "2026-10-13T05:32:00.437912+00:00",
+    "fit_seconds": 2.244569699978456,
+    "train_noisy": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "train_clean": {
+      "macro_f1": 0.753784848517088,
+      "accuracy": 0.7827692307692308,
+      "balanced_accuracy": 0.7794643554209674
+    },
+    "validation": {
+      "macro_f1": 0.9216080475046935,
+      "accuracy": 0.9080841638981174,
+      "balanced_accuracy": 0.9206267352458284
+    },
+    "iterations": null,
+    "stop_reason": "not_applicable",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": null,
+    "artifact_hashes": {
+      "model.joblib": "99f1bb1fc4bdc2dc3e8ae86db27a377537d0df64c602e1df99adada74ac5d047",
+      "train_predictions.csv": "0149e9cc66f957ab133b8502a1ed5c08a94ba99fb22f9101d37eee8309fd7359",
+      "validation_predictions.csv": "7cbd8ec1d54d94c65834c8e0fdd356383e1a7a5b42425ea070cefd3860c5199c",
+      "training_trace.json": "4c66ab92803f27990fa87e47995af928fcbadd6218e76a24a18c24c525ee44a9"
+    }
+  },
+  {
+    "run_id": "RF_p025_s29",
+    "model": "RF",
+    "p": 0.25,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": {
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "1e0b0852de8cfb00960efb27bbdf2e4ed7e9c1397e42036bb6ef5d4d6b4b3d2c",
+    "selected_fraction": 0.24652307692307693,
+    "changed_fraction": 0.20972307692307693,
+    "fingerprint": "dfb449a397fb7ac3f5b63413c7bdd864e2613837708d6f5f7ab9096dbb02c6f3",
+    "started_utc": "2026-10-13T05:32:00.511792+00:00",
+    "completed_utc": "2026-10-13T05:32:03.574279+00:00",
+    "fit_seconds": 2.2227786000003107,
+    "train_noisy": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "train_clean": {
+      "macro_f1": 0.7636660564984401,
+      "accuracy": 0.7902769230769231,
+      "balanced_accuracy": 0.7871402069136914
+    },
+    "validation": {
+      "macro_f1": 0.9249987134140181,
+      "accuracy": 0.9095607235142119,
+      "balanced_accuracy": 0.9248602844618031
+    },
+    "iterations": null,
+    "stop_reason": "not_applicable",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": null,
+    "artifact_hashes": {
+      "model.joblib": "edd3a09037889764c4bfa55b83e4978d4f155fc9396d4632a574b1dcfc9ae635",
+      "train_predictions.csv": "937e5fb2316d80dc502a7196dfd2682d07e181b0c1856e648038d6f97bbea5fa",
+      "validation_predictions.csv": "af76d3b58fe7114b0594d2068ec82967b1b0c2b5522efdda044b30713bf78f63",
+      "training_trace.json": "4c66ab92803f27990fa87e47995af928fcbadd6218e76a24a18c24c525ee44a9"
+    }
+  },
+  {
+    "run_id": "RF_p025_s43",
+    "model": "RF",
+    "p": 0.25,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": {
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "126ee448a6f4a1ad8d27ffa9c9949c707ef0f924c77a10c85dce4a705a46b4d6",
+    "selected_fraction": 0.2552615384615385,
+    "changed_fraction": 0.2198153846153846,
+    "fingerprint": "4ceb92ebe2acca1af7251b69e6efc220525c0e6cdc047a1465f707bee234693b",
+    "started_utc": "2026-10-13T05:32:03.644477+00:00",
+    "completed_utc": "2026-10-13T05:32:06.742382+00:00",
+    "fit_seconds": 2.2272429000004195,
+    "train_noisy": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "train_clean": {
+      "macro_f1": 0.754994941299244,
+      "accuracy": 0.7801846153846154,
+      "balanced_accuracy": 0.7811894207575495
+    },
+    "validation": {
+      "macro_f1": 0.9183972023172347,
+      "accuracy": 0.9043927648578811,
+      "balanced_accuracy": 0.9167080573125755
+    },
+    "iterations": null,
+    "stop_reason": "not_applicable",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": null,
+    "artifact_hashes": {
+      "model.joblib": "eda9b25ba3322855cd163b34a1d1b921d57cbff0ced07a50d47cf436831abd88",
+      "train_predictions.csv": "594868d24cf2d328a2e43e35def61a901db8e09f7912edc48d15b7cec30b8db9",
+      "validation_predictions.csv": "52e937f0f62b2515029161562bb5f66d43c0c818f0c21797c9b32e03d34fe4f5",
+      "training_trace.json": "4c66ab92803f27990fa87e47995af928fcbadd6218e76a24a18c24c525ee44a9"
+    }
+  },
+  {
+    "run_id": "RF_p050_s17",
+    "model": "RF",
+    "p": 0.5,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": {
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "4c4b934cb0fe5d24c4ed86abb0e6772077827d60358e459b1809a405f5b46f55",
+    "selected_fraction": 0.5101538461538462,
+    "changed_fraction": 0.43864615384615385,
+    "fingerprint": "e35a2b9b2ac3f7a63c61df8d09df4f9d0d8125ec569724f160b86c4036fffa64",
+    "started_utc": "2026-10-13T05:32:06.809282+00:00",
+    "completed_utc": "2026-10-13T05:32:10.141042+00:00",
+    "fit_seconds": 2.2127154000336304,
+    "train_noisy": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "train_clean": {
+      "macro_f1": 0.5321988358463882,
+      "accuracy": 0.5613538461538462,
+      "balanced_accuracy": 0.5594179034319889
+    },
+    "validation": {
+      "macro_f1": 0.8665606945633709,
+      "accuracy": 0.8645256552233297,
+      "balanced_accuracy": 0.8788644151297129
+    },
+    "iterations": null,
+    "stop_reason": "not_applicable",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": null,
+    "artifact_hashes": {
+      "model.joblib": "9948c0c0a9cbbb568269bdcf39220c52a37ba24dcd4c71c60b64ea8bd1b8618b",
+      "train_predictions.csv": "d5243c8f9bc38bed832700bc0ef75b1310b489565b4140a0a4cd168f35ec6be5",
+      "validation_predictions.csv": "dc64eb6368ace033e2b043ae0d0a0ed3d3fb80963ab6ff47c0c6f1cc6efd2542",
+      "training_trace.json": "4c66ab92803f27990fa87e47995af928fcbadd6218e76a24a18c24c525ee44a9"
+    }
+  },
+  {
+    "run_id": "RF_p050_s29",
+    "model": "RF",
+    "p": 0.5,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": {
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "06ff9d511ce24706536c97a6db64e79cd736f94af853192b23d4215a2483aaa2",
+    "selected_fraction": 0.49846153846153846,
+    "changed_fraction": 0.42756923076923076,
+    "fingerprint": "25504f282f513f49abb77cb1e6e290e024f8621b26332754d216d22a2eb43b3a",
+    "started_utc": "2026-10-13T05:32:10.237726+00:00",
+    "completed_utc": "2026-10-13T05:32:13.481735+00:00",
+    "fit_seconds": 2.171115200035274,
+    "train_noisy": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "train_clean": {
+      "macro_f1": 0.543225554438784,
+      "accuracy": 0.5724307692307692,
+      "balanced_accuracy": 0.5712987170482342
+    },
+    "validation": {
+      "macro_f1": 0.8682443854719136,
+      "accuracy": 0.8663713547434477,
+      "balanced_accuracy": 0.8739017626328877
+    },
+    "iterations": null,
+    "stop_reason": "not_applicable",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": null,
+    "artifact_hashes": {
+      "model.joblib": "49c42be39ac19be97b4b39c74d1fe9d99ae162923680f9fe13ce51b54a25d6a2",
+      "train_predictions.csv": "2d0a537b9ef83152c7a75eb7edb84c564bcd11f6a48b245f62c653cf1264c5ae",
+      "validation_predictions.csv": "8051b30a85e4c8661f52e8bb2e15db695daa0854277b11efb6a9c0836d6149d3",
+      "training_trace.json": "4c66ab92803f27990fa87e47995af928fcbadd6218e76a24a18c24c525ee44a9"
+    }
+  },
+  {
+    "run_id": "RF_p050_s43",
+    "model": "RF",
+    "p": 0.5,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": {
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "d558bbd8721f943b50553f9971db79ddbfbc9ef17c7a7f87f92896fa64fe6303",
+    "selected_fraction": 0.4987076923076923,
+    "changed_fraction": 0.4254769230769231,
+    "fingerprint": "e8ca7e39e3ca2c2d18b3d264ae893532c9e990695a7aed756b89ae49e309a025",
+    "started_utc": "2026-10-13T05:32:13.556107+00:00",
+    "completed_utc": "2026-10-13T05:32:16.890132+00:00",
+    "fit_seconds": 2.260521100019105,
+    "train_noisy": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "train_clean": {
+      "macro_f1": 0.5484129488979759,
+      "accuracy": 0.5745230769230769,
+      "balanced_accuracy": 0.579281193432004
+    },
+    "validation": {
+      "macro_f1": 0.8748231104755799,
+      "accuracy": 0.8685861941675895,
+      "balanced_accuracy": 0.8824216426966102
+    },
+    "iterations": null,
+    "stop_reason": "not_applicable",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": null,
+    "artifact_hashes": {
+      "model.joblib": "43b0ce3a70a1509881465dd2c275b115b11183f93b2f38b72c6a047160ebdea6",
+      "train_predictions.csv": "1bb2d54b6edc2d426daa467a56a264b0ffbf8e1ce7189b47ba41fb446c6b0421",
+      "validation_predictions.csv": "2e4fbb7d21cf25fa92ed7ba2070c79c48205c5605a84601de500c5fb1be22a6a",
+      "training_trace.json": "4c66ab92803f27990fa87e47995af928fcbadd6218e76a24a18c24c525ee44a9"
+    }
+  },
+  {
+    "run_id": "RF_p075_s17",
+    "model": "RF",
+    "p": 0.75,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": {
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "b21d9b72ee5fe3d4bd9f80168d03a2bd429e7d325cc35d1c638d06f8ef2a0135",
+    "selected_fraction": 0.7613538461538462,
+    "changed_fraction": 0.6553846153846153,
+    "fingerprint": "23e16dcaa072c86993a3ce6340156da403350651712e58d541ed5bcd3b51e805",
+    "started_utc": "2026-10-13T05:32:16.960011+00:00",
+    "completed_utc": "2026-10-13T05:32:20.488365+00:00",
+    "fit_seconds": 2.214865100046154,
+    "train_noisy": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "train_clean": {
+      "macro_f1": 0.32446640149732886,
+      "accuracy": 0.3446153846153846,
+      "balanced_accuracy": 0.3438714081049058
+    },
+    "validation": {
+      "macro_f1": 0.6327586823507936,
+      "accuracy": 0.6589147286821705,
+      "balanced_accuracy": 0.6614627827459091
+    },
+    "iterations": null,
+    "stop_reason": "not_applicable",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": null,
+    "artifact_hashes": {
+      "model.joblib": "efbf9919ab943a22d8503d3b5be47dfc7e1107228eea71510c2506349a02604c",
+      "train_predictions.csv": "0aa01707c890bb52cb544038ecd3672d36f0b4da617654ced2c6bc8c4c2d40b3",
+      "validation_predictions.csv": "50b31df1417633bbd3bc54051afbdd08952868e188fd38016f011dae67ab485d",
+      "training_trace.json": "4c66ab92803f27990fa87e47995af928fcbadd6218e76a24a18c24c525ee44a9"
+    }
+  },
+  {
+    "run_id": "RF_p075_s29",
+    "model": "RF",
+    "p": 0.75,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": {
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "b1277eb03d4aae441b17188523370ef6c7740108429a6ee84400ffadde524db7",
+    "selected_fraction": 0.7555692307692308,
+    "changed_fraction": 0.6503384615384615,
+    "fingerprint": "73c4585cb442d39e0ef4b288ac6404a31609b495ac8e7c98b469483b49f515b3",
+    "started_utc": "2026-10-13T05:32:20.561230+00:00",
+    "completed_utc": "2026-10-13T05:32:24.090554+00:00",
+    "fit_seconds": 2.2775019999826327,
+    "train_noisy": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "train_clean": {
+      "macro_f1": 0.3299460804760122,
+      "accuracy": 0.34966153846153847,
+      "balanced_accuracy": 0.35007075435524854
+    },
+    "validation": {
+      "macro_f1": 0.6271258595640962,
+      "accuracy": 0.6519010705057217,
+      "balanced_accuracy": 0.6547732308859661
+    },
+    "iterations": null,
+    "stop_reason": "not_applicable",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": null,
+    "artifact_hashes": {
+      "model.joblib": "a5a89a1223937207bd919ca0102b79294d013c980721c7af6170e482c76d70bf",
+      "train_predictions.csv": "07cada9592985d8efb693506c597ce397236e91774fc56600dc98fee6d6b9e2c",
+      "validation_predictions.csv": "89097ea3750f201e64d832dd7f9f7ea112b36a083069cc5c81d241afd45cc196",
+      "training_trace.json": "4c66ab92803f27990fa87e47995af928fcbadd6218e76a24a18c24c525ee44a9"
+    }
+  },
+  {
+    "run_id": "RF_p075_s43",
+    "model": "RF",
+    "p": 0.75,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": {
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "9f109abe27a3a0eca30a2831be39a98b28f212fca7126a6b1c743bc1edfd65d8",
+    "selected_fraction": 0.7490461538461538,
+    "changed_fraction": 0.64,
+    "fingerprint": "611454dbe7f1d1342827e5b18bebca124187d478a0b9adb550103a2ae1274758",
+    "started_utc": "2026-10-13T05:32:24.165644+00:00",
+    "completed_utc": "2026-10-13T05:32:27.552271+00:00",
+    "fit_seconds": 2.178074800001923,
+    "train_noisy": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "train_clean": {
+      "macro_f1": 0.33957458713130023,
+      "accuracy": 0.36,
+      "balanced_accuracy": 0.3621272035066307
+    },
+    "validation": {
+      "macro_f1": 0.6488282427326142,
+      "accuracy": 0.6714654854189738,
+      "balanced_accuracy": 0.6737402722098093
+    },
+    "iterations": null,
+    "stop_reason": "not_applicable",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": null,
+    "artifact_hashes": {
+      "model.joblib": "ad3e2d016f9670e05cdc1b2170f97a70e76e1d6180e135cc3264e59a913e9516",
+      "train_predictions.csv": "85e207aa684b6c64416375cdf0ec4ed3ef5296fc39303a9a14866c4f0d3087ff",
+      "validation_predictions.csv": "ca16d67fffb27cf0b45a89159b89362f8b5a60b66fd3c63a8df4115f073cbed2",
+      "training_trace.json": "4c66ab92803f27990fa87e47995af928fcbadd6218e76a24a18c24c525ee44a9"
+    }
+  },
+  {
+    "run_id": "RF_p100_s17",
+    "model": "RF",
+    "p": 1,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": {
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "cc6be3653a7486913bccef102335c7c71680d5842f66173c8af838f6a19acb3a",
+    "selected_fraction": 1.0,
+    "changed_fraction": 0.862276923076923,
+    "fingerprint": "d85a3c6ecfa8656fe46f1e1725053874cd49fac1d0cd9792a6f2775429253025",
+    "started_utc": "2026-10-13T05:32:27.637490+00:00",
+    "completed_utc": "2026-10-13T05:32:31.902232+00:00",
+    "fit_seconds": 2.97028190002311,
+    "train_noisy": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "train_clean": {
+      "macro_f1": 0.12945617941793824,
+      "accuracy": 0.13772307692307692,
+      "balanced_accuracy": 0.13576032379948338
+    },
+    "validation": {
+      "macro_f1": 0.12030082533535262,
+      "accuracy": 0.12846068660022147,
+      "balanced_accuracy": 0.12327649175747246
+    },
+    "iterations": null,
+    "stop_reason": "not_applicable",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": null,
+    "artifact_hashes": {
+      "model.joblib": "7dff04886620f046a140d758a71ceafe257816d45620cba2d18873613d2c1275",
+      "train_predictions.csv": "5eff275ff568e3db44a47f50aa843a6134b7f6d75106836f31abfed8ac346a8d",
+      "validation_predictions.csv": "2ab53ac2c690748200e490881da4dbbb2b4743346bb8d3a17a356ab20315fb10",
+      "training_trace.json": "4c66ab92803f27990fa87e47995af928fcbadd6218e76a24a18c24c525ee44a9"
+    }
+  },
+  {
+    "run_id": "RF_p100_s29",
+    "model": "RF",
+    "p": 1,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": {
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "442dd03bc8b0e1fe4e1eef5c6491b05ad511fdefc3905ecd4a45a93def3831f9",
+    "selected_fraction": 1.0,
+    "changed_fraction": 0.8630153846153846,
+    "fingerprint": "79b0e8e11f95be5fc5e5525b2ff2913bc97252f002dffb29ef5ce2388a211c2a",
+    "started_utc": "2026-10-13T05:32:31.988077+00:00",
+    "completed_utc": "2026-10-13T05:32:36.167420+00:00",
+    "fit_seconds": 2.902706799970474,
+    "train_noisy": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "train_clean": {
+      "macro_f1": 0.12938519075967095,
+      "accuracy": 0.13698461538461537,
+      "balanced_accuracy": 0.13762855710407168
+    },
+    "validation": {
+      "macro_f1": 0.11739595538874517,
+      "accuracy": 0.12255444813584349,
+      "balanced_accuracy": 0.1264263191180783
+    },
+    "iterations": null,
+    "stop_reason": "not_applicable",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": null,
+    "artifact_hashes": {
+      "model.joblib": "ee3ece5e4c2af0ecaae220f5fabfe243492380395edd6cd6b5e3da0bc46a1d67",
+      "train_predictions.csv": "c1e8506ddc0c9b2927c2a0f50653f051a459ff2b3f9d582afc8a1d89f8730b58",
+      "validation_predictions.csv": "0cb2c723ce8259b4b5303b6d93634133f42f34560a8112b5e75d251c3b5ae3fe",
+      "training_trace.json": "4c66ab92803f27990fa87e47995af928fcbadd6218e76a24a18c24c525ee44a9"
+    }
+  },
+  {
+    "run_id": "RF_p100_s43",
+    "model": "RF",
+    "p": 1,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": {
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "497058612351ec8141486fbd98fb0deaba9064c635af0fee0b979a0129910840",
+    "selected_fraction": 1.0,
+    "changed_fraction": 0.8525538461538461,
+    "fingerprint": "416b577023f86895c78f2e10b8e267136d9967bc9badbe2bb7be67a0c3383943",
+    "started_utc": "2026-10-13T05:32:36.243738+00:00",
+    "completed_utc": "2026-10-13T05:32:40.555621+00:00",
+    "fit_seconds": 3.0019421000033617,
+    "train_noisy": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "train_clean": {
+      "macro_f1": 0.1396846019036003,
+      "accuracy": 0.14744615384615384,
+      "balanced_accuracy": 0.1495166563535297
+    },
+    "validation": {
+      "macro_f1": 0.14282709779922845,
+      "accuracy": 0.14987080103359174,
+      "balanced_accuracy": 0.15842805979377336
+    },
+    "iterations": null,
+    "stop_reason": "not_applicable",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": null,
+    "artifact_hashes": {
+      "model.joblib": "ee2536ca2b810a4159b2e0d02328c5ce5ebe8b14a642dbb5d0ca627077396bdc",
+      "train_predictions.csv": "13b6c1e08c5e5fca32d9de02110a158ac11688c0b35c3803e36c40823ad8b689",
+      "validation_predictions.csv": "9e382f7f6556b1ce4105400b17da256c8f204b96f5b6dd95b2900f4995f2d03a",
+      "training_trace.json": "4c66ab92803f27990fa87e47995af928fcbadd6218e76a24a18c24c525ee44a9"
+    }
+  },
+  {
+    "run_id": "MLP_p000_s17",
+    "model": "MLP",
+    "p": 0,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": {
+      "alpha": 0.01
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "0aa6138720df1ced28f616c23f382e1db84f0f3c3fdebbca72c20bac3c1cb4d0",
+    "selected_fraction": 0.0,
+    "changed_fraction": 0.0,
+    "fingerprint": "2671e8d224ae3dfa35b25c6f868eaf54991ed5a039358e6faa55500a7917423b",
+    "started_utc": "2026-10-13T05:32:40.638493+00:00",
+    "completed_utc": "2026-10-13T05:33:00.890941+00:00",
+    "fit_seconds": 20.208247300004587,
+    "train_noisy": {
+      "macro_f1": 0.9793060186093728,
+      "accuracy": 0.9728,
+      "balanced_accuracy": 0.9788173633017535
+    },
+    "train_clean": {
+      "macro_f1": 0.9793060186093728,
+      "accuracy": 0.9728,
+      "balanced_accuracy": 0.9788173633017535
+    },
+    "validation": {
+      "macro_f1": 0.9331272384672298,
+      "accuracy": 0.9187892211148025,
+      "balanced_accuracy": 0.9329489916493555
+    },
+    "iterations": 430,
+    "stop_reason": "training_objective_or_convergence_stop",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "f392c674ccfb5490dac9cf25f802a6bc38ceef5292c4c14e60545ce22e3faf5b",
+      "train_predictions.csv": "9328837f94b67d81216475d797087af88be2679965440a0ada6d23f52da88afd",
+      "validation_predictions.csv": "d029d2d728a0ccede9d510a2919fc474692c50b59e785487ac14dec368496de8",
+      "training_trace.json": "a11dfab0fbdce6dd1b9b7631928c7c973b0f9d2ce6bdc7b186976180e7672056"
+    }
+  },
+  {
+    "run_id": "MLP_p000_s29",
+    "model": "MLP",
+    "p": 0,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": {
+      "alpha": 0.01
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "0aa6138720df1ced28f616c23f382e1db84f0f3c3fdebbca72c20bac3c1cb4d0",
+    "selected_fraction": 0.0,
+    "changed_fraction": 0.0,
+    "fingerprint": "fc528c0b4c850ad70970e8c8dd0b7a4c881632370a0b7880cacd874a93e6afb2",
+    "started_utc": "2026-10-13T05:33:00.942251+00:00",
+    "completed_utc": "2026-10-13T05:33:25.054829+00:00",
+    "fit_seconds": 24.071925800002646,
+    "train_noisy": {
+      "macro_f1": 0.9813094116045645,
+      "accuracy": 0.9746461538461538,
+      "balanced_accuracy": 0.9806495692785789
+    },
+    "train_clean": {
+      "macro_f1": 0.9813094116045645,
+      "accuracy": 0.9746461538461538,
+      "balanced_accuracy": 0.9806495692785789
+    },
+    "validation": {
+      "macro_f1": 0.9292077463093389,
+      "accuracy": 0.9147286821705426,
+      "balanced_accuracy": 0.9290192062803541
+    },
+    "iterations": 500,
+    "stop_reason": "max_iter_reached",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [
+      {
+        "category": "ConvergenceWarning",
+        "message": "Stochastic Optimizer: Maximum iterations (500) reached and the optimization hasn't converged yet."
+      }
+    ],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "a57a7de096366ad8044c7ecd5ece2ba36340e0838aaeadf86757327d7b709cb0",
+      "train_predictions.csv": "0c72c643f9befa025912d933fa0ef1439d4c352086a726a4f01a4ece2668106b",
+      "validation_predictions.csv": "f73429806850e7e38a4e89822ccfd4af10d4674cf23a92b933c14ef3b3d6ba08",
+      "training_trace.json": "6299346b6d9c1707ea6b508a59130e54364533c22a8a8bfb9fcbbf78bd17e3d8"
+    }
+  },
+  {
+    "run_id": "MLP_p000_s43",
+    "model": "MLP",
+    "p": 0,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": {
+      "alpha": 0.01
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "0aa6138720df1ced28f616c23f382e1db84f0f3c3fdebbca72c20bac3c1cb4d0",
+    "selected_fraction": 0.0,
+    "changed_fraction": 0.0,
+    "fingerprint": "5b3f0738d94a56fd2910dd401312a666cefc2f08fc3e0ed70e13065a6b48caec",
+    "started_utc": "2026-10-13T05:33:25.105268+00:00",
+    "completed_utc": "2026-10-13T05:33:46.243271+00:00",
+    "fit_seconds": 21.098138999950606,
+    "train_noisy": {
+      "macro_f1": 0.9741086962812188,
+      "accuracy": 0.9646769230769231,
+      "balanced_accuracy": 0.9750466341363196
+    },
+    "train_clean": {
+      "macro_f1": 0.9741086962812188,
+      "accuracy": 0.9646769230769231,
+      "balanced_accuracy": 0.9750466341363196
+    },
+    "validation": {
+      "macro_f1": 0.9275708920513841,
+      "accuracy": 0.9080841638981174,
+      "balanced_accuracy": 0.9285704416620313
+    },
+    "iterations": 500,
+    "stop_reason": "max_iter_reached",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [
+      {
+        "category": "ConvergenceWarning",
+        "message": "Stochastic Optimizer: Maximum iterations (500) reached and the optimization hasn't converged yet."
+      }
+    ],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "6ad20bb74259e04f7305d8f54a4df12dc3ae954792fd7628a8df445d3197d65b",
+      "train_predictions.csv": "2c10f8155f4289dfcbe5d4273d2e46173bd583f7ee8fc4999a336ad22399b6d3",
+      "validation_predictions.csv": "3756b5b9b7f0165e81e9157577d30a7ad729e27bd533992b9634bf5243c1cd68",
+      "training_trace.json": "e8841003b3a206bb18ed412667287262b17cafac94d09b3ce38f190c5317af49"
+    }
+  },
+  {
+    "run_id": "MLP_p025_s17",
+    "model": "MLP",
+    "p": 0.25,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": {
+      "alpha": 0.01
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "e8c66dcacc5f1c141fe821619fe45a4383f3f6897930e31ca890232a610a3272",
+    "selected_fraction": 0.2521846153846154,
+    "changed_fraction": 0.21723076923076923,
+    "fingerprint": "8b8c0ae0e28c5a61fadb7a9470fd9a72ad79fb15d90ae72b4f08503dc663e8af",
+    "started_utc": "2026-10-13T05:33:46.295768+00:00",
+    "completed_utc": "2026-10-13T05:34:09.981415+00:00",
+    "fit_seconds": 23.643562999961432,
+    "train_noisy": {
+      "macro_f1": 0.7531861038998928,
+      "accuracy": 0.7744,
+      "balanced_accuracy": 0.7392280794803539
+    },
+    "train_clean": {
+      "macro_f1": 0.9314064732145904,
+      "accuracy": 0.9293538461538462,
+      "balanced_accuracy": 0.9326342011543529
+    },
+    "validation": {
+      "macro_f1": 0.9108101707698678,
+      "accuracy": 0.9029162052417866,
+      "balanced_accuracy": 0.9127510921646519
+    },
+    "iterations": 500,
+    "stop_reason": "max_iter_reached",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [
+      {
+        "category": "ConvergenceWarning",
+        "message": "Stochastic Optimizer: Maximum iterations (500) reached and the optimization hasn't converged yet."
+      }
+    ],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "9ed10ba089e0f6bf5583c3517c5df9054f6e3ffa634dff0c3519ec07f0e4799a",
+      "train_predictions.csv": "10ef995b6ab53d4d79be76593a9fe54d8300d1be772882fdf236fa5bdf952fe9",
+      "validation_predictions.csv": "ab17fbcd23806a2dab2a7f40fc84e2e8891a002b775792c99495461b2a594684",
+      "training_trace.json": "875f968babe62e2b21cd23531af4ccb0035fee33f30265a7acf6fb469f9f0871"
+    }
+  },
+  {
+    "run_id": "MLP_p025_s29",
+    "model": "MLP",
+    "p": 0.25,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": {
+      "alpha": 0.01
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "1e0b0852de8cfb00960efb27bbdf2e4ed7e9c1397e42036bb6ef5d4d6b4b3d2c",
+    "selected_fraction": 0.24652307692307693,
+    "changed_fraction": 0.20972307692307693,
+    "fingerprint": "07f1cf6ed7db7088db07ba3221e4349279e4124622d7a09811500cf452a33fbf",
+    "started_utc": "2026-10-13T05:34:10.037838+00:00",
+    "completed_utc": "2026-10-13T05:34:35.559334+00:00",
+    "fit_seconds": 25.48182960000122,
+    "train_noisy": {
+      "macro_f1": 0.7508858935646933,
+      "accuracy": 0.7688615384615385,
+      "balanced_accuracy": 0.7375237990620542
+    },
+    "train_clean": {
+      "macro_f1": 0.9234736550075061,
+      "accuracy": 0.9243076923076923,
+      "balanced_accuracy": 0.9254883662500559
+    },
+    "validation": {
+      "macro_f1": 0.9043719893212746,
+      "accuracy": 0.8970099667774086,
+      "balanced_accuracy": 0.9057677088378854
+    },
+    "iterations": 500,
+    "stop_reason": "max_iter_reached",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [
+      {
+        "category": "ConvergenceWarning",
+        "message": "Stochastic Optimizer: Maximum iterations (500) reached and the optimization hasn't converged yet."
+      }
+    ],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "087342d17cbedec9bcf505047bb4ea86b74e800eb38ab1c1c134d0203c6686f3",
+      "train_predictions.csv": "a968b7dd9bf9b3c8f0e1331767ecc9272130fc7348b2ceccd684b9b0c1fe6cb6",
+      "validation_predictions.csv": "f8e46b1868024c0c1ee5acab5020564ce355b63a156d893ffcc99d2aebcf4b82",
+      "training_trace.json": "34d824392e0a1ff004fe3eaea8d9138f54524fc7c2159c9ebd284e2def5396ba"
+    }
+  },
+  {
+    "run_id": "MLP_p025_s43",
+    "model": "MLP",
+    "p": 0.25,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": {
+      "alpha": 0.01
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "126ee448a6f4a1ad8d27ffa9c9949c707ef0f924c77a10c85dce4a705a46b4d6",
+    "selected_fraction": 0.2552615384615385,
+    "changed_fraction": 0.2198153846153846,
+    "fingerprint": "913f595ff22e287ca3a5ad40d9fdc9ba9f206b9310e27b64ca0e8463588f60e0",
+    "started_utc": "2026-10-13T05:34:35.611641+00:00",
+    "completed_utc": "2026-10-13T05:35:00.592066+00:00",
+    "fit_seconds": 24.90955009998288,
+    "train_noisy": {
+      "macro_f1": 0.7498285475874232,
+      "accuracy": 0.7656615384615385,
+      "balanced_accuracy": 0.7349460862791644
+    },
+    "train_clean": {
+      "macro_f1": 0.9318085099479562,
+      "accuracy": 0.9289846153846154,
+      "balanced_accuracy": 0.9335706827628497
+    },
+    "validation": {
+      "macro_f1": 0.9042173967358612,
+      "accuracy": 0.8977482465854559,
+      "balanced_accuracy": 0.9062992545650383
+    },
+    "iterations": 500,
+    "stop_reason": "max_iter_reached",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [
+      {
+        "category": "ConvergenceWarning",
+        "message": "Stochastic Optimizer: Maximum iterations (500) reached and the optimization hasn't converged yet."
+      }
+    ],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "6296a56a5ef607b3f16b0d957b781ca5e7d463ababd6b946bc8ec57a4962b2c6",
+      "train_predictions.csv": "23d3f13701c77c7bb3fb8f669b23c1bc13fec2fad1f92540b0a798eaa411e0e2",
+      "validation_predictions.csv": "333d8c9bd82bb7399d24f6c4bb4d3b6b38d68eb7d1f61c8ae49e8b8f9f7e6cd2",
+      "training_trace.json": "2e7ee6522e0b11115236d619de9875ac4599458d2ef5bfd36dcac0b366a9ad00"
+    }
+  },
+  {
+    "run_id": "MLP_p050_s17",
+    "model": "MLP",
+    "p": 0.5,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": {
+      "alpha": 0.01
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "4c4b934cb0fe5d24c4ed86abb0e6772077827d60358e459b1809a405f5b46f55",
+    "selected_fraction": 0.5101538461538462,
+    "changed_fraction": 0.43864615384615385,
+    "fingerprint": "b7f1c7068dcbe48b7215204d9205165d82cc7408b036abdecc097d7da0ec433b",
+    "started_utc": "2026-10-13T05:35:00.643311+00:00",
+    "completed_utc": "2026-10-13T05:35:24.222595+00:00",
+    "fit_seconds": 23.534730300016236,
+    "train_noisy": {
+      "macro_f1": 0.562575897236088,
+      "accuracy": 0.5810461538461539,
+      "balanced_accuracy": 0.555820646374044
+    },
+    "train_clean": {
+      "macro_f1": 0.8382234165010171,
+      "accuracy": 0.854276923076923,
+      "balanced_accuracy": 0.8512999527828552
+    },
+    "validation": {
+      "macro_f1": 0.8235342252647134,
+      "accuracy": 0.8320413436692506,
+      "balanced_accuracy": 0.8373806273770159
+    },
+    "iterations": 500,
+    "stop_reason": "max_iter_reached",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [
+      {
+        "category": "ConvergenceWarning",
+        "message": "Stochastic Optimizer: Maximum iterations (500) reached and the optimization hasn't converged yet."
+      }
+    ],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "990ae2e3bc82fa0a9541c2fe928fd5d63fb921f8fd8c5d74f43597fd45bf31f6",
+      "train_predictions.csv": "1cc37adbba507ad170098e0e69820a7fe4288ccd5d7ce3bb6da516ea249fc635",
+      "validation_predictions.csv": "e3cb61383f1800a559f3a4a9b0ca5603ed31e63039d5b3ec23b7af37a880ef4e",
+      "training_trace.json": "88eb1f0bb070843b4597d1e7b3c8f3989b0139340e0660ac562d3db1d4d645c8"
+    }
+  },
+  {
+    "run_id": "MLP_p050_s29",
+    "model": "MLP",
+    "p": 0.5,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": {
+      "alpha": 0.01
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "06ff9d511ce24706536c97a6db64e79cd736f94af853192b23d4215a2483aaa2",
+    "selected_fraction": 0.49846153846153846,
+    "changed_fraction": 0.42756923076923076,
+    "fingerprint": "c3abb801274fdc05ff97d886c71947dd77779e87740981d5aeba065c1a5006f4",
+    "started_utc": "2026-10-13T05:35:24.279615+00:00",
+    "completed_utc": "2026-10-13T05:35:49.373340+00:00",
+    "fit_seconds": 25.053226899995934,
+    "train_noisy": {
+      "macro_f1": 0.5596945178766987,
+      "accuracy": 0.5833846153846154,
+      "balanced_accuracy": 0.5532671784641386
+    },
+    "train_clean": {
+      "macro_f1": 0.8569310795203179,
+      "accuracy": 0.8707692307692307,
+      "balanced_accuracy": 0.8552196464702355
+    },
+    "validation": {
+      "macro_f1": 0.8359060395063439,
+      "accuracy": 0.8427464008859358,
+      "balanced_accuracy": 0.8313950631210644
+    },
+    "iterations": 500,
+    "stop_reason": "max_iter_reached",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [
+      {
+        "category": "ConvergenceWarning",
+        "message": "Stochastic Optimizer: Maximum iterations (500) reached and the optimization hasn't converged yet."
+      }
+    ],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "35fac9ee20bbebb6d32afe9f9214e68a1ce1901327294ebade96efefef063694",
+      "train_predictions.csv": "93f6f6283b1c48e805b56eee7374ea6e1260e7166c06f859a3a2cb647a01e03a",
+      "validation_predictions.csv": "2fc90bd21ba352bfd61acc53156e312d392d660ed98061069a1500875c5a78d2",
+      "training_trace.json": "12236bb65177dd425b7e667e2d2340f733827d2b978c3ec0bf1e1e11a3fafea6"
+    }
+  },
+  {
+    "run_id": "MLP_p050_s43",
+    "model": "MLP",
+    "p": 0.5,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": {
+      "alpha": 0.01
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "d558bbd8721f943b50553f9971db79ddbfbc9ef17c7a7f87f92896fa64fe6303",
+    "selected_fraction": 0.4987076923076923,
+    "changed_fraction": 0.4254769230769231,
+    "fingerprint": "b900f08590d7ffae52c93a108ca4366d7468d6c86fdecf0665346c7c31c040ee",
+    "started_utc": "2026-10-13T05:35:49.425368+00:00",
+    "completed_utc": "2026-10-13T05:36:13.907162+00:00",
+    "fit_seconds": 24.439543399959803,
+    "train_noisy": {
+      "macro_f1": 0.5634092434547825,
+      "accuracy": 0.5844923076923076,
+      "balanced_accuracy": 0.5541169837119518
+    },
+    "train_clean": {
+      "macro_f1": 0.8665786368860824,
+      "accuracy": 0.873476923076923,
+      "balanced_accuracy": 0.8672729131569907
+    },
+    "validation": {
+      "macro_f1": 0.8419245861003859,
+      "accuracy": 0.8468069398301956,
+      "balanced_accuracy": 0.8445965121454814
+    },
+    "iterations": 500,
+    "stop_reason": "max_iter_reached",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [
+      {
+        "category": "ConvergenceWarning",
+        "message": "Stochastic Optimizer: Maximum iterations (500) reached and the optimization hasn't converged yet."
+      }
+    ],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "0c138f44c32cadb2dceaf14087048fa247993fdbce0a40699e9dbde6eff4c9f0",
+      "train_predictions.csv": "051f90ec16f8caefb92cbcd9d745fb54883b8708f080f519d0c932bc0e537478",
+      "validation_predictions.csv": "e1fce7211fd3b0d958031539c3b6d281b9b601098633c86310741bfdefaa0a8f",
+      "training_trace.json": "60f36eb1340f88de95f79da2fd5e3af9f4bb95eb3dd52168e76675f2ca53d846"
+    }
+  },
+  {
+    "run_id": "MLP_p075_s17",
+    "model": "MLP",
+    "p": 0.75,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": {
+      "alpha": 0.01
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "b21d9b72ee5fe3d4bd9f80168d03a2bd429e7d325cc35d1c638d06f8ef2a0135",
+    "selected_fraction": 0.7613538461538462,
+    "changed_fraction": 0.6553846153846153,
+    "fingerprint": "b0dfe03cc36ab174aa5a10a7de52c87648664a54b88df75e8f82a59a8abc8fc6",
+    "started_utc": "2026-10-13T05:36:13.969270+00:00",
+    "completed_utc": "2026-10-13T05:36:42.437884+00:00",
+    "fit_seconds": 28.42295949999243,
+    "train_noisy": {
+      "macro_f1": 0.4291892560204141,
+      "accuracy": 0.4350769230769231,
+      "balanced_accuracy": 0.4276815943028854
+    },
+    "train_clean": {
+      "macro_f1": 0.597207826286909,
+      "accuracy": 0.646523076923077,
+      "balanced_accuracy": 0.6257094383433685
+    },
+    "validation": {
+      "macro_f1": 0.6046812372323641,
+      "accuracy": 0.6459948320413437,
+      "balanced_accuracy": 0.6366555446935777
+    },
+    "iterations": 500,
+    "stop_reason": "max_iter_reached",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [
+      {
+        "category": "ConvergenceWarning",
+        "message": "Stochastic Optimizer: Maximum iterations (500) reached and the optimization hasn't converged yet."
+      }
+    ],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "6da0cbf76446e50f7a1b972f691d8fe37e2e9abbeaa368320279aa42cc27d358",
+      "train_predictions.csv": "944a7105105c78eb6212a90aaf17d35b6824d8d2b5715751cd8394d0e6d01451",
+      "validation_predictions.csv": "a6d57e58e4bcac31877ca9703d729373662534202a7b3fa6f924790984f83c23",
+      "training_trace.json": "c02e2109181ec3f9b652197b8d29b2c5ac2bce58c621ddcf8337ed712aed955b"
+    }
+  },
+  {
+    "run_id": "MLP_p075_s29",
+    "model": "MLP",
+    "p": 0.75,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": {
+      "alpha": 0.01
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "b1277eb03d4aae441b17188523370ef6c7740108429a6ee84400ffadde524db7",
+    "selected_fraction": 0.7555692307692308,
+    "changed_fraction": 0.6503384615384615,
+    "fingerprint": "ca789511469b70ee489a942c65115ada8bf24e488818397cf95ab30de9171705",
+    "started_utc": "2026-10-13T05:36:42.493635+00:00",
+    "completed_utc": "2026-10-13T05:37:06.109833+00:00",
+    "fit_seconds": 23.5777430999442,
+    "train_noisy": {
+      "macro_f1": 0.4174439794091826,
+      "accuracy": 0.4327384615384615,
+      "balanced_accuracy": 0.41848506563733284
+    },
+    "train_clean": {
+      "macro_f1": 0.5603801204966483,
+      "accuracy": 0.6150153846153846,
+      "balanced_accuracy": 0.5605592588529228
+    },
+    "validation": {
+      "macro_f1": 0.535558767690295,
+      "accuracy": 0.5917312661498708,
+      "balanced_accuracy": 0.5342258673213623
+    },
+    "iterations": 500,
+    "stop_reason": "max_iter_reached",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [
+      {
+        "category": "ConvergenceWarning",
+        "message": "Stochastic Optimizer: Maximum iterations (500) reached and the optimization hasn't converged yet."
+      }
+    ],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "8f8355e4dd76f0302454f8262f6ed534be58d6be62195aa19a153342f9be12bf",
+      "train_predictions.csv": "4e2acd1e6e17fed50f78a0797d4185fe7d495326a3c2908040d225d984bf2466",
+      "validation_predictions.csv": "6492c74a9bcf5598d8cfedb17d77a0941a399a1116b42e5cabeeef8dab678a6a",
+      "training_trace.json": "6c7260a5189e77f7b88dfa2fcb6b6e13170bbfa4a4956c3b1ad37e128735028b"
+    }
+  },
+  {
+    "run_id": "MLP_p075_s43",
+    "model": "MLP",
+    "p": 0.75,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": {
+      "alpha": 0.01
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "9f109abe27a3a0eca30a2831be39a98b28f212fca7126a6b1c743bc1edfd65d8",
+    "selected_fraction": 0.7490461538461538,
+    "changed_fraction": 0.64,
+    "fingerprint": "2ad6a14f84b4bc659baf2cbac978a303888e4e44ad8ac110e871367f3ef6470d",
+    "started_utc": "2026-10-13T05:37:06.163414+00:00",
+    "completed_utc": "2026-10-13T05:37:34.724841+00:00",
+    "fit_seconds": 28.517084699997213,
+    "train_noisy": {
+      "macro_f1": 0.4298123863478467,
+      "accuracy": 0.44295384615384614,
+      "balanced_accuracy": 0.42867815935354453
+    },
+    "train_clean": {
+      "macro_f1": 0.6405560985005098,
+      "accuracy": 0.671876923076923,
+      "balanced_accuracy": 0.6630693442736302
+    },
+    "validation": {
+      "macro_f1": 0.6280742990893755,
+      "accuracy": 0.6537467700258398,
+      "balanced_accuracy": 0.6534601479032496
+    },
+    "iterations": 500,
+    "stop_reason": "max_iter_reached",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [
+      {
+        "category": "ConvergenceWarning",
+        "message": "Stochastic Optimizer: Maximum iterations (500) reached and the optimization hasn't converged yet."
+      }
+    ],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "eaf98afa77805ca0bfaf61602632d46d1511c3804c03122310c7ada2ba485fa4",
+      "train_predictions.csv": "7d377a036d2c9b36f6e1ca94ebbd7a58898a8a8f843c073c8db656368690597e",
+      "validation_predictions.csv": "39be7a10ed9b552c63b1ad5629761a1499b577977784ea6975b4e52abc5c8028",
+      "training_trace.json": "6f4497ac3a35ad8821224f944de70ae6bddd8508da3ff1cf8bbe7f68ad85381f"
+    }
+  },
+  {
+    "run_id": "MLP_p100_s17",
+    "model": "MLP",
+    "p": 1,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": {
+      "alpha": 0.01
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "cc6be3653a7486913bccef102335c7c71680d5842f66173c8af838f6a19acb3a",
+    "selected_fraction": 1.0,
+    "changed_fraction": 0.862276923076923,
+    "fingerprint": "e852b1c134245609d9eac87c3897354bf6c345e24dc3a05f6d4b2f80e694d070",
+    "started_utc": "2026-10-13T05:37:34.777723+00:00",
+    "completed_utc": "2026-10-13T05:38:00.291600+00:00",
+    "fit_seconds": 25.464306400041096,
+    "train_noisy": {
+      "macro_f1": 0.37723399377476513,
+      "accuracy": 0.3798153846153846,
+      "balanced_accuracy": 0.38012181945562745
+    },
+    "train_clean": {
+      "macro_f1": 0.14247881741842858,
+      "accuracy": 0.1595076923076923,
+      "balanced_accuracy": 0.15263672044913953
+    },
+    "validation": {
+      "macro_f1": 0.1454257215978814,
+      "accuracy": 0.16315983757844224,
+      "balanced_accuracy": 0.15671943776690192
+    },
+    "iterations": 500,
+    "stop_reason": "max_iter_reached",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [
+      {
+        "category": "ConvergenceWarning",
+        "message": "Stochastic Optimizer: Maximum iterations (500) reached and the optimization hasn't converged yet."
+      }
+    ],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "3a97f9dcd1292441ffbb24fa948964818c60c83c48e7a2b3ee457eacca4885f8",
+      "train_predictions.csv": "e4478aec3a016a1fc68cd7585c83eb2525817413dd35a6fa605ac1d0eb49d96f",
+      "validation_predictions.csv": "e48761d5ff3567df3bab1f88e984dec921fafbd917d7736d330e8cad8880ef7a",
+      "training_trace.json": "45e40f09a09a20dcb66510bdd0eeb6561db434bdad0899f1fb26416977e07c68"
+    }
+  },
+  {
+    "run_id": "MLP_p100_s29",
+    "model": "MLP",
+    "p": 1,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": {
+      "alpha": 0.01
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "442dd03bc8b0e1fe4e1eef5c6491b05ad511fdefc3905ecd4a45a93def3831f9",
+    "selected_fraction": 1.0,
+    "changed_fraction": 0.8630153846153846,
+    "fingerprint": "1f5acbd9c1c12367772645375643069106e7430cbcf81c0a0e49381c4f8c4243",
+    "started_utc": "2026-10-13T05:38:00.349396+00:00",
+    "completed_utc": "2026-10-13T05:38:23.858567+00:00",
+    "fit_seconds": 23.468125200015493,
+    "train_noisy": {
+      "macro_f1": 0.37290323696914707,
+      "accuracy": 0.3774769230769231,
+      "balanced_accuracy": 0.3756633338768602
+    },
+    "train_clean": {
+      "macro_f1": 0.11395693096290485,
+      "accuracy": 0.12996923076923078,
+      "balanced_accuracy": 0.1252568280019015
+    },
+    "validation": {
+      "macro_f1": 0.10874105080478436,
+      "accuracy": 0.12218530823181986,
+      "balanced_accuracy": 0.11718358780000779
+    },
+    "iterations": 500,
+    "stop_reason": "max_iter_reached",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [
+      {
+        "category": "ConvergenceWarning",
+        "message": "Stochastic Optimizer: Maximum iterations (500) reached and the optimization hasn't converged yet."
+      }
+    ],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "b44f9cc51d7d1005fdeaf5d4f93d83039bd426a28dc26b1f9607c25e49dfb59b",
+      "train_predictions.csv": "26d0966bde391a2616407e059425c3e5fe07f36e99418bda5cbd7daf0cf5177d",
+      "validation_predictions.csv": "2dffec3ef07e6bf18dbcd731918d0ccd03a8fc84086d76e02af77c384a402970",
+      "training_trace.json": "164646058fdd1a779ff29fe760a47596a467047d95c1ece3eda4402aec40896e"
+    }
+  },
+  {
+    "run_id": "MLP_p100_s43",
+    "model": "MLP",
+    "p": 1,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": {
+      "alpha": 0.01
+    },
+    "status": "complete",
+    "phase": "main",
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "noise_hash": "497058612351ec8141486fbd98fb0deaba9064c635af0fee0b979a0129910840",
+    "selected_fraction": 1.0,
+    "changed_fraction": 0.8525538461538461,
+    "fingerprint": "821e0e4bc68efdc3d841622e83e0f6861356608903fe21222547b83784ea3a8b",
+    "started_utc": "2026-10-13T05:38:23.909441+00:00",
+    "completed_utc": "2026-10-13T05:38:47.322480+00:00",
+    "fit_seconds": 23.37071449996438,
+    "train_noisy": {
+      "macro_f1": 0.38374716365541073,
+      "accuracy": 0.38461538461538464,
+      "balanced_accuracy": 0.38456983311684667
+    },
+    "train_clean": {
+      "macro_f1": 0.1347695138996258,
+      "accuracy": 0.14018461538461538,
+      "balanced_accuracy": 0.1544363660351537
+    },
+    "validation": {
+      "macro_f1": 0.1413209383327997,
+      "accuracy": 0.14581026208933184,
+      "balanced_accuracy": 0.15983075904134897
+    },
+    "iterations": 500,
+    "stop_reason": "max_iter_reached",
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "warnings": [
+      {
+        "category": "ConvergenceWarning",
+        "message": "Stochastic Optimizer: Maximum iterations (500) reached and the optimization hasn't converged yet."
+      }
+    ],
+    "scaler_mean": [
+      53069.2272,
+      855.1792978461539,
+      319.9147079682854,
+      202.4053996599295,
+      1.5808252541653374,
+      0.7500698910858523,
+      53787.19544615385,
+      253.06059011067083,
+      0.7500733148532595,
+      0.9871438041747803,
+      0.8734400212695496,
+      0.8004578144456316,
+      0.00656024907445385,
+      0.001720153477065569,
+      0.6445334496378106,
+      0.9950690849577193
+    ],
+    "artifact_hashes": {
+      "model.joblib": "b2bf6782f58b8a93dd649a9d4c5fa89653e8a38e1a97fc357d3e279419607821",
+      "train_predictions.csv": "6ee3dc3d58bad9b045c470e3a7cc96b80c1af1585bc7bd5b9e7b80fa8d88518f",
+      "validation_predictions.csv": "9a3697f4fffda8c4364b3e7aff4a36059b2c205cc52ba121f18128f3cd8ba24e",
+      "training_trace.json": "d61ed65b1b593f3d673d03a2f691f88ac1bac1a1013754bea063b39d88e2d15f"
+    }
+  }
+]

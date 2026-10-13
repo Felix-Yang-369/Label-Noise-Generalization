@@ -1,0 +1,154 @@
+{
+  "selected_utc": "2026-10-13T05:31:44.632881+00:00",
+  "context": {
+    "protocol_hash": "0762987200eb824d529ca479fcf614c66fc1e22596f336e32f6a0cd49def0cf7",
+    "split_hash": "ce72621220fea0678a0fb8008a0997f92c94774c856df10c83b8fd98a041b0f8",
+    "data_hash": "0a64eff5be87f48c3dbbfc0a12a56c5d5b5167ef8e61cd45d69b3e7c7130c06f",
+    "code_hashes": {
+      "core.py": "2e68c2522367c92381c281c1d5cf1c6f3c318ddd91b2c8e85f41cde59e460b63",
+      "pipeline.py": "e8f34ecddaeb4ccb5b2613504e934b417f31fd259605ec16407e0cd5c6d10973"
+    },
+    "environment_hash": "8586cb826b6108250fb6ef6b918435b2f50eaf140af528f515224fafc3aa469e",
+    "blas_threads": 1
+  },
+  "criterion": "clean validation Macro-F1, predeclared 0.001 complexity tie rules",
+  "selected": {
+    "LR": {
+      "model": "LR",
+      "run_id": "LR_candidate_02",
+      "params": {
+        "C": 1
+      },
+      "validation_macro_f1": 0.9328197963125037,
+      "fit_seconds": 0.10153230000287294,
+      "warnings": 0
+    },
+    "RF": {
+      "model": "RF",
+      "run_id": "RF_candidate_03",
+      "params": {
+        "max_depth": null,
+        "min_samples_leaf": 1
+      },
+      "validation_macro_f1": 0.9238726078857845,
+      "fit_seconds": 1.4133519000024535,
+      "warnings": 0
+    },
+    "MLP": {
+      "model": "MLP",
+      "run_id": "MLP_candidate_03",
+      "params": {
+        "alpha": 0.01
+      },
+      "validation_macro_f1": 0.9331272384672298,
+      "fit_seconds": 20.021337600017432,
+      "warnings": 0
+    }
+  },
+  "all_candidates": [
+    {
+      "model": "LR",
+      "run_id": "LR_candidate_01",
+      "params": {
+        "C": 0.1
+      },
+      "validation_macro_f1": 0.9315924754764036,
+      "fit_seconds": 0.6212341000209562,
+      "warnings": 0
+    },
+    {
+      "model": "LR",
+      "run_id": "LR_candidate_02",
+      "params": {
+        "C": 1
+      },
+      "validation_macro_f1": 0.9328197963125037,
+      "fit_seconds": 0.10153230000287294,
+      "warnings": 0
+    },
+    {
+      "model": "LR",
+      "run_id": "LR_candidate_03",
+      "params": {
+        "C": 10
+      },
+      "validation_macro_f1": 0.9320065290357729,
+      "fit_seconds": 0.14176540001062676,
+      "warnings": 0
+    },
+    {
+      "model": "RF",
+      "run_id": "RF_candidate_01",
+      "params": {
+        "max_depth": 8,
+        "min_samples_leaf": 1
+      },
+      "validation_macro_f1": 0.9161622135568448,
+      "fit_seconds": 1.0939531999756582,
+      "warnings": 0
+    },
+    {
+      "model": "RF",
+      "run_id": "RF_candidate_02",
+      "params": {
+        "max_depth": 8,
+        "min_samples_leaf": 5
+      },
+      "validation_macro_f1": 0.917153034935928,
+      "fit_seconds": 1.0466867000213824,
+      "warnings": 0
+    },
+    {
+      "model": "RF",
+      "run_id": "RF_candidate_03",
+      "params": {
+        "max_depth": null,
+        "min_samples_leaf": 1
+      },
+      "validation_macro_f1": 0.9238726078857845,
+      "fit_seconds": 1.4133519000024535,
+      "warnings": 0
+    },
+    {
+      "model": "RF",
+      "run_id": "RF_candidate_04",
+      "params": {
+        "max_depth": null,
+        "min_samples_leaf": 5
+      },
+      "validation_macro_f1": 0.9217264537442489,
+      "fit_seconds": 1.3068694999674335,
+      "warnings": 0
+    },
+    {
+      "model": "MLP",
+      "run_id": "MLP_candidate_01",
+      "params": {
+        "alpha": 0
+      },
+      "validation_macro_f1": 0.9298599460468873,
+      "fit_seconds": 18.127040399995167,
+      "warnings": 1
+    },
+    {
+      "model": "MLP",
+      "run_id": "MLP_candidate_02",
+      "params": {
+        "alpha": 0.0001
+      },
+      "validation_macro_f1": 0.9276167097012814,
+      "fit_seconds": 17.927460700040683,
+      "warnings": 1
+    },
+    {
+      "model": "MLP",
+      "run_id": "MLP_candidate_03",
+      "params": {
+        "alpha": 0.01
+      },
+      "validation_macro_f1": 0.9331272384672298,
+      "fit_seconds": 20.021337600017432,
+      "warnings": 0
+    }
+  ]
+}

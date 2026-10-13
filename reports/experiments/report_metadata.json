@@ -1,0 +1,9 @@
+{
+  "final_evaluation_receipt_sha256": "665849d63859cba60ce348b0e43f71c387456d2bd64b367972f17db3cda90d0f",
+  "report_code_sha256": "1f2e40b438b756ee0cebc9279f9e701b4704259520fc367544db749e01e58b14",
+  "display_model_validation_only": "LR",
+  "total_research_fit_seconds": 462.835090000066,
+  "main_warning_runs": 14,
+  "main_runs": 45,
+  "capacity_study_run": false
+}

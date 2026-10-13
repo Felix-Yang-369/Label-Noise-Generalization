@@ -1,0 +1,4 @@
+smoke: LR_p000 seconds: 0.51
+smoke: RF_p000 seconds: 0.37
+smoke: MLP_p000 seconds: 0.79
+smoke: MLP_p100 seconds: 0.69

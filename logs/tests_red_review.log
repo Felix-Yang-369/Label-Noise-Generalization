@@ -1,0 +1,88 @@
+...FF..........F                                                         [100%]
+================================== FAILURES ===================================
+_______________ test_completed_subset_cannot_open_final_holdout _______________
+
+tmp_path = WindowsPath('C:/Users/Felix/Documents/Codex/2026-10-12/phonetics/outputs/ECS171 Project/12_Implementation/.tmp/pytest-of-Felix/pytest-6/test_completed_subset_cannot_o0')
+
+    def test_completed_subset_cannot_open_final_holdout(tmp_path):
+        m=runner();(tmp_path/'config').mkdir()
+        declared=[{'run_id':'first'},{'run_id':'second'}]
+        (tmp_path/'config'/'main_matrix.json').write_text(json.dumps(declared))
+        p=tmp_path/'artifacts'/'runs'/'first';p.mkdir(parents=True)
+        (p/'meta.json').write_text(json.dumps({'status':'complete'}))
+        with pytest.raises(ValueError,match='matrix'):
+>           m.final_evaluate(tmp_path,{},[declared[0]])
+
+tests\test_execution.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\pipeline.py:261: in final_evaluate
+    frozen=check_freeze(root,protocol)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\pipeline.py:228: in check_freeze
+    frozen=read_json(root/'config'/'FROZEN.json')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\pipeline.py:31: in read_json
+    def read_json(path):return json.loads(Path(path).read_text(encoding='utf-8'))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Felix\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Felix/Documents/Codex/2026-10-12/phonetics/outputs/ECS171 Project/12_Implementation/.tmp/pytest-of-Felix/pytest-6/test_completed_subset_cannot_o0/config/FROZEN.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Felix\\Documents\\Codex\\2026-10-12\\phonetics\\outputs\\ECS171 Project\\12_Implementation\\.tmp\\pytest-of-Felix\\pytest-6\\test_completed_subset_cannot_o0\\config\\FROZEN.json'
+
+C:\Users\Felix\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1013: FileNotFoundError
+__________ test_live_environment_mismatch_is_rejected_before_resume ___________
+
+tmp_path = WindowsPath('C:/Users/Felix/Documents/Codex/2026-10-12/phonetics/outputs/ECS171 Project/12_Implementation/.tmp/pytest-of-Felix/pytest-6/test_live_environment_mismatch0')
+
+    def test_live_environment_mismatch_is_rejected_before_resume(tmp_path):
+        m=runner()
+        (tmp_path/'environment.json').write_text(json.dumps({'python':'different interpreter'}))
+        with pytest.raises(ValueError,match='environment'):
+>           m.validate_environment(tmp_path)
+            ^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'src.pipeline' has no attribute 'validate_environment'
+
+tests\test_execution.py:60: AttributeError
+_______ test_resume_rejects_mutated_cached_scores_even_with_valid_model _______
+
+tmp_path = WindowsPath('C:/Users/Felix/Documents/Codex/2026-10-12/phonetics/outputs/ECS171 Project/12_Implementation/.tmp/pytest-of-Felix/pytest-6/test_resume_rejects_mutated_ca0')
+
+    def test_resume_rejects_mutated_cached_scores_even_with_valid_model(tmp_path):
+        import json,hashlib
+        m=api();(tmp_path/'model.joblib').write_bytes(b'unchanged model')
+        meta={'status':'complete','fingerprint':'fixed','validation':{'macro_f1':.7},
+              'artifact_hashes':{'model.joblib':hashlib.sha256(b'unchanged model').hexdigest()}}
+        path=tmp_path/'meta.json';path.write_text(json.dumps(meta))
+        (tmp_path/'meta.sha256').write_text(hashlib.sha256(path.read_bytes()).hexdigest())
+        meta['validation']['macro_f1']=.99;path.write_text(json.dumps(meta))
+>       with pytest.raises(ValueError,match='metadata integrity'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests\test_protocol.py:136: Failed
+============================== warnings summary ===============================
+tests/test_protocol.py::test_macro_f1_counts_absent_classes_as_zero_when_predeclared
+  C:\Users\Felix\Documents\Codex\2026-10-12\phonetics\outputs\ECS171 Project\12_Implementation\.venv\Lib\site-packages\sklearn\metrics\_classification.py:534: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_execution.py::test_completed_subset_cannot_open_final_holdout
+FAILED tests/test_execution.py::test_live_environment_mismatch_is_rejected_before_resume
+FAILED tests/test_protocol.py::test_resume_rejects_mutated_cached_scores_even_with_valid_model
+3 failed, 13 passed, 1 warning in 6.07s

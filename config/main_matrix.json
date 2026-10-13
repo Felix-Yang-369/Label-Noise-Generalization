@@ -1,0 +1,407 @@
+[
+  {
+    "run_id": "LR_p000_s17",
+    "model": "LR",
+    "p": 0,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "LR_p000_s29",
+    "model": "LR",
+    "p": 0,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "LR_p000_s43",
+    "model": "LR",
+    "p": 0,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "LR_p025_s17",
+    "model": "LR",
+    "p": 0.25,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "LR_p025_s29",
+    "model": "LR",
+    "p": 0.25,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "LR_p025_s43",
+    "model": "LR",
+    "p": 0.25,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "LR_p050_s17",
+    "model": "LR",
+    "p": 0.5,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "LR_p050_s29",
+    "model": "LR",
+    "p": 0.5,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "LR_p050_s43",
+    "model": "LR",
+    "p": 0.5,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "LR_p075_s17",
+    "model": "LR",
+    "p": 0.75,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "LR_p075_s29",
+    "model": "LR",
+    "p": 0.75,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "LR_p075_s43",
+    "model": "LR",
+    "p": 0.75,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "LR_p100_s17",
+    "model": "LR",
+    "p": 1,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "LR_p100_s29",
+    "model": "LR",
+    "p": 1,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "LR_p100_s43",
+    "model": "LR",
+    "p": 1,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "RF_p000_s17",
+    "model": "RF",
+    "p": 0,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "RF_p000_s29",
+    "model": "RF",
+    "p": 0,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "RF_p000_s43",
+    "model": "RF",
+    "p": 0,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "RF_p025_s17",
+    "model": "RF",
+    "p": 0.25,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "RF_p025_s29",
+    "model": "RF",
+    "p": 0.25,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "RF_p025_s43",
+    "model": "RF",
+    "p": 0.25,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "RF_p050_s17",
+    "model": "RF",
+    "p": 0.5,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "RF_p050_s29",
+    "model": "RF",
+    "p": 0.5,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "RF_p050_s43",
+    "model": "RF",
+    "p": 0.5,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "RF_p075_s17",
+    "model": "RF",
+    "p": 0.75,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "RF_p075_s29",
+    "model": "RF",
+    "p": 0.75,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "RF_p075_s43",
+    "model": "RF",
+    "p": 0.75,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "RF_p100_s17",
+    "model": "RF",
+    "p": 1,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "RF_p100_s29",
+    "model": "RF",
+    "p": 1,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "RF_p100_s43",
+    "model": "RF",
+    "p": 1,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "MLP_p000_s17",
+    "model": "MLP",
+    "p": 0,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "MLP_p000_s29",
+    "model": "MLP",
+    "p": 0,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "MLP_p000_s43",
+    "model": "MLP",
+    "p": 0,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "MLP_p025_s17",
+    "model": "MLP",
+    "p": 0.25,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "MLP_p025_s29",
+    "model": "MLP",
+    "p": 0.25,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "MLP_p025_s43",
+    "model": "MLP",
+    "p": 0.25,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "MLP_p050_s17",
+    "model": "MLP",
+    "p": 0.5,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "MLP_p050_s29",
+    "model": "MLP",
+    "p": 0.5,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "MLP_p050_s43",
+    "model": "MLP",
+    "p": 0.5,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "MLP_p075_s17",
+    "model": "MLP",
+    "p": 0.75,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "MLP_p075_s29",
+    "model": "MLP",
+    "p": 0.75,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "MLP_p075_s43",
+    "model": "MLP",
+    "p": 0.75,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "MLP_p100_s17",
+    "model": "MLP",
+    "p": 1,
+    "noise_seed": 17,
+    "model_seed": 17,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "MLP_p100_s29",
+    "model": "MLP",
+    "p": 1,
+    "noise_seed": 29,
+    "model_seed": 29,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  },
+  {
+    "run_id": "MLP_p100_s43",
+    "model": "MLP",
+    "p": 1,
+    "noise_seed": 43,
+    "model_seed": 43,
+    "params": "frozen selected_params.json",
+    "status": "planned"
+  }
+]

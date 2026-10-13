@@ -1,0 +1,9 @@
+.venv/
+.tmp/
+__pycache__/
+.pytest_cache/
+*.pyc
+artifacts/
+data/processed/
+data/noise/
+results/test_predictions/

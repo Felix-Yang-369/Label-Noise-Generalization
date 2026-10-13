@@ -1,0 +1,20 @@
+{
+  "frozen_utc": "2026-10-13T05:25:02.683179+00:00",
+  "inputs": {
+    "protocol_hash": "0762987200eb824d529ca479fcf614c66fc1e22596f336e32f6a0cd49def0cf7",
+    "split_hash": "ce72621220fea0678a0fb8008a0997f92c94774c856df10c83b8fd98a041b0f8",
+    "data_hash": "0a64eff5be87f48c3dbbfc0a12a56c5d5b5167ef8e61cd45d69b3e7c7130c06f",
+    "code_hashes": {
+      "core.py": "401243435292af3f7b72f4f3562b83a65356fa5178aa30bd426c85f8c194982b",
+      "pipeline.py": "4ab01099723285fae8d1d1c18a07b4e6e481d275ce7b491fbdb5dbf7f511bf01"
+    },
+    "environment_hash": "8586cb826b6108250fb6ef6b918435b2f50eaf140af528f515224fafc3aa469e",
+    "blas_threads": 1,
+    "selected_params_hash": "d5d7938a10f0b7fc3e52d9262401b51ddac9ab9be3ff60801c6380cb6f0f0e19",
+    "main_matrix_hash": "747f60d58b5d29b7a9b29174ccfb2809620e497c037667f1d8f2bbfed27bd200",
+    "noise_manifest_hash": "413a1e61b183ad223bcae63f13c51bbd607ad9a345a93fe533ff87a89365f23e"
+  },
+  "fingerprint": "a71276af69bf52416b8bb4ec9a98f9da1a5a5e3e3082c9c256a254b4f5030fe4",
+  "test_metrics_accessed": false,
+  "note": "All conditions fixed before any final holdout evaluation."
+}
