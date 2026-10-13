@@ -1,0 +1,231 @@
+{
+  "payload": {
+    "model": "LR",
+    "condition": "compare",
+    "features": {
+      "Area": 43122.0,
+      "AspectRation": 1.5965120156698027,
+      "Compactness": 0.7905322354751171,
+      "ConvexArea": 44074.0,
+      "Eccentricity": 0.7795295358424137,
+      "EquivDiameter": 234.31738230031013,
+      "Extent": 0.731985537505729,
+      "MajorAxisLength": 296.4045889406183,
+      "MinorAxisLength": 185.65759983727045,
+      "Perimeter": 838.1859999999999,
+      "ShapeFactor1": 0.006873628053907942,
+      "ShapeFactor2": 0.0016559382042704515,
+      "ShapeFactor3": 0.6249412153252859,
+      "ShapeFactor4": 0.9977261593541082,
+      "Solidity": 0.978399963697418,
+      "roundness": 0.7713082096994188
+    }
+  },
+  "before": {
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "predictions": [
+      {
+        "class": "SIRA",
+        "condition": "clean",
+        "iterations": [
+          89
+        ],
+        "label_p": 0,
+        "model": "LR",
+        "model_sha256": "e2f8aa1e184e90a6375f649e79430eafb700bed4cdac33f98f6532588a24f8be",
+        "params": {
+          "C": 1
+        },
+        "probabilities": [
+          {
+            "class": "BARBUNYA",
+            "probability": 0.3339629995650317
+          },
+          {
+            "class": "BOMBAY",
+            "probability": 3.493492373921156e-08
+          },
+          {
+            "class": "CALI",
+            "probability": 2.4817147713664996e-05
+          },
+          {
+            "class": "DERMASON",
+            "probability": 0.011516043691054306
+          },
+          {
+            "class": "HOROZ",
+            "probability": 0.004852514286580716
+          },
+          {
+            "class": "SEKER",
+            "probability": 0.017617801243484138
+          },
+          {
+            "class": "SIRA",
+            "probability": 0.6320257891312119
+          }
+        ],
+        "run_id": "LR_p000_s17",
+        "seed": 17,
+        "stop_reason": "training_objective_or_convergence_stop",
+        "training_label_accuracy": 0.9246769230769231,
+        "validation_macro_f1": 0.9328197963125037
+      },
+      {
+        "class": "CALI",
+        "condition": "random",
+        "iterations": [
+          74
+        ],
+        "label_p": 1,
+        "model": "LR",
+        "model_sha256": "e9cf00a46e465660377d0a7bb2ea43fb5152c06c9e9c84a78d85256f431ad261",
+        "params": {
+          "C": 1
+        },
+        "probabilities": [
+          {
+            "class": "BARBUNYA",
+            "probability": 0.14864879299945943
+          },
+          {
+            "class": "BOMBAY",
+            "probability": 0.1479348012339133
+          },
+          {
+            "class": "CALI",
+            "probability": 0.15315340528997481
+          },
+          {
+            "class": "DERMASON",
+            "probability": 0.13902804537219554
+          },
+          {
+            "class": "HOROZ",
+            "probability": 0.1408906871358707
+          },
+          {
+            "class": "SEKER",
+            "probability": 0.12600597164870095
+          },
+          {
+            "class": "SIRA",
+            "probability": 0.1443382963198853
+          }
+        ],
+        "run_id": "LR_p100_s17",
+        "seed": 17,
+        "stop_reason": "training_objective_or_convergence_stop",
+        "training_label_accuracy": 0.16455384615384616,
+        "validation_macro_f1": 0.15525203197272844
+      }
+    ],
+    "probability_note": "Raw, uncalibrated model probabilities; not calibrated confidence.",
+    "range_warnings": []
+  },
+  "after": {
+    "freeze_fingerprint": "1c5e619e8a341d675d1a27b78ca4b07dadfe1991923a9734fe09cb35559cfea5",
+    "predictions": [
+      {
+        "class": "SIRA",
+        "condition": "clean",
+        "iterations": [
+          89
+        ],
+        "label_p": 0,
+        "model": "LR",
+        "model_sha256": "e2f8aa1e184e90a6375f649e79430eafb700bed4cdac33f98f6532588a24f8be",
+        "params": {
+          "C": 1
+        },
+        "probabilities": [
+          {
+            "class": "BARBUNYA",
+            "probability": 0.3339629995650317
+          },
+          {
+            "class": "BOMBAY",
+            "probability": 3.493492373921156e-08
+          },
+          {
+            "class": "CALI",
+            "probability": 2.4817147713664996e-05
+          },
+          {
+            "class": "DERMASON",
+            "probability": 0.011516043691054306
+          },
+          {
+            "class": "HOROZ",
+            "probability": 0.004852514286580716
+          },
+          {
+            "class": "SEKER",
+            "probability": 0.017617801243484138
+          },
+          {
+            "class": "SIRA",
+            "probability": 0.6320257891312119
+          }
+        ],
+        "run_id": "LR_p000_s17",
+        "seed": 17,
+        "stop_reason": "training_objective_or_convergence_stop",
+        "training_label_accuracy": 0.9246769230769231,
+        "validation_macro_f1": 0.9328197963125037
+      },
+      {
+        "class": "CALI",
+        "condition": "random",
+        "iterations": [
+          74
+        ],
+        "label_p": 1,
+        "model": "LR",
+        "model_sha256": "e9cf00a46e465660377d0a7bb2ea43fb5152c06c9e9c84a78d85256f431ad261",
+        "params": {
+          "C": 1
+        },
+        "probabilities": [
+          {
+            "class": "BARBUNYA",
+            "probability": 0.14864879299945943
+          },
+          {
+            "class": "BOMBAY",
+            "probability": 0.1479348012339133
+          },
+          {
+            "class": "CALI",
+            "probability": 0.15315340528997481
+          },
+          {
+            "class": "DERMASON",
+            "probability": 0.13902804537219554
+          },
+          {
+            "class": "HOROZ",
+            "probability": 0.1408906871358707
+          },
+          {
+            "class": "SEKER",
+            "probability": 0.12600597164870095
+          },
+          {
+            "class": "SIRA",
+            "probability": 0.1443382963198853
+          }
+        ],
+        "run_id": "LR_p100_s17",
+        "seed": 17,
+        "stop_reason": "training_objective_or_convergence_stop",
+        "training_label_accuracy": 0.16455384615384616,
+        "validation_macro_f1": 0.15525203197272844
+      }
+    ],
+    "probability_note": "Raw, uncalibrated model probabilities; not calibrated confidence.",
+    "range_warnings": []
+  },
+  "identical": true
+}

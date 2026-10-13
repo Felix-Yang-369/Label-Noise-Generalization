@@ -1,5 +1,5 @@
 {
-  "phase": "Main experiments and local real-inference webpage complete; final web review pending",
+  "phase": "Main experiments and local real-inference webpage complete",
   "training_complete": true,
   "tuning_fits_current": 10,
   "main_fits_current": 45,
@@ -31,5 +31,8 @@
   "git_baseline": "6fcccff",
   "local_demo_url": "http://127.0.0.1:5172",
   "web_models": 6,
-  "web_status": "implemented; actual desktop/mobile checks recorded; independent review pending"
+  "web_status": "complete locally; independent review passed; partial mobile visual scope documented",
+  "web_review": "No Critical or Important issues; minor runbook path already corrected; independent 47 tests passed and all 397 experiment-artifact hashes matched.",
+  "git_status": "local commits on codex/ecs171; no remote or push",
+  "service_restart": "identical classes, probabilities and metadata; see reports/demo/restart_consistency.json"
 }

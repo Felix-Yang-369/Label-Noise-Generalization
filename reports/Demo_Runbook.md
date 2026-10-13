@@ -21,7 +21,7 @@ Open a terminal in `12_Implementation`, run `./Run_Demo.ps1`, then open <http://
 | 3:00–4:30 | Live input → saved Pipeline → real output, same-input clean/random comparison |
 | 4:30–5:00 | One dataset, three noise/model seeds on one fixed split, uncalibrated probabilities, MLP budget limits |
 
-Use `../reports/experiments/index.html` relative to the implementation root for the offline research report (`reports/experiments/index.html` within this repository). Screenshots in `reports/demo` document actual execution; they are visual evidence, not a substitute for live inference. A recorded backup video is not yet produced.
+Open `reports/experiments/index.html` within this repository for the offline research report. Screenshots in `reports/demo` document actual execution; they are visual evidence, not a substitute for live inference. A recorded backup video is not yet produced.
 
 ## Recover
 
