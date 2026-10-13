@@ -1,0 +1,14 @@
+[
+  {
+    "model": "LR",
+    "text": "CLEAN LABELS · P = 0\n\nSIRA\n\nTraining fit 92.5%\n\nValidation F1 0.9328\n\nBARBUNYA\n33.4%\nBOMBAY\n0.0%\nCALI\n0.0%\nDERMASON\n1.2%\nHOROZ\n0.5%\nSEKER\n1.8%\nSIRA\n63.2%\n\nLR_p000_s17\n\nModel details\n\nRANDOM LABELS · P = 1\n\nCALI\n\nTraining fit 16.5%\n\nValidation F1 0.1553\n\nBARBUNYA\n14.9%\nBOMBAY\n14.8%\nCALI\n15.3%\nDERMASON\n13.9%\nHOROZ\n14.1%\nSEKER\n12.6%\nSIRA\n14.4%\n\nLR_p100_s17\n\nModel details\n\nRaw, uncalibrated model probabilities; not calibrated confidence."
+  },
+  {
+    "model": "RF",
+    "text": "CLEAN LABELS · P = 0\n\nBARBUNYA\n\nTraining fit 100.0%\n\nValidation F1 0.9239\n\nBARBUNYA\n50.0%\nBOMBAY\n0.0%\nCALI\n0.0%\nDERMASON\n1.5%\nHOROZ\n4.0%\nSEKER\n2.0%\nSIRA\n42.5%\n\nRF_p000_s17\n\nModel details\n\nRANDOM LABELS · P = 1\n\nHOROZ\n\nTraining fit 100.0%\n\nValidation F1 0.1203\n\nBARBUNYA\n17.0%\nBOMBAY\n10.5%\nCALI\n10.0%\nDERMASON\n15.0%\nHOROZ\n21.0%\nSEKER\n10.5%\nSIRA\n16.0%\n\nRF_p100_s17\n\nModel details\n\nRaw, uncalibrated model probabilities; not calibrated confidence."
+  },
+  {
+    "model": "MLP",
+    "text": "CLEAN LABELS · P = 0\n\nBARBUNYA\n\nTraining fit 97.3%\n\nValidation F1 0.9331\n\nBARBUNYA\n95.4%\nBOMBAY\n0.0%\nCALI\n0.0%\nDERMASON\n0.1%\nHOROZ\n0.0%\nSEKER\n0.0%\nSIRA\n4.5%\n\nMLP_p000_s17\n\nModel details\n\nRANDOM LABELS · P = 1\n\nHOROZ\n\nTraining fit 38.0%\n\nValidation F1 0.1454\n\nBARBUNYA\n1.1%\nBOMBAY\n1.3%\nCALI\n2.3%\nDERMASON\n1.8%\nHOROZ\n48.4%\nSEKER\n1.4%\nSIRA\n43.6%\n\nMLP_p100_s17\n\nModel details\n\nRaw, uncalibrated model probabilities; not calibrated confidence."
+  }
+]

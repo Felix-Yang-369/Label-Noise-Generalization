@@ -1,0 +1,10 @@
+{
+  "emptyCheck": {
+    "message": "Area: enter a finite number with magnitude at most 1e12.",
+    "cards": 0
+  },
+  "rangeCheck": {
+    "message": "Area is outside the training range [20464, 254616]. The value was used without clipping; prediction may be unreliable.",
+    "exampleInfo": "Custom measurements · source class no longer applies to the edited input."
+  }
+}

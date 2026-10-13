@@ -1,0 +1,12 @@
+{
+  "red": {
+    "modelEnabled": true,
+    "areaEnabled": true
+  },
+  "green": {
+    "modelEnabled": false,
+    "areaEnabled": false,
+    "loadEnabled": false
+  },
+  "latency_ms": 2000
+}

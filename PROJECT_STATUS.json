@@ -1,5 +1,5 @@
 {
-  "phase": "environment, data, EDA, tuning and main experiments complete",
+  "phase": "Main experiments and local real-inference webpage complete; final web review pending",
   "training_complete": true,
   "tuning_fits_current": 10,
   "main_fits_current": 45,
@@ -11,7 +11,7 @@
     "validation": 2709,
     "test": 2709
   },
-  "tests": "17 passed; one known sklearn warning in a single-class synthetic fixture",
+  "tests": "47 passed; one known synthetic sklearn warning",
   "independent_review": "three Important integrity findings reproduced and fixed before current tuning/main and before holdout access",
   "final_evaluation_receipt_sha256": "665849d63859cba60ce348b0e43f71c387456d2bd64b367972f17db3cda90d0f",
   "total_research_fit_seconds": 462.835090000066,
@@ -19,11 +19,17 @@
   "operator": "Codex implementation and execution under user instruction; planned teammate roles do not prove individual human contributions",
   "not_run": [
     "18 optional capacity fits",
-    "live inference web interface",
     "deployment",
     "course submission",
     "email",
-    "Git push"
+    "Git push",
+    "recorded backup demo video",
+    "formal final report typesetting"
   ],
-  "excluded_history": "pre-review tuning/smoke assets preserved, not included in current research summaries"
+  "excluded_history": "pre-review tuning/smoke assets preserved, not included in current research summaries",
+  "git_branch": "codex/ecs171",
+  "git_baseline": "6fcccff",
+  "local_demo_url": "http://127.0.0.1:5172",
+  "web_models": 6,
+  "web_status": "implemented; actual desktop/mobile checks recorded; independent review pending"
 }

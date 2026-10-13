@@ -1,0 +1,18 @@
+{
+  "requestedViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "observed": {
+    "body": 375,
+    "content": 375,
+    "viewport": 375
+  },
+  "outputBounds": {
+    "height": 1422.800048828125,
+    "width": 350.3999938964844,
+    "x": 20,
+    "y": 1753.25
+  },
+  "visualScope": "Readable clipped top of output inspected; full-page and lower-region screenshot capture timed out. No horizontal overflow observed."
+}
