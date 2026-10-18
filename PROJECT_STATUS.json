@@ -1,5 +1,5 @@
 {
-  "phase": "Main experiments and local real-inference webpage complete",
+  "phase": "Core experiments, English IEEE report, local inference, and private GitHub delivery complete; deployment/presentation pending",
   "training_complete": true,
   "tuning_fits_current": 10,
   "main_fits_current": 45,
@@ -22,9 +22,7 @@
     "deployment",
     "course submission",
     "email",
-    "Git push",
-    "recorded backup demo video",
-    "formal final report typesetting"
+    "recorded backup demo video"
   ],
   "excluded_history": "pre-review tuning/smoke assets preserved, not included in current research summaries",
   "git_branch": "codex/ecs171",
@@ -33,6 +31,35 @@
   "web_models": 6,
   "web_status": "complete locally; independent review passed; partial mobile visual scope documented",
   "web_review": "No Critical or Important issues; minor runbook path already corrected; independent 47 tests passed and all 397 experiment-artifact hashes matched.",
-  "git_status": "local commits on codex/ecs171; no remote or push",
-  "service_restart": "identical classes, probabilities and metadata; see reports/demo/restart_consistency.json"
+  "git_status": "Local history retained on codex/ecs171; private GitHub main and phase tags published for the October 18 delivery",
+  "service_restart": "identical classes, probabilities and metadata; see reports/demo/restart_consistency.json",
+  "repository": {
+    "url": "https://github.com/Felix-Yang-369/ecs171-label-randomization",
+    "visibility": "private",
+    "default_branch": "main",
+    "team_instructor_access": "not yet arranged"
+  },
+  "report": {
+    "snapshot_date": "2026-10-18",
+    "main": "paper/main.tex",
+    "pdf": "paper/ECS171_Final_Report.pdf",
+    "body_pages": 10,
+    "reference_pages": 1,
+    "main_figures": 6,
+    "tables": 5,
+    "references": 7,
+    "state": "review version; team contribution sign-off and course submission pending"
+  },
+  "fresh_reproduction": {
+    "date_local": "2026-10-18",
+    "environment": "new local Python 3.12.14 environment on the same machine",
+    "research_fits": 55,
+    "excluded_smoke_fits": 4,
+    "tests_passed": 47,
+    "compared_nonruntime_numeric_values": 620,
+    "maximum_numeric_difference": 0.0,
+    "fresh_web_models_verified": 6,
+    "maximum_http_probability_difference": 0.0,
+    "evidence": "docs/Fresh_Reproduction_Verification.json"
+  }
 }

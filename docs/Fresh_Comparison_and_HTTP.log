@@ -1,0 +1,97 @@
+{
+  "fresh_directory": "D:\\Projects\\ECS 171\\work\\final_report\\fresh_reproduction",
+  "original_directory": "C:\\Users\\Felix\\Documents\\Codex\\2026-10-12\\phonetics\\outputs\\ECS171 Project\\12_Implementation",
+  "metric_tolerance": 1e-12,
+  "main_table": {
+    "rows": 45,
+    "excluded_columns": [
+      "fit_seconds"
+    ],
+    "numeric_values_compared": 600,
+    "maximum_absolute_numeric_difference": 0.0,
+    "differences_above_1e-12": []
+  },
+  "tuning_table": {
+    "rows": 10,
+    "excluded_columns": [
+      "fit_seconds"
+    ],
+    "numeric_values_compared": 20,
+    "maximum_absolute_numeric_difference": 0.0,
+    "differences_above_1e-12": []
+  },
+  "selected_parameters": {
+    "LR": {
+      "C": 1
+    },
+    "RF": {
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "MLP": {
+      "alpha": 0.01
+    }
+  },
+  "fresh_receipt_sha256": "1a59cea4e7232aafcd6a774fcf3300d39088697998700c6d34b92b9a83311299",
+  "fresh_fingerprint": "446f5c5e89f0b8b1cac8be3a98d589e3ec26635ade2ca42955c2228323ef6428",
+  "fresh_result_files_verified": 95,
+  "research_fitting_seconds": {
+    "tuning": 50.03888700000243,
+    "runs": 330.0706039001234
+  },
+  "research_fit_counts": {
+    "tuning": 10,
+    "runs": 45
+  },
+  "main_warning_runs": 14,
+  "web_smoke": {
+    "port": 5174,
+    "host": "127.0.0.1",
+    "prediction_checks": [
+      {
+        "model": "LR",
+        "p": 0.0,
+        "class": "SIRA",
+        "maximum_probability_difference": 0.0
+      },
+      {
+        "model": "LR",
+        "p": 1.0,
+        "class": "CALI",
+        "maximum_probability_difference": 0.0
+      },
+      {
+        "model": "RF",
+        "p": 0.0,
+        "class": "BARBUNYA",
+        "maximum_probability_difference": 0.0
+      },
+      {
+        "model": "RF",
+        "p": 1.0,
+        "class": "HOROZ",
+        "maximum_probability_difference": 0.0
+      },
+      {
+        "model": "MLP",
+        "p": 0.0,
+        "class": "BARBUNYA",
+        "maximum_probability_difference": 0.0
+      },
+      {
+        "model": "MLP",
+        "p": 1.0,
+        "class": "HOROZ",
+        "maximum_probability_difference": 0.0
+      }
+    ],
+    "health": {
+      "models_loaded": 6,
+      "status": "ready"
+    },
+    "status": "passed real HTTP startup, bootstrap, and six saved-pipeline predictions",
+    "server_stopped": true
+  },
+  "check_count": 197,
+  "all_checks_passed": true
+}

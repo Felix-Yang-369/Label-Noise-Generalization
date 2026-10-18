@@ -1,105 +1,125 @@
-# ECS171: Label Randomization, Memorization and Generalization
+# Memorization and Generalization under Training-Label Randomization
 
-UCI Dry Bean 七分类实验，比较 Logistic Regression、Random Forest、MLP。
-当前实施以 `../11_Proposal_and_Master_Plan/` 的固定方案为准。
+**ECS 171 · UC Davis · Group 8**
 
-## 目录
+A controlled study of how logistic regression (LR), random forests (RF), and a multilayer perceptron (MLP) respond when training labels are progressively randomized. The experiment uses the public UCI Dry Bean dataset, retains clean validation and test labels, and separates fitting corrupted training targets from predicting true labels on unseen observations.
 
-| 位置 | 用途 |
-|---|---|
-| `src/core.py` | 去重/划分、标签扰动、指标、模型和缓存校验 |
-| `src/pipeline.py` | 分阶段执行、调参、冻结、主训练和最终留出评估 |
-| `src/visuals.py` | 仅训练集 EDA、真实结果图表与报告 |
-| `app/` / `Run_Demo.ps1` | 保存模型的真实推理网页；三模型 × p=0/1，seed=17 |
-| `config/` | 当前协议、45 次矩阵、获选参数与冻结证据 |
-| `data/raw/` | 原始 ZIP 和 XLSX，不改写 |
-| `data/processed/` | 去重后的数据、固定 split、原始 row_id 与 manifest |
-| `data/noise/` | 15 份 seed×p 扰动标签，三个模型共用 |
-| `artifacts/tuning/` | 当前十候选训练日志、模型和逐行预测 |
-| `artifacts/runs/` | 当前 45 次主实验的模型、日志、预测、loss trace |
-| `results/` | 每次真实测试指标、15 条件汇总和逐行概率 |
-| `reports/eda/` | 数据审计、训练集图表和统计 |
-| `reports/experiments/` | 结果报告、对照曲线和混淆矩阵 |
-| `tests/` | 科学协议、泄漏/缓存保护与独立最终验收 |
-| `logs/` / `progress.md` | 安装、测试、执行、评审与决定记录 |
+The required research experiment is complete: **10 clean-label tuning fits, 45 main fits, and evaluation on one fixed clean holdout**. This repository contains the scientific source, locked dependencies, public raw data, recorded results, figures, tests, and a local inference application. Generated model files and row-level predictions are excluded from Git and can be regenerated.
 
-## 环境
+## Main result
 
-Python 3.12.14，scikit-learn 1.7.2，精确版本见 `requirements.lock.txt`。
-本机环境位于 `.venv`；不需要 GPU、云计算或付费 API。
-BLAS 设为一个线程，RF 使用 4 个 worker；各次 fit 顺序执行。
-`environment.json` 记录本机版本和计算设置；恢复阶段会核对实际依赖，防止混用环境。
+| Model | Clean-label test Macro-F1, mean ± sample SD | Fully randomized-label training accuracy, mean | Fully randomized-label test Macro-F1, mean |
+|---|---:|---:|---:|
+| Logistic regression | 0.9404 ± 0.0000 | 0.1602 | 0.1144 |
+| Random forest | 0.9361 ± 0.0012 | 1.0000 | 0.1314 |
+| MLP | 0.9346 ± 0.0040 | 0.3806 | 0.1309 |
 
-新环境（需已安装 Python 3.12）可运行：
+Each condition has three seeds on the **same data split**. These standard deviations describe seed variation, not uncertainty across independent datasets or splits. The random forest interpolates the fully randomized training labels while clean-test performance collapses. The tested MLP does **not** interpolate those labels under its fixed architecture, regularization, optimizer, and iteration budget; 14 main runs recorded convergence warnings. The results do not establish universal model rankings or statistical significance.
+
+![Clean-test performance as training labels are randomized](paper/figures/test_performance.png)
+
+## English IEEE report
+
+Read the [compiled report](paper/ECS171_Final_Report.pdf), edit the [LaTeX source](paper/main.tex), or inspect the [paper package guide](paper/README.md). The report has ten body pages plus one reference page, six main figures, five tables, and seven primary references. Its final body page includes this repository's URL, roadmap, delivery status, and contribution record. It is a review version dated October 18, 2026; team acceptance, deployment, and course submission are not inferred from report preparation.
+
+The paper's vector figures and compact recorded source copies are tracked. After installing the locked plotting dependencies, `python paper/tools/build_figures.py --recorded-sources` regenerates these historical figures without model fitting. This is separate from running the scientific experiment again.
+
+The parameter `p` is the probability of replacing a label with a uniform draw from all seven classes, including its original class. Its expected actual change rate is `6p/7`; `p=1` does not mean every label changes.
+
+## Inspect the recorded experiment
+
+No Python environment is required to read these tracked files:
+
+- [Run-level metrics: 45 rows](results/test_metrics.csv)
+- [Condition summaries: 15 model/noise groups](results/model_noise_summary.csv)
+- [Ten tuning candidates](results/tuning.csv)
+- [Model overview](reports/experiments/overview.csv)
+- [Result figures and original analysis notes](reports/experiments/)
+- [Training-only EDA](reports/eda/)
+- [Frozen protocol](config/protocol.json) and [main run matrix](config/main_matrix.json)
+- [Final evaluation receipt](results/FINAL_EVALUATION.json)
+- [Original implementation verification](reports/Implementation_Verification.md) and [web verification](reports/Web_Verification.md)
+
+Some historical analysis and execution notes are in Chinese. Numerical column names, source code, configuration keys, and this reproduction guide are in English. Configuration fields such as `training_completed: false` and matrix `status: planned` preserve the **pre-execution specification**; actual completion is established by the recorded results and evaluation receipt.
+
+## Reproduce safely
+
+**Use a fresh sibling run directory.** A Git clone includes the original frozen configuration and result receipts but omits the original models, processed splits, noise files, and row-level predictions. Running `all` directly inside that evidence checkout would combine incomplete historical assets with a new execution and may correctly fail an integrity check.
+
+Follow [REPRODUCIBILITY.md](REPRODUCIBILITY.md) to create an input-only run directory and execute the pipeline without altering the recorded experiment. The documented path uses Windows, PowerShell, and Python 3.12; Python 3.12.14 and scikit-learn 1.7.2 were used for the original run. A fresh run records its own interpreter/environment signature, timestamps, hashes, models, and receipt.
+
+**Fresh local reproduction verified on October 18, 2026:** a new directory and newly installed environment completed all 55 research fits and 47 tests. Every compared non-runtime numerical field in the tuning/main tables matched the original exactly; all six regenerated web models matched offline probabilities in real HTTP checks. The evidence is in [docs/Fresh_Reproduction_Verification.json](docs/Fresh_Reproduction_Verification.json). This is a same-machine reproduction, with its own metadata and timing, not a cross-platform claim.
+
+The repository-root helper performs that entire fresh-run workflow, including environment installation, all stages, and verification:
 
 ```powershell
-py -3.12 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.lock.txt
+.\Reproduce.ps1
 ```
 
-在这个目录运行阶段：
+Use `-DestinationPath 'D:\Experiments\ecs171-new-run'` to choose a new destination, `-PythonExecutable 'C:\path\to\python.exe'` for an explicit Python 3.12 interpreter, or `-PrepareOnly` to copy inputs without installing packages or running fits. Existing destinations are rejected.
+
+After creating that clean run directory and its virtual environment, the main commands are:
 
 ```powershell
-.\Run_Project.ps1 -Stage prepare
-.\Run_Project.ps1 -Stage eda
-.\Run_Project.ps1 -Stage smoke
-.\Run_Project.ps1 -Stage tune
-.\Run_Project.ps1 -Stage train
-.\Run_Project.ps1 -Stage evaluate
-.\Run_Project.ps1 -Stage report
+.\Run_Project.ps1 -Stage all
 .\Run_Project.ps1 -Stage verify
-```
-
-`-Stage all` 按顺序执行到报告；每一步失败即停止。已完成 fit 只在配置、环境、数据、代码和缓存内容均一致时复用。
-原始 ZIP/XLSX 已包含在项目中；不需要重新下载。若复制项目到另一台机器，先安装锁定依赖，再在**新输出副本**中从 prepare 开始生成该环境的证据。不要把旧模型和新环境拟合混合。
-新输出副本仅复制 `src/`、`tests/`、`Run_Project.ps1`、`pytest.ini`、依赖文件、`data/raw/` 以及 `config/protocol.json` / `main_matrix.json`。不复制旧 `environment.json`、获选/冻结文件、processed 数据、artifacts 或 results；原项目保留不动。
-
-## 固定实验
-
-- 去重前 13,611 行；去除 68 行后 13,543 行。train / validation / test = 8,125 / 2,709 / 2,709。
-- 使用 16 原始数值特征，保留源列名 `AspectRation` 与 `roundness`。`row_id` 不进入模型。
-- LR/MLP 的完整 Pipeline 内含 StandardScaler，仅 fit 训练特征；RF 不缩放。
-- 干净标签 10 次调参，验证 Macro-F1 为选择依据；0.001 内按预设复杂度规则处理平分。
-- 三模型 × p∈{0,.25,.5,.75,1} × seed∈{17,29,43} = 45 主 runs。
-- p 是独立重新抽标签的概率；允许抽回原类，期望实际改变率为 6p/7。标签在一个 fit 内不变。
-- 不在噪声条件重新调参。`FROZEN.json` 保存测试前协议；只有完整 canonical 矩阵的全部 fits 完成才能打开真实测试评估。
-- 主终点为干净测试 Macro-F1；Accuracy、Balanced Accuracy、训练对两种标签的准确率和耗时为次要指标。
-- 汇总为三次重复均值和样本 SD，不称为显著性或多个数据划分的稳定性。
-
-## 缓存与历史
-
-完成模型、训练/验证逐行预测和训练 trace 各有 SHA-256；完整 meta.json 另有 checksum，恢复会同时验证。
-`artifacts/pre_review/` 与 `config/history/` 是独立审查补强之前的第一次调参记录，**不计入当前 55 次研究 fit，也不进入汇总**。
-初版代码保存在 `artifacts/initial_code_version/`。当前版在修正缓存/环境/矩阵保护后重新调参并冻结。
-
-## 本地 Git 记录
-
-本目录已建立独立 Git 仓库，分支 `codex/ecs171`。`6fcccff` 是完成环境、数据处理、EDA、10 次调参和 45 次主实验后的基线；后续提交记录真实推理网页。
-提交使用既有本地 Git 身份 Felix；提交说明和项目状态明确记录 Codex 在用户指示下编写与执行，不能视为其他队员已完成贡献。
-源代码、锁定依赖、原始公开数据、配置、汇总结果、图表和校验清单纳入 Git；`.venv`、生成模型、完整 split 和逐行预测留在本机，避免重复的大文件进入历史。
-`reports/Experiment_Artifact_Manifest.json` 保存 397 个当前实验生成文件的基线 SHA-256。
-
-Git 克隆包含历史结果证据，但不包含可直接启动的模型资产。复现时按上文“新输出副本”步骤仅复制必要输入，完成训练和评估后再运行网页；请勿在带旧冻结证据的克隆目录中混合一次新的实验。新副本还需复制 `app/` 与 `Run_Demo.ps1`；训练完成后可运行完整测试和网页。
-
-## 实时推理网页
-
-在本目录运行：
-
-```powershell
 .\Run_Demo.ps1
 ```
 
-然后在浏览器访问 `http://127.0.0.1:5172`。按 Ctrl+C 停止服务；端口冲突时可指定 `-Port 5173`。
-网页使用本机已完成的六个完整 Pipeline：LR/RF/MLP 的 p=0 和 p=1，统一 seed=17。启动先验证实际依赖、冻结协议、科学代码及模型校验值；缺少或损坏资产会停止启动，请在独立新副本复现完整实验。
-页面提供 16 个数值输入、7 个验证集示例、三个模型和单条件／并排比较。示例为每类验证集中 row_id 最小的一条，选择与模型预测无关。编辑输入后不再把示例原类当作当前输入的真实标签。
-七类概率的顺序来自保存模型的 `classes_`；预处理来自原 Pipeline。所有 HTTP 请求只做推理，不训练、不读取留出测试文件。
-缺失或非数值、NaN/Inf、布尔值与过大数值会被拒绝；超出训练范围但数值有限的输入保持原值并显示提示。原始概率未经校准，不称为置信度。请求期间锁定输入和模型选择，完成或失败后恢复。
-`reports/demo/` 保存真实浏览器交互、桌面截图、手机输出局部截图和慢速请求回归证据；手机全页截图受工具超时限制，已记录检查范围。`reports/Demo_Runbook.md` 给出五分钟展示安排和恢复步骤。
+The full pipeline includes four short smoke fits in addition to the 55 research fits. Smoke fits are excluded from research results. No GPU, cloud compute, paid API, or external dataset download is required after cloning; locked Python dependencies still need to be installed.
 
-当前已完成本地网页；可选 18 次容量实验、备用演示视频、报告正式排版和公开部署尚待后续完成。尚未向 GitHub 推送、提交课程材料或发送邮件。
+## Experimental design
 
-## 来源
+- **Data:** 13,611 raw observations; 68 exact duplicates removed before splitting; 13,543 retained observations; 16 numerical features; 7 classes. Original source names `AspectRation` and `roundness` are preserved. `row_id` is provenance, never a predictor.
+- **Fixed stratified split:** 8,125 training, 2,709 validation, and 2,709 test observations; split seeds 171 and 172.
+- **Preprocessing:** train-fitted `StandardScaler` inside the LR and MLP pipelines; unscaled numerical inputs for RF. EDA uses training rows only.
+- **Tuning:** ten candidates trained on clean labels; selection uses validation Macro-F1 and predeclared complexity tie rules within 0.001. Selected settings are LR `C=1`, RF `max_depth=None` / `min_samples_leaf=1` with 200 trees, and MLP `alpha=0.01` / hidden layers `(128, 64)`.
+- **Main matrix:** three models × `p ∈ {0, .25, .5, .75, 1}` × seeds `{17, 29, 43}` = 45 fresh fits. Parameters remain fixed across noise levels.
+- **Noise control:** within each seed, the same uniform draws are reused across noise levels; each label vector is shared across models and remains fixed within a fit. Validation and test labels remain clean.
+- **Metrics:** primary clean-test Macro-F1; secondary accuracy, balanced accuracy, training accuracy against both clean and fitted targets, convergence information, and fitting time. Results report means and sample SD over three seeds.
+- **Holdout:** tuning and the complete main matrix were frozen before final evaluation. Tests check that a missing run or an incomplete/substituted matrix cannot open the final evaluation.
+- **Compute:** sequential fits, BLAS limited to one thread during fitting, RF configured for four workers. Recorded research fitting time is about 463 seconds on the original machine; this excludes setup, plotting, inference, smoke fits, and other overhead.
 
-- Dataset: [UCI Dry Bean](https://archive.ics.uci.edu/dataset/602/dry+bean+dataset), DOI [10.24432/C50S4B](https://doi.org/10.24432/C50S4B), CC BY 4.0.
-- Assigned paper: Zhang et al., *Understanding Deep Learning Requires Rethinking Generalization*, ICLR 2017, [arXiv:1611.03530v2](https://arxiv.org/abs/1611.03530v2).
-- [scikit-learn 1.7.2 documentation](https://scikit-learn.org/1.7/).
+The test set has already been evaluated. Any later modeling motivated by these results must be identified as exploratory rather than presented as part of the original confirmatory sequence. The optional 18-fit capacity study described in the protocol has not been run and is absent from the reported results.
+
+## Repository map
+
+| Path | Role | In Git? |
+|---|---|---|
+| `src/core.py` | Data integrity, splitting, noise, models, metrics, cache checks | Yes |
+| `src/pipeline.py` | Staged tuning, freezing, main training, final evaluation | Yes |
+| `src/visuals.py` | Training-only EDA and result figures | Yes |
+| `config/` | Protocol, matrix, original selected parameters, frozen evidence | Yes |
+| `data/raw/` | Unmodified public archive and spreadsheet | Yes |
+| `results/` | Original metrics, class reports, final evaluation receipt | Yes, except row-level test predictions |
+| `reports/` | Figures, EDA, verification, and demonstration evidence | Yes |
+| `app/` | Flask application and browser interface | Yes |
+| `tests/` | Scientific contract, execution, acceptance, and HTTP tests | Yes |
+| `artifacts/` | Generated models, metadata, traces, train/validation predictions | No |
+| `data/processed/`, `data/noise/` | Generated splits and perturbed targets | No |
+| `results/test_predictions/` | Generated row-level holdout predictions/probabilities | No |
+| `.venv/`, `.tmp/` | Local environment and temporary files | No |
+
+The original artifact manifest lists 397 generated files. A clone can inspect that inventory but cannot validate missing model/prediction files until a complete matching artifact set is supplied. A fresh execution produces new evidence; its timestamp-dependent hashes are not expected to match the original receipt.
+
+## Local inference demonstration
+
+After reproducing the experiment, run `Run_Demo.ps1` from the fresh run directory and open `http://127.0.0.1:5172`. Stop with Ctrl+C; use `-Port 5173` if necessary.
+
+The app loads six saved seed-17 pipelines: LR, RF, and MLP trained at `p=0` and `p=1`. It validates the environment, scientific source, frozen inputs, feature/class order, and model checksums before loading. Requests perform inference only. The interface offers 16 numeric inputs, seven validation examples chosen by row order independently of prediction quality, and paired clean/random-label predictions.
+
+Displayed probabilities are uncalibrated model outputs. Editing a validation example clears its inherited true-label claim. The local launcher binds to `127.0.0.1` with Flask debug disabled. This repository does not establish a public deployment; classroom hosting and presentation delivery are separate tasks. See the [five-minute demo runbook](reports/Demo_Runbook.md).
+
+## Provenance, attribution, and licensing
+
+The implementation and execution records explicitly identify Codex assistance under the user's direction. Planned teammate roles are not evidence of completed individual contributions. Report authorship and contribution statements must reflect work actually completed and confirmed by the group.
+
+The **Dry Bean dataset** is distributed by the UCI Machine Learning Repository under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The tracked raw ZIP and XLSX are unmodified; this project removes exact duplicates and creates derived training/validation/test partitions during preprocessing. Cite: *Dry Bean* [Dataset]. (2020). UCI Machine Learning Repository. [doi:10.24432/C50S4B](https://doi.org/10.24432/C50S4B). See the [official dataset page](https://archive.ics.uci.edu/dataset/602/dry+bean+dataset).
+
+No additional software license is asserted for project-authored code in this repository. The dataset license is not a license for the project's source code.
+
+## References
+
+1. C. Zhang, S. Bengio, M. Hardt, B. Recht, and O. Vinyals, “Understanding Deep Learning Requires Rethinking Generalization,” ICLR, 2017. [arXiv:1611.03530v2](https://arxiv.org/abs/1611.03530v2).
+2. *Dry Bean* [Dataset], UCI Machine Learning Repository, 2020. [doi:10.24432/C50S4B](https://doi.org/10.24432/C50S4B).
+3. [scikit-learn 1.7 documentation](https://scikit-learn.org/1.7/).

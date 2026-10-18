@@ -3,7 +3,13 @@
 __pycache__/
 .pytest_cache/
 *.pyc
-artifacts/
-data/processed/
-data/noise/
-results/test_predictions/
+/artifacts/
+/data/processed/
+/data/noise/
+/results/test_predictions/
+/paper/*.aux
+/paper/*.bbl
+/paper/*.blg
+/paper/*.log
+/paper/*.out
+/paper/*.synctex.gz

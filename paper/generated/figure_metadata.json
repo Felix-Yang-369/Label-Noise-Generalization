@@ -1,0 +1,58 @@
+{
+  "study_flow": {
+    "width_inches": 7.1,
+    "height_inches": 2.65,
+    "caption_facts": "68 exact duplicates removed before a fixed stratified 8,125/2,709/2,709 split. Only training labels are randomized. Ten clean-label tuning fits precede 45 main fits; clean-test evaluation follows completion of the whole sweep.",
+    "pdf": "figures/study_flow.pdf",
+    "preview": "figures/study_flow.png"
+  },
+  "eda_class_scale": {
+    "width_inches": 7.1,
+    "height_inches": 3.25,
+    "caption_facts": "Training split only (n=8,125). Class counts range from 313 BOMBAY to 2,127 DERMASON. Raw feature standard deviations span several orders of magnitude in their original mixed units; LR/MLP use a training-fitted StandardScaler. Feature abbreviations are recorded in generated/feature_abbreviations.csv.",
+    "pdf": "figures/eda_class_scale.pdf",
+    "preview": "figures/eda_class_scale.png"
+  },
+  "eda_correlation": {
+    "width_inches": 7.1,
+    "height_inches": 5.7,
+    "caption_facts": "Pearson correlations of all 16 original features in the training split (n=8,125). Complete matrix and abbreviation-to-feature mapping are included as generated CSVs. High correlation among size descriptors is descriptive; all original features were retained.",
+    "pdf": "figures/eda_correlation.pdf",
+    "preview": "figures/eda_correlation.png"
+  },
+  "test_performance": {
+    "width_inches": 7.1,
+    "height_inches": 2.9,
+    "caption_facts": "Means and sample standard deviations (ddof=1) across three seeds on one fixed split; bars are not confidence intervals. Same trained conditions and clean test labels are used in both panels. No Macro-F1 chance baseline is drawn.",
+    "pdf": "figures/test_performance.pdf",
+    "preview": "figures/test_performance.png"
+  },
+  "fitting_targets": {
+    "width_inches": 7.1,
+    "height_inches": 2.9,
+    "caption_facts": "Accuracy against three explicitly distinct targets. Points are three-seed means and bars sample SD. Noisy-label training and clean-label testing are not the same target, so their difference is not called the conventional generalization gap. RF fits noisy training labels perfectly at every p; finite-budget MLP does not at p=1.",
+    "pdf": "figures/fitting_targets.pdf",
+    "preview": "figures/fitting_targets.png"
+  },
+  "confusion_endpoints": {
+    "width_inches": 7.1,
+    "height_inches": 4.85,
+    "caption_facts": "Endpoint confusion matrices: columns are models; rows p=0 and p=1. Counts from all three seeds are pooled and each true-class row is normalized. Cells show row percentages. The same 2,709 unique test rows are predicted three times, giving 8,127 prediction records per matrix, not 8,127 independent observations. BAR/BOM/CAL/DER/HOR/SEK/SIR map to the seven full class names in study_design.json.",
+    "pdf": "figures/confusion_endpoints.pdf",
+    "preview": "figures/confusion_endpoints.png"
+  },
+  "mlp_optimization": {
+    "width_inches": 7.1,
+    "height_inches": 3.05,
+    "caption_facts": "Left: stored loss curves for fixed seed 17 (the first protocol seed) at five p values, with different noisy-label objectives; their absolute levels are not comparable estimates of clean predictive quality. Right: three-seed mean fit seconds with sample-SD bars; labels count runs emitting convergence warnings. 14/15 MLP main fits reach max_iter=500; one clean-label fit stops at 430 epochs. Times describe this local execution, not a hardware-independent benchmark.",
+    "pdf": "figures/mlp_optimization.pdf",
+    "preview": "figures/mlp_optimization.png"
+  },
+  "per_class_f1": {
+    "width_inches": 7.1,
+    "height_inches": 3.0,
+    "caption_facts": "Per-class F1 at clean and fully randomized endpoints; dots are means and horizontal bars sample SD across three seeds on the same test rows. These per-class means are computed before averaging, whereas pooled confusion-derived F1 would be a different aggregation.",
+    "pdf": "figures/per_class_f1.pdf",
+    "preview": "figures/per_class_f1.png"
+  }
+}

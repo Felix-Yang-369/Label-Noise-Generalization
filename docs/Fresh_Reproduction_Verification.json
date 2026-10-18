@@ -1,0 +1,923 @@
+{
+  "fresh_directory": "D:\\Projects\\ECS 171\\work\\final_report\\fresh_reproduction",
+  "original_directory": "C:\\Users\\Felix\\Documents\\Codex\\2026-10-12\\phonetics\\outputs\\ECS171 Project\\12_Implementation",
+  "metric_tolerance": 1e-12,
+  "setup_receipt": {
+    "created_utc": "2026-10-18T22:46:20.4453288Z",
+    "source_checkout": "C:\\Users\\Felix\\Documents\\Codex\\2026-10-12\\phonetics\\outputs\\ECS171 Project\\12_Implementation",
+    "new_run_directory": "D:\\Projects\\ECS 171\\work\\final_report\\fresh_reproduction",
+    "python_executable": "C:\\Users\\Felix\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "python_version": "3.12.14",
+    "raw_archive_sha256": "0a64eff5be87f48c3dbbfc0a12a56c5d5b5167ef8e61cd45d69b3e7c7130c06f",
+    "copied_scientific_source": {
+      "pipeline.py": "e8f34ecddaeb4ccb5b2613504e934b417f31fd259605ec16407e0cd5c6d10973",
+      "core.py": "2e68c2522367c92381c281c1d5cf1c6f3c318ddd91b2c8e85f41cde59e460b63"
+    },
+    "copied_original_results": false,
+    "status": "full pipeline and verification completed",
+    "completed_utc": "2026-10-18T22:54:29.6363930Z"
+  },
+  "main_table": {
+    "rows": 45,
+    "excluded_columns": [
+      "fit_seconds"
+    ],
+    "numeric_values_compared": 600,
+    "maximum_absolute_numeric_difference": 0.0,
+    "differences_above_1e-12": []
+  },
+  "tuning_table": {
+    "rows": 10,
+    "excluded_columns": [
+      "fit_seconds"
+    ],
+    "numeric_values_compared": 20,
+    "maximum_absolute_numeric_difference": 0.0,
+    "differences_above_1e-12": []
+  },
+  "selected_parameters": {
+    "LR": {
+      "C": 1
+    },
+    "RF": {
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "MLP": {
+      "alpha": 0.01
+    }
+  },
+  "split_noise_hash_matches": {
+    "data\\processed\\cleaned.csv": true,
+    "data\\processed\\test.csv": true,
+    "data\\processed\\train.csv": true,
+    "data\\processed\\validation.csv": true,
+    "data\\noise\\p000_s17.csv": true,
+    "data\\noise\\p000_s29.csv": true,
+    "data\\noise\\p000_s43.csv": true,
+    "data\\noise\\p025_s17.csv": true,
+    "data\\noise\\p025_s29.csv": true,
+    "data\\noise\\p025_s43.csv": true,
+    "data\\noise\\p050_s17.csv": true,
+    "data\\noise\\p050_s29.csv": true,
+    "data\\noise\\p050_s43.csv": true,
+    "data\\noise\\p075_s17.csv": true,
+    "data\\noise\\p075_s29.csv": true,
+    "data\\noise\\p075_s43.csv": true,
+    "data\\noise\\p100_s17.csv": true,
+    "data\\noise\\p100_s29.csv": true,
+    "data\\noise\\p100_s43.csv": true
+  },
+  "fresh_receipt_sha256": "1a59cea4e7232aafcd6a774fcf3300d39088697998700c6d34b92b9a83311299",
+  "fresh_fingerprint": "446f5c5e89f0b8b1cac8be3a98d589e3ec26635ade2ca42955c2228323ef6428",
+  "fresh_result_files_verified": 95,
+  "research_fitting_seconds": {
+    "tuning": 50.03888700000243,
+    "runs": 330.0706039001234
+  },
+  "research_fit_counts": {
+    "tuning": 10,
+    "runs": 45
+  },
+  "main_warning_runs": 14,
+  "web_smoke": {
+    "port": 5174,
+    "host": "127.0.0.1",
+    "prediction_checks": [
+      {
+        "model": "LR",
+        "p": 0.0,
+        "class": "SIRA",
+        "maximum_probability_difference": 0.0
+      },
+      {
+        "model": "LR",
+        "p": 1.0,
+        "class": "CALI",
+        "maximum_probability_difference": 0.0
+      },
+      {
+        "model": "RF",
+        "p": 0.0,
+        "class": "BARBUNYA",
+        "maximum_probability_difference": 0.0
+      },
+      {
+        "model": "RF",
+        "p": 1.0,
+        "class": "HOROZ",
+        "maximum_probability_difference": 0.0
+      },
+      {
+        "model": "MLP",
+        "p": 0.0,
+        "class": "BARBUNYA",
+        "maximum_probability_difference": 0.0
+      },
+      {
+        "model": "MLP",
+        "p": 1.0,
+        "class": "HOROZ",
+        "maximum_probability_difference": 0.0
+      }
+    ],
+    "health": {
+      "models_loaded": 6,
+      "status": "ready"
+    },
+    "status": "passed real HTTP startup, bootstrap, and six saved-pipeline predictions",
+    "server_stopped": true
+  },
+  "checks": [
+    {
+      "check": "helper completed all stages and verification",
+      "passed": true
+    },
+    {
+      "check": "unchanged scientific source: src/core.py",
+      "passed": true
+    },
+    {
+      "check": "unchanged scientific source: src/pipeline.py",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv: row identifiers match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/LR_p000_s17: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/LR_p000_s29: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/LR_p000_s43: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/LR_p025_s17: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/LR_p025_s29: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/LR_p025_s43: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/LR_p050_s17: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/LR_p050_s29: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/LR_p050_s43: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/LR_p075_s17: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/LR_p075_s29: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/LR_p075_s43: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/LR_p100_s17: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/LR_p100_s29: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/LR_p100_s43: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/RF_p000_s17: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/RF_p000_s29: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/RF_p000_s43: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/RF_p025_s17: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/RF_p025_s29: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/RF_p025_s43: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/RF_p050_s17: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/RF_p050_s29: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/RF_p050_s43: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/RF_p075_s17: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/RF_p075_s29: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/RF_p075_s43: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/RF_p100_s17: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/RF_p100_s29: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/RF_p100_s43: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/MLP_p000_s17: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/MLP_p000_s29: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/MLP_p000_s43: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/MLP_p025_s17: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/MLP_p025_s29: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/MLP_p025_s43: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/MLP_p050_s17: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/MLP_p050_s29: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/MLP_p050_s43: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/MLP_p075_s17: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/MLP_p075_s29: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/MLP_p075_s43: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/MLP_p100_s17: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/MLP_p100_s29: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/test_metrics.csv/MLP_p100_s43: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/tuning.csv: row identifiers match",
+      "passed": true
+    },
+    {
+      "check": "results/tuning.csv/LR_candidate_01: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/tuning.csv/LR_candidate_02: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/tuning.csv/LR_candidate_03: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/tuning.csv/RF_candidate_01: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/tuning.csv/RF_candidate_02: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/tuning.csv/RF_candidate_03: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/tuning.csv/RF_candidate_04: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/tuning.csv/MLP_candidate_01: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/tuning.csv/MLP_candidate_02: columns match",
+      "passed": true
+    },
+    {
+      "check": "results/tuning.csv/MLP_candidate_03: columns match",
+      "passed": true
+    },
+    {
+      "check": "all 45-run non-runtime metrics match within 1e-12",
+      "passed": true
+    },
+    {
+      "check": "all ten tuning non-runtime results match within 1e-12",
+      "passed": true
+    },
+    {
+      "check": "selected model parameters match",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\processed\\cleaned.csv",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\processed\\test.csv",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\processed\\train.csv",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\processed\\validation.csv",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\noise\\p000_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\noise\\p000_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\noise\\p000_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\noise\\p025_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\noise\\p025_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\noise\\p025_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\noise\\p050_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\noise\\p050_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\noise\\p050_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\noise\\p075_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\noise\\p075_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\noise\\p075_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\noise\\p100_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\noise\\p100_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "identical derived data bytes: data\\noise\\p100_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh final evaluation has complete matrix and holdout",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: baselines.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: main_training_metrics.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: model_noise_summary.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_metrics.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: tuning.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/LR_p000_s17.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/LR_p000_s29.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/LR_p000_s43.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/LR_p025_s17.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/LR_p025_s29.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/LR_p025_s43.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/LR_p050_s17.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/LR_p050_s29.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/LR_p050_s43.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/LR_p075_s17.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/LR_p075_s29.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/LR_p075_s43.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/LR_p100_s17.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/LR_p100_s29.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/LR_p100_s43.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/MLP_p000_s17.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/MLP_p000_s29.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/MLP_p000_s43.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/MLP_p025_s17.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/MLP_p025_s29.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/MLP_p025_s43.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/MLP_p050_s17.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/MLP_p050_s29.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/MLP_p050_s43.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/MLP_p075_s17.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/MLP_p075_s29.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/MLP_p075_s43.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/MLP_p100_s17.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/MLP_p100_s29.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/MLP_p100_s43.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/RF_p000_s17.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/RF_p000_s29.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/RF_p000_s43.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/RF_p025_s17.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/RF_p025_s29.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/RF_p025_s43.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/RF_p050_s17.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/RF_p050_s29.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/RF_p050_s43.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/RF_p075_s17.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/RF_p075_s29.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/RF_p075_s43.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/RF_p100_s17.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/RF_p100_s29.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: class_reports/RF_p100_s43.json",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/LR_p000_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/LR_p000_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/LR_p000_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/LR_p025_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/LR_p025_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/LR_p025_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/LR_p050_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/LR_p050_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/LR_p050_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/LR_p075_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/LR_p075_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/LR_p075_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/LR_p100_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/LR_p100_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/LR_p100_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/MLP_p000_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/MLP_p000_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/MLP_p000_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/MLP_p025_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/MLP_p025_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/MLP_p025_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/MLP_p050_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/MLP_p050_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/MLP_p050_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/MLP_p075_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/MLP_p075_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/MLP_p075_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/MLP_p100_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/MLP_p100_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/MLP_p100_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/RF_p000_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/RF_p000_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/RF_p000_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/RF_p025_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/RF_p025_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/RF_p025_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/RF_p050_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/RF_p050_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/RF_p050_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/RF_p075_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/RF_p075_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/RF_p075_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/RF_p100_s17.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/RF_p100_s29.csv",
+      "passed": true
+    },
+    {
+      "check": "fresh receipt verifies: test_predictions/RF_p100_s43.csv",
+      "passed": true
+    },
+    {
+      "check": "all tuning metadata complete",
+      "passed": true
+    },
+    {
+      "check": "all runs metadata complete",
+      "passed": true
+    },
+    {
+      "check": "fresh HTTP health reports six models",
+      "passed": true
+    },
+    {
+      "check": "fresh bootstrap has 16 features and seven validation examples",
+      "passed": true
+    },
+    {
+      "check": "fresh HTTP LR paired response",
+      "passed": true
+    },
+    {
+      "check": "fresh HTTP LR/p0: probability matches saved pipeline",
+      "passed": true
+    },
+    {
+      "check": "fresh HTTP LR/p0: predicted class matches saved pipeline",
+      "passed": true
+    },
+    {
+      "check": "fresh HTTP LR/p100: probability matches saved pipeline",
+      "passed": true
+    },
+    {
+      "check": "fresh HTTP LR/p100: predicted class matches saved pipeline",
+      "passed": true
+    },
+    {
+      "check": "fresh HTTP RF paired response",
+      "passed": true
+    },
+    {
+      "check": "fresh HTTP RF/p0: probability matches saved pipeline",
+      "passed": true
+    },
+    {
+      "check": "fresh HTTP RF/p0: predicted class matches saved pipeline",
+      "passed": true
+    },
+    {
+      "check": "fresh HTTP RF/p100: probability matches saved pipeline",
+      "passed": true
+    },
+    {
+      "check": "fresh HTTP RF/p100: predicted class matches saved pipeline",
+      "passed": true
+    },
+    {
+      "check": "fresh HTTP MLP paired response",
+      "passed": true
+    },
+    {
+      "check": "fresh HTTP MLP/p0: probability matches saved pipeline",
+      "passed": true
+    },
+    {
+      "check": "fresh HTTP MLP/p0: predicted class matches saved pipeline",
+      "passed": true
+    },
+    {
+      "check": "fresh HTTP MLP/p100: probability matches saved pipeline",
+      "passed": true
+    },
+    {
+      "check": "fresh HTTP MLP/p100: predicted class matches saved pipeline",
+      "passed": true
+    }
+  ],
+  "check_count": 197,
+  "all_checks_passed": true
+}

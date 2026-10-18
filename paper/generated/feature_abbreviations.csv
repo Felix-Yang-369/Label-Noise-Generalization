@@ -1,0 +1,17 @@
+abbreviation,source_feature
+Area,Area
+Perim,Perimeter
+Major,MajorAxisLength
+Minor,MinorAxisLength
+Aspect,AspectRation
+Ecc,Eccentricity
+Convex,ConvexArea
+Diam,EquivDiameter
+Extent,Extent
+Solid,Solidity
+Round,roundness
+Compact,Compactness
+SF1,ShapeFactor1
+SF2,ShapeFactor2
+SF3,ShapeFactor3
+SF4,ShapeFactor4

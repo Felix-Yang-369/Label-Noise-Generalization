@@ -1,0 +1,11 @@
+model,run_id,params,validation_macro_f1,fit_seconds,warnings
+LR,LR_candidate_01,"{""C"": 0.1}",0.9315924754764036,0.6212341000209562,0
+LR,LR_candidate_02,"{""C"": 1}",0.9328197963125037,0.10153230000287294,0
+LR,LR_candidate_03,"{""C"": 10}",0.9320065290357729,0.14176540001062676,0
+RF,RF_candidate_01,"{""max_depth"": 8, ""min_samples_leaf"": 1}",0.9161622135568448,1.0939531999756582,0
+RF,RF_candidate_02,"{""max_depth"": 8, ""min_samples_leaf"": 5}",0.917153034935928,1.0466867000213824,0
+RF,RF_candidate_03,"{""max_depth"": null, ""min_samples_leaf"": 1}",0.9238726078857845,1.4133519000024535,0
+RF,RF_candidate_04,"{""max_depth"": null, ""min_samples_leaf"": 5}",0.9217264537442489,1.3068694999674335,0
+MLP,MLP_candidate_01,"{""alpha"": 0}",0.9298599460468873,18.127040399995167,1
+MLP,MLP_candidate_02,"{""alpha"": 0.0001}",0.9276167097012814,17.927460700040683,1
+MLP,MLP_candidate_03,"{""alpha"": 0.01}",0.9331272384672298,20.021337600017432,0

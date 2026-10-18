@@ -1,0 +1,184 @@
+New run: D:\Projects\ECS 171\work\final_report\fresh_reproduction
+Collecting blinker==1.9.0 (from -r requirements.lock.txt (line 1))
+  Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting click==8.5.0 (from -r requirements.lock.txt (line 2))
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting colorama==0.4.6 (from -r requirements.lock.txt (line 3))
+  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting contourpy==1.4.0 (from -r requirements.lock.txt (line 4))
+  Downloading contourpy-1.4.0-cp312-cp312-win_amd64.whl.metadata (3.8 kB)
+Collecting cycler==0.12.1 (from -r requirements.lock.txt (line 5))
+  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting et_xmlfile==2.0.0 (from -r requirements.lock.txt (line 6))
+  Downloading et_xmlfile-2.0.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting Flask==3.1.2 (from -r requirements.lock.txt (line 7))
+  Downloading flask-3.1.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting fonttools==4.66.1 (from -r requirements.lock.txt (line 8))
+  Downloading fonttools-4.66.1-cp312-cp312-win_amd64.whl.metadata (132 kB)
+Collecting iniconfig==2.3.1 (from -r requirements.lock.txt (line 9))
+  Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting itsdangerous==2.2.0 (from -r requirements.lock.txt (line 10))
+  Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting Jinja2==3.1.6 (from -r requirements.lock.txt (line 11))
+  Using cached jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting joblib==1.5.2 (from -r requirements.lock.txt (line 12))
+  Downloading joblib-1.5.2-py3-none-any.whl.metadata (5.6 kB)
+Collecting kiwisolver==1.5.1 (from -r requirements.lock.txt (line 13))
+  Downloading kiwisolver-1.5.1-cp312-cp312-win_amd64.whl.metadata (5.2 kB)
+Collecting MarkupSafe==3.0.4 (from -r requirements.lock.txt (line 14))
+  Downloading markupsafe-3.0.4-cp312-cp312-win_amd64.whl.metadata (2.8 kB)
+Collecting matplotlib==3.10.7 (from -r requirements.lock.txt (line 15))
+  Downloading matplotlib-3.10.7-cp312-cp312-win_amd64.whl.metadata (11 kB)
+Collecting numpy==2.2.6 (from -r requirements.lock.txt (line 16))
+  Downloading numpy-2.2.6-cp312-cp312-win_amd64.whl.metadata (60 kB)
+Collecting openpyxl==3.1.5 (from -r requirements.lock.txt (line 17))
+  Downloading openpyxl-3.1.5-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting packaging==26.3 (from -r requirements.lock.txt (line 18))
+  Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pandas==2.2.3 (from -r requirements.lock.txt (line 19))
+  Downloading pandas-2.2.3-cp312-cp312-win_amd64.whl.metadata (19 kB)
+Collecting pillow==12.3.0 (from -r requirements.lock.txt (line 20))
+  Downloading pillow-12.3.0-cp312-cp312-win_amd64.whl.metadata (9.3 kB)
+Collecting pluggy==1.6.0 (from -r requirements.lock.txt (line 21))
+  Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting Pygments==2.21.0 (from -r requirements.lock.txt (line 22))
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting pyparsing==3.3.3 (from -r requirements.lock.txt (line 23))
+  Using cached pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+Collecting pytest==8.4.2 (from -r requirements.lock.txt (line 24))
+  Downloading pytest-8.4.2-py3-none-any.whl.metadata (7.7 kB)
+Collecting python-dateutil==2.9.0.post0 (from -r requirements.lock.txt (line 25))
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting pytz==2026.5 (from -r requirements.lock.txt (line 26))
+  Downloading pytz-2026.5-py2.py3-none-any.whl.metadata (22 kB)
+Collecting scikit-learn==1.7.2 (from -r requirements.lock.txt (line 27))
+  Downloading scikit_learn-1.7.2-cp312-cp312-win_amd64.whl.metadata (11 kB)
+Collecting scipy==1.15.3 (from -r requirements.lock.txt (line 28))
+  Downloading scipy-1.15.3-cp312-cp312-win_amd64.whl.metadata (60 kB)
+Collecting six==1.17.0 (from -r requirements.lock.txt (line 29))
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting threadpoolctl==3.6.0 (from -r requirements.lock.txt (line 30))
+  Using cached threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+Collecting tzdata==2026.5 (from -r requirements.lock.txt (line 31))
+  Downloading tzdata-2026.5-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting Werkzeug==3.1.9 (from -r requirements.lock.txt (line 32))
+  Downloading werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading contourpy-1.4.0-cp312-cp312-win_amd64.whl (234 kB)
+Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading et_xmlfile-2.0.0-py3-none-any.whl (18 kB)
+Downloading flask-3.1.2-py3-none-any.whl (103 kB)
+Downloading fonttools-4.66.1-cp312-cp312-win_amd64.whl (2.5 MB)
+   ---------------------------------------- 2.5/2.5 MB 47.3 MB/s eta 0:00:00
+Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading joblib-1.5.2-py3-none-any.whl (308 kB)
+Downloading kiwisolver-1.5.1-cp312-cp312-win_amd64.whl (70 kB)
+Downloading markupsafe-3.0.4-cp312-cp312-win_amd64.whl (14 kB)
+Downloading matplotlib-3.10.7-cp312-cp312-win_amd64.whl (8.1 MB)
+   ---------------------------------------- 8.1/8.1 MB 12.6 MB/s eta 0:00:00
+Downloading numpy-2.2.6-cp312-cp312-win_amd64.whl (12.6 MB)
+   ---------------------------------------- 12.6/12.6 MB 60.8 MB/s eta 0:00:00
+Downloading openpyxl-3.1.5-py2.py3-none-any.whl (250 kB)
+Using cached packaging-26.3-py3-none-any.whl (129 kB)
+Downloading pandas-2.2.3-cp312-cp312-win_amd64.whl (11.5 MB)
+   ---------------------------------------- 11.5/11.5 MB 47.8 MB/s eta 0:00:00
+Downloading pillow-12.3.0-cp312-cp312-win_amd64.whl (7.2 MB)
+   ---------------------------------------- 7.2/7.2 MB 63.9 MB/s eta 0:00:00
+Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ---------------------------------------- 1.3/1.3 MB 61.8 MB/s eta 0:00:00
+Using cached pyparsing-3.3.3-py3-none-any.whl (126 kB)
+Downloading pytest-8.4.2-py3-none-any.whl (365 kB)
+Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading pytz-2026.5-py2.py3-none-any.whl (506 kB)
+Downloading scikit_learn-1.7.2-cp312-cp312-win_amd64.whl (8.7 MB)
+   ---------------------------------------- 8.7/8.7 MB 60.5 MB/s eta 0:00:00
+Downloading scipy-1.15.3-cp312-cp312-win_amd64.whl (41.0 MB)
+   ---------------------------------------- 41.0/41.0 MB 23.9 MB/s eta 0:00:00
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Using cached threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+Downloading tzdata-2026.5-py2.py3-none-any.whl (347 kB)
+Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+Installing collected packages: pytz, tzdata, threadpoolctl, six, pyparsing, Pygments, pluggy, pillow, packaging, numpy, MarkupSafe, kiwisolver, joblib, itsdangerous, iniconfig, fonttools, et_xmlfile, cycler, colorama, click, blinker, Werkzeug, scipy, python-dateutil, pytest, openpyxl, Jinja2, contourpy, scikit-learn, pandas, matplotlib, Flask
+Successfully installed Flask-3.1.2 Jinja2-3.1.6 MarkupSafe-3.0.4 Pygments-2.21.0 Werkzeug-3.1.9 blinker-1.9.0 click-8.5.0 colorama-0.4.6 contourpy-1.4.0 cycler-0.12.1 et_xmlfile-2.0.0 fonttools-4.66.1 iniconfig-2.3.1 itsdangerous-2.2.0 joblib-1.5.2 kiwisolver-1.5.1 matplotlib-3.10.7 numpy-2.2.6 openpyxl-3.1.5 packaging-26.3 pandas-2.2.3 pillow-12.3.0 pluggy-1.6.0 pyparsing-3.3.3 pytest-8.4.2 python-dateutil-2.9.0.post0 pytz-2026.5 scikit-learn-1.7.2 scipy-1.15.3 six-1.17.0 threadpoolctl-3.6.0 tzdata-2026.5
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: D:\Projects\ECS 171\work\final_report\fresh_reproduction\.venv\Scripts\python.exe -m pip install --upgrade pip
+prepare: {'train': 8125, 'validation': 2709, 'test': 2709} duplicates: 68
+EDA: training-only statistics and three figures generated
+smoke: LR_p000 seconds: 0.03
+smoke: RF_p000 seconds: 0.37
+smoke: MLP_p000 seconds: 0.58
+smoke: MLP_p100 seconds: 0.59
+tuning: LR_candidate_01 val Macro-F1: 0.931592 seconds: 0.06
+tuning: LR_candidate_02 val Macro-F1: 0.93282 seconds: 0.08
+tuning: LR_candidate_03 val Macro-F1: 0.932007 seconds: 0.12
+tuning: RF_candidate_01 val Macro-F1: 0.916162 seconds: 0.82
+tuning: RF_candidate_02 val Macro-F1: 0.917153 seconds: 0.79
+tuning: RF_candidate_03 val Macro-F1: 0.923873 seconds: 1.06
+tuning: RF_candidate_04 val Macro-F1: 0.921726 seconds: 0.99
+tuning: MLP_candidate_01 val Macro-F1: 0.92986 seconds: 14.93
+tuning: MLP_candidate_02 val Macro-F1: 0.927617 seconds: 14.77
+tuning: MLP_candidate_03 val Macro-F1: 0.933127 seconds: 16.42
+freeze: scientific configuration saved
+main 1/45: LR_p000_s17 train noisy: 0.9247 val F1: 0.9328 seconds: 0.09
+main 2/45: LR_p000_s29 train noisy: 0.9247 val F1: 0.9328 seconds: 0.08
+main 3/45: LR_p000_s43 train noisy: 0.9247 val F1: 0.9328 seconds: 0.08
+main 4/45: LR_p025_s17 train noisy: 0.7084 val F1: 0.9053 seconds: 0.15
+main 5/45: LR_p025_s29 train noisy: 0.7166 val F1: 0.9048 seconds: 0.14
+main 6/45: LR_p025_s43 train noisy: 0.7051 val F1: 0.9065 seconds: 0.15
+main 7/45: LR_p050_s17 train noisy: 0.5115 val F1: 0.8956 seconds: 0.18
+main 8/45: LR_p050_s29 train noisy: 0.52 val F1: 0.8974 seconds: 0.16
+main 9/45: LR_p050_s43 train noisy: 0.5244 val F1: 0.8988 seconds: 0.15
+main 10/45: LR_p075_s17 train noisy: 0.3221 val F1: 0.8918 seconds: 0.16
+main 11/45: LR_p075_s29 train noisy: 0.3248 val F1: 0.8964 seconds: 0.12
+main 12/45: LR_p075_s43 train noisy: 0.3328 val F1: 0.887 seconds: 0.11
+main 13/45: LR_p100_s17 train noisy: 0.1646 val F1: 0.1553 seconds: 0.07
+main 14/45: LR_p100_s29 train noisy: 0.1611 val F1: 0.0573 seconds: 0.08
+main 15/45: LR_p100_s43 train noisy: 0.1551 val F1: 0.1377 seconds: 0.1
+main 16/45: RF_p000_s17 train noisy: 1.0 val F1: 0.9239 seconds: 1.04
+main 17/45: RF_p000_s29 train noisy: 1.0 val F1: 0.9245 seconds: 1.1
+main 18/45: RF_p000_s43 train noisy: 1.0 val F1: 0.9246 seconds: 1.13
+main 19/45: RF_p025_s17 train noisy: 1.0 val F1: 0.9216 seconds: 1.59
+main 20/45: RF_p025_s29 train noisy: 1.0 val F1: 0.925 seconds: 1.61
+main 21/45: RF_p025_s43 train noisy: 1.0 val F1: 0.9184 seconds: 1.58
+main 22/45: RF_p050_s17 train noisy: 1.0 val F1: 0.8666 seconds: 1.67
+main 23/45: RF_p050_s29 train noisy: 1.0 val F1: 0.8682 seconds: 1.56
+main 24/45: RF_p050_s43 train noisy: 1.0 val F1: 0.8748 seconds: 1.76
+main 25/45: RF_p075_s17 train noisy: 1.0 val F1: 0.6328 seconds: 1.7
+main 26/45: RF_p075_s29 train noisy: 1.0 val F1: 0.6271 seconds: 1.82
+main 27/45: RF_p075_s43 train noisy: 1.0 val F1: 0.6488 seconds: 1.58
+main 28/45: RF_p100_s17 train noisy: 1.0 val F1: 0.1203 seconds: 2.41
+main 29/45: RF_p100_s29 train noisy: 1.0 val F1: 0.1174 seconds: 2.16
+main 30/45: RF_p100_s43 train noisy: 1.0 val F1: 0.1428 seconds: 2.29
+main 31/45: MLP_p000_s17 train noisy: 0.9728 val F1: 0.9331 seconds: 16.75
+main 32/45: MLP_p000_s29 train noisy: 0.9746 val F1: 0.9292 seconds: 19.95
+main 33/45: MLP_p000_s43 train noisy: 0.9647 val F1: 0.9276 seconds: 18.01
+main 34/45: MLP_p025_s17 train noisy: 0.7744 val F1: 0.9108 seconds: 19.52
+main 35/45: MLP_p025_s29 train noisy: 0.7689 val F1: 0.9044 seconds: 20.7
+main 36/45: MLP_p025_s43 train noisy: 0.7657 val F1: 0.9042 seconds: 20.23
+main 37/45: MLP_p050_s17 train noisy: 0.581 val F1: 0.8235 seconds: 20.0
+main 38/45: MLP_p050_s29 train noisy: 0.5834 val F1: 0.8359 seconds: 20.96
+main 39/45: MLP_p050_s43 train noisy: 0.5845 val F1: 0.8419 seconds: 19.9
+main 40/45: MLP_p075_s17 train noisy: 0.4351 val F1: 0.6047 seconds: 22.99
+main 41/45: MLP_p075_s29 train noisy: 0.4327 val F1: 0.5356 seconds: 19.19
+main 42/45: MLP_p075_s43 train noisy: 0.443 val F1: 0.6281 seconds: 24.13
+main 43/45: MLP_p100_s17 train noisy: 0.3798 val F1: 0.1454 seconds: 21.92
+main 44/45: MLP_p100_s29 train noisy: 0.3775 val F1: 0.1087 seconds: 19.05
+main 45/45: MLP_p100_s43 train noisy: 0.3846 val F1: 0.1413 seconds: 19.95
+final evaluation: all 45 runs evaluated on 2709 clean holdout rows
+report: actual-result figures, CSV overview, Markdown and HTML generated
+...............................................                          [100%]
+============================== warnings summary ===============================
+tests/test_protocol.py::test_macro_f1_counts_absent_classes_as_zero_when_predeclared
+  D:\Projects\ECS 171\work\final_report\fresh_reproduction\.venv\Lib\site-packages\sklearn\metrics\_classification.py:534: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+47 passed, 1 warning in 8.17s
+Reproduction completed: D:\Projects\ECS 171\work\final_report\fresh_reproduction
+Start the local demonstration from that directory with .\Run_Demo.ps1.

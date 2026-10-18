@@ -1,0 +1,58 @@
+[
+  {
+    "figure": "confusion_endpoints",
+    "width_inches": 7.1,
+    "height_inches": 4.85,
+    "raster_images": 0,
+    "pages": 1
+  },
+  {
+    "figure": "eda_class_scale",
+    "width_inches": 7.1,
+    "height_inches": 3.25,
+    "raster_images": 0,
+    "pages": 1
+  },
+  {
+    "figure": "eda_correlation",
+    "width_inches": 7.1,
+    "height_inches": 5.7,
+    "raster_images": 0,
+    "pages": 1
+  },
+  {
+    "figure": "fitting_targets",
+    "width_inches": 7.1,
+    "height_inches": 2.9,
+    "raster_images": 0,
+    "pages": 1
+  },
+  {
+    "figure": "mlp_optimization",
+    "width_inches": 7.1,
+    "height_inches": 3.05,
+    "raster_images": 0,
+    "pages": 1
+  },
+  {
+    "figure": "per_class_f1",
+    "width_inches": 7.1,
+    "height_inches": 3.0,
+    "raster_images": 0,
+    "pages": 1
+  },
+  {
+    "figure": "study_flow",
+    "width_inches": 7.1,
+    "height_inches": 2.65,
+    "raster_images": 0,
+    "pages": 1
+  },
+  {
+    "figure": "test_performance",
+    "width_inches": 7.1,
+    "height_inches": 2.9,
+    "raster_images": 0,
+    "pages": 1
+  }
+]

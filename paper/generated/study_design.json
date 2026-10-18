@@ -1,0 +1,33 @@
+{
+  "original_rows": 13611,
+  "duplicates_removed": 68,
+  "cleaned_rows": 13543,
+  "split_counts": {
+    "train": 8125,
+    "validation": 2709,
+    "test": 2709
+  },
+  "split_seeds": {
+    "test": 171,
+    "validation": 172
+  },
+  "classes": [
+    "BARBUNYA",
+    "BOMBAY",
+    "CALI",
+    "DERMASON",
+    "HOROZ",
+    "SEKER",
+    "SIRA"
+  ],
+  "class_abbreviations": {
+    "BAR": "BARBUNYA",
+    "BOM": "BOMBAY",
+    "CAL": "CALI",
+    "DER": "DERMASON",
+    "HOR": "HOROZ",
+    "SEK": "SEKER",
+    "SIR": "SIRA"
+  },
+  "scope": "EDA uses training split only"
+}

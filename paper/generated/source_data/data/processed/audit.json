@@ -1,0 +1,26 @@
+{
+  "original_rows": 13611,
+  "exact_duplicate_rows": 68,
+  "cleaned_rows": 13543,
+  "missing_cells": 0,
+  "nonfinite_cells": 0,
+  "conflicting_feature_groups": 0,
+  "class_counts_original": {
+    "BARBUNYA": 1322,
+    "BOMBAY": 522,
+    "CALI": 1630,
+    "DERMASON": 3546,
+    "HOROZ": 1928,
+    "SEKER": 2027,
+    "SIRA": 2636
+  },
+  "class_counts_cleaned": {
+    "BARBUNYA": 1322,
+    "BOMBAY": 522,
+    "CALI": 1630,
+    "DERMASON": 3546,
+    "HOROZ": 1860,
+    "SEKER": 2027,
+    "SIRA": 2636
+  }
+}

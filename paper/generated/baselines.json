@@ -1,0 +1,10 @@
+{
+  "majority_class": "DERMASON",
+  "clean_training_majority_test": {
+    "macro_f1": 0.05926607038368303,
+    "accuracy": 0.2617201919527501,
+    "balanced_accuracy": 0.14285714285714285
+  },
+  "uniform_guess_expected_accuracy": 0.14285714285714285,
+  "note": "Majority class selected from clean training labels; a reference, not a fourth experimental model."
+}
