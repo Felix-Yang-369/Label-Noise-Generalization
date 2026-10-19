@@ -4,7 +4,13 @@
 
 A controlled study of how logistic regression (LR), random forests (RF), and a multilayer perceptron (MLP) respond when training labels are progressively randomized. The experiment uses the public UCI Dry Bean dataset, retains clean validation and test labels, and separates fitting corrupted training targets from predicting true labels on unseen observations.
 
-The required research experiment is complete: **10 clean-label tuning fits, 45 main fits, and evaluation on one fixed clean holdout**. This repository contains the scientific source, locked dependencies, public raw data, recorded results, figures, tests, and a local inference application. Generated model files and row-level predictions are excluded from Git and can be regenerated.
+The required research experiment is complete: **10 clean-label tuning fits, 45 main fits, and evaluation on one fixed clean holdout**. This repository contains the scientific source, locked dependencies, public raw data, recorded results, figures, tests, and an inference application with a verified public deployment. Generated model files and row-level predictions are excluded from Git and can be regenerated.
+
+## Live Demo
+
+**[Open the online Demo](https://ecs171-label-demo.vercel.app)** — no installation or sign-in required. Choose LR, RF, or MLP, load a validation example, and compare clean versus randomized-label predictions. Probabilities are uncalibrated model outputs.
+
+**Deployment status (October 18, 2026):** Vercel production is live on the existing free Hobby plan. Anonymous HTTP checks compared all six saved models on seven validation examples (42 comparisons); classes and metadata matched, and the maximum probability difference from offline inference was `2.78e-17` (tolerance `1e-12`). Browser prediction and model switching were checked. No paid integrations or plan upgrade were enabled. Availability remains subject to Hobby usage limits. See [deployment verification](docs/Deployment_Verification.json).
 
 ## Main result
 
@@ -20,7 +26,7 @@ Each condition has three seeds on the **same data split**. These standard deviat
 
 ## English IEEE report
 
-Read the [compiled report](paper/ECS171_Final_Report.pdf), edit the [LaTeX source](paper/main.tex), or inspect the [paper package guide](paper/README.md). The report has ten body pages plus one reference page, six main figures, five tables, and seven primary references. Its final body page includes this repository's URL, roadmap, delivery status, and contribution record. It is a review version dated October 18, 2026; team acceptance, deployment, and course submission are not inferred from report preparation.
+Read the [compiled report](paper/ECS171_Final_Report.pdf), edit the [LaTeX source](paper/main.tex), or inspect the [paper package guide](paper/README.md). The report has ten body pages plus one reference page, six main figures, five tables, and seven primary references. Its final body page includes this repository's URL, roadmap, delivery status, and contribution record. It is a review version dated October 18, 2026; public deployment is verified; team acceptance, backup recording, rehearsal, and course submission remain pending.
 
 The paper's vector figures and compact recorded source copies are tracked. After installing the locked plotting dependencies, `python paper/tools/build_figures.py --recorded-sources` regenerates these historical figures without model fitting. This is separate from running the scientific experiment again.
 
@@ -102,13 +108,15 @@ The test set has already been evaluated. Any later modeling motivated by these r
 
 The original artifact manifest lists 397 generated files. A clone can inspect that inventory but cannot validate missing model/prediction files until a complete matching artifact set is supplied. A fresh execution produces new evidence; its timestamp-dependent hashes are not expected to match the original receipt.
 
-## Local inference demonstration
+## Online and local inference demonstration
+
+The primary shared Demo is **[https://ecs171-label-demo.vercel.app](https://ecs171-label-demo.vercel.app)**. The local launcher below remains a development and presentation fallback.
 
 After reproducing the experiment, run `Run_Demo.ps1` from the fresh run directory and open `http://127.0.0.1:5172`. Stop with Ctrl+C; use `-Port 5173` if necessary.
 
 The app loads six saved seed-17 pipelines: LR, RF, and MLP trained at `p=0` and `p=1`. It validates the environment, scientific source, frozen inputs, feature/class order, and model checksums before loading. Requests perform inference only. The interface offers 16 numeric inputs, seven validation examples chosen by row order independently of prediction quality, and paired clean/random-label predictions.
 
-Displayed probabilities are uncalibrated model outputs. Editing a validation example clears its inherited true-label claim. The local launcher binds to `127.0.0.1` with Flask debug disabled. This repository does not establish a public deployment; classroom hosting and presentation delivery are separate tasks. See the [five-minute demo runbook](reports/Demo_Runbook.md).
+Displayed probabilities are uncalibrated model outputs. Editing a validation example clears its inherited true-label claim. The local launcher binds to `127.0.0.1` with Flask debug disabled. The public deployment uses the same six saved models and preprocessing; requests perform inference only. Team acceptance, backup recording, and presentation rehearsal remain separate tasks. See the [five-minute demo runbook](reports/Demo_Runbook.md).
 
 ## Provenance, attribution, and licensing
 

@@ -1,8 +1,14 @@
+# Online deployment update — October 18, 2026
+
+Primary Demo: https://ecs171-label-demo.vercel.app
+
+Open this URL before presenting; no local setup or sign-in is required. Select LR and Compare both, load the default BARBUNYA validation example, and run prediction; clean LR predicts SIRA and randomized LR predicts CALI. Switch to RF with the same input. The 72-second sequence and interpretation below still apply. The existing local launcher is a fallback. Public inference is verified; backup video and timed rehearsal remain pending.
+
 # ECS171 live demo runbook
 
 ## Start and check
 
-Open a terminal in `12_Implementation`, run `./Run_Demo.ps1`, then open <http://127.0.0.1:5172>. Keep the server terminal running. Use `-Port 5173` if 5172 is occupied. This is local execution, not a public deployment.
+Open a terminal in `12_Implementation`, run `./Run_Demo.ps1`, then open <http://127.0.0.1:5172>. Keep the server terminal running. Use `-Port 5173` if 5172 is occupied. This command starts the local fallback; the primary public deployment is linked above.
 
 1. Confirm the page loads 16 numeric fields and the validation-example selector.
 2. Load the default BARBUNYA example (validation row 2032), select LR, choose Compare both, and click Predict & compare.

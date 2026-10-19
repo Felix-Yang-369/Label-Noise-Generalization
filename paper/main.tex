@@ -21,7 +21,7 @@ ECS 171, Group 8\\
 \maketitle
 
 \begin{abstract}
-Accurate predictions on training examples can reflect either transferable structure or memorization of the supplied answers. Inspired by random-label experiments in deep learning, we compare these behaviors across three model families on the UCI Dry Bean dataset. After exact deduplication, we use 13,543 observations, 16 numerical features, seven classes, and one fixed stratified train/validation/test split. Ten clean-label candidate fits select hyperparameters before 45 fresh main fits: logistic regression (LR), random forest (RF), and a multilayer perceptron (MLP), each evaluated at five training-label randomization probabilities and three paired seeds. Validation and test labels remain clean. Clean-label test Macro-F1 is 0.9404 for LR, 0.9361 for RF, and 0.9346 for MLP. Under complete random-label replacement, RF fits the supplied training labels perfectly but reaches only 0.1314 clean-test Macro-F1. The finite-budget MLP fits 38.06\% of randomized training labels, with test Macro-F1 0.1309; LR reaches 0.1144. At partial randomization, model responses differ substantially: at $p=0.75$, LR retains 0.9073 Macro-F1, compared with 0.6440 for RF and 0.5856 for MLP. These results separate random-label fitting from useful prediction within this dataset and protocol. We provide saved predictions, integrity records, reproducible figure generation, and a local web inference interface. Three seeds on one split describe conditional run variation, not statistical significance or cross-dataset superiority.
+Accurate predictions on training examples can reflect either transferable structure or memorization of the supplied answers. Inspired by random-label experiments in deep learning, we compare these behaviors across three model families on the UCI Dry Bean dataset. After exact deduplication, we use 13,543 observations, 16 numerical features, seven classes, and one fixed stratified train/validation/test split. Ten clean-label candidate fits select hyperparameters before 45 fresh main fits: logistic regression (LR), random forest (RF), and a multilayer perceptron (MLP), each evaluated at five training-label randomization probabilities and three paired seeds. Validation and test labels remain clean. Clean-label test Macro-F1 is 0.9404 for LR, 0.9361 for RF, and 0.9346 for MLP. Under complete random-label replacement, RF fits the supplied training labels perfectly but reaches only 0.1314 clean-test Macro-F1. The finite-budget MLP fits 38.06\% of randomized training labels, with test Macro-F1 0.1309; LR reaches 0.1144. At partial randomization, model responses differ substantially: at $p=0.75$, LR retains 0.9073 Macro-F1, compared with 0.6440 for RF and 0.5856 for MLP. These results separate random-label fitting from useful prediction within this dataset and protocol. We provide saved predictions, integrity records, reproducible figure generation, and a hosted web inference interface. Three seeds on one split describe conditional run variation, not statistical significance or cross-dataset superiority.
 \end{abstract}
 \begin{IEEEkeywords}
 label noise, memorization, generalization, tabular classification, reproducibility
@@ -45,7 +45,7 @@ The primary comparison fixes hyperparameters selected on clean labels. We theref
 
 The project makes three concrete contributions. First, it implements a paired randomization experiment with an explicit distinction between the probability of redrawing a label and the fraction that actually changes. Second, it reports training agreement with both supplied and original labels alongside clean-test metrics, preventing increased fitting capacity from being confused with generalization. Third, it links the analysis to saved per-observation predictions, frozen experiment records, and a web interface that uses the same saved preprocessing and models.
 
-This report describes the completed core experiments as of October 18, 2026. The final section separates completed artifacts from remaining deployment and team-acceptance work. No additional model configurations were selected from the test results reported here.
+This report describes completed core experiments and verified public deployment as of October 18, 2026. The final section separates delivered artifacts from remaining team acceptance and presentation work. No additional configurations were selected from the reported test results.
 
 \section{Background and Related Work}
 \label{sec:related}
@@ -347,14 +347,14 @@ The repository documentation gives setup and reproduction steps and identifies d
 
 Figure assets use saved training data, metric tables, predictions, and optimization records. Vector PDFs and a source manifest allow independent compilation on Overleaf without running the training pipeline. Rebuilding figures is an analysis/rendering operation, not additional research fitting.
 
-\subsection{Local Inference Demonstration}
+\subsection{Hosted and Local Inference Demonstration}
 The Flask interface loads six saved Pipelines: one seed-17 model from each family under clean ($p=0$) and fully randomized ($p=1$) supervision. Requests supply 16 numerical inputs in fixed order. Preprocessing remains inside each saved Pipeline, preventing the interface from applying different standardization statistics.
 
 The interface supports model selection, clean/random comparison, editable inputs, and seven-class probability displays. An example's original label appears only while its recorded validation inputs are unchanged; editing features removes that claim. Validation examples are selected by a fixed row-order rule, not prediction correctness. Displayed probabilities are model outputs, not externally calibrated confidence estimates.
 
 Input validation rejects missing or extra fields, nonnumeric or nonfinite values, and extreme magnitudes. Finite values outside training ranges generate a notice rather than silent clipping. Pending requests lock controls until the response arrives, avoiding results displayed under changed selections. The endpoint performs no training and does not read the test partition.
 
-Historical records show 47 tests passing, agreement between all six web models and offline probabilities within $10^{-12}$ on checked inputs, and consistent predictions after restart. Desktop checks and a partial mobile visual review are documented. These establish a locally tested path, not production hosting or full mobile acceptance. Deployment acceptance, a backup recording, and presentation rehearsal remain delivery tasks at this snapshot.
+Historical local records show 47 tests passing and restart consistency. The public Vercel Hobby deployment is available at \url{https://ecs171-label-demo.vercel.app}. Anonymous production checks compared all six models on seven validation examples: all 42 predictions matched offline classes and metadata, with maximum probability difference $2.78\times10^{-17}$, below $10^{-12}$. Desktop interaction was checked; full mobile acceptance, a backup recording, and timed rehearsal remain pending.
 
 \section{Conclusion}
 \label{sec:conclusion}
@@ -367,7 +367,7 @@ The strongest supported lesson is methodological: state which labels define each
 \section{Project Roadmap, Contributions, and Availability}
 \label{sec:roadmap}
 \subsection{Milestones and Completion Evidence}
-Table~\ref{tab:roadmap} maps the course workflow to artifacts and remaining work. The technical baseline is complete; this report does not imply deployment, team acceptance, or submission. Dates after the proposal deadline are internal targets, subordinate to course announcements and the assigned presentation date.
+Table~\ref{tab:roadmap} maps the course workflow to artifacts and remaining work. The technical baseline and public deployment are complete; team acceptance and course submission remain pending. Dates after the proposal deadline are internal targets, subordinate to course announcements and the assigned presentation date.
 
 \begin{table}[h]
 \caption{Roadmap snapshot, October 18, 2026.}
@@ -384,9 +384,9 @@ Preprocessing & Complete: 16 features; train-fitted scaling for LR/MLP.\\
 Development / tuning & Complete: ten clean candidates; settings frozen.\\
 Main experiments & Complete: 45 fits, predictions, warnings, and time records.\\
 Evaluation & Complete: predeclared clean holdout; 15 condition summaries.\\
-Web demo & Local inference complete; deployment and backup video pending.\\
+Web demo & Vercel production live; anonymous inference verified; backup video pending.\\
 Proposal, Oct. 21 & One-page LaTeX/PDF prepared; team confirmation and submission pending.\\
-Mid-quarter, Oct. 28 & Internal target: three-page draft and consistency review.\\
+Mid-quarter, Oct. 28 & Three-page draft prepared; internal team-review target.\\
 Report / repo, Nov.~4 & Internal target: team-accepted report and documented repository release.\\
 Presentation, Nov.~11 & Internal target: delivery check and five-minute rehearsal.\\
 \bottomrule
@@ -406,7 +406,7 @@ The source repository is
 \end{center}
 It is private at preparation time; instructor and teammate access must be arranged before assessment. It contains the implementation, environment instructions, experiment summaries, and this paper's LaTeX source. Large model and prediction artifacts are regenerated through the documented pipeline rather than assumed present after cloning. The paper package includes finished figure assets for independent compilation.
 
-The pre-report project snapshot is commit \code{1d19a2a}; later report/documentation commits do not alter frozen training sources. The README and reproduction guide are operational entry points. Submission status, hosting URL, presentation allocation, and individual contribution sign-off must be checked against actual delivery state rather than inferred from this document's existence.
+The pre-report snapshot is commit \code{1d19a2a}; later documentation and deployment work preserve frozen training sources and results. Hosting uses the existing free Hobby plan, without paid integrations. The README and reproduction guide are entry points. Presentation allocation, contribution sign-off, and course submission remain to be confirmed.
 
 \clearpage
 \nobalance

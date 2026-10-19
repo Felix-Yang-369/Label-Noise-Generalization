@@ -1,5 +1,5 @@
 {
-  "phase": "Core experiments, English IEEE report, local inference, and private GitHub delivery complete; deployment/presentation pending",
+  "phase": "Core experiments, report/deck drafts, private GitHub repository, and verified public Vercel deployment complete; team acceptance and course submission pending",
   "training_complete": true,
   "tuning_fits_current": 10,
   "main_fits_current": 45,
@@ -19,9 +19,7 @@
   "operator": "Codex implementation and execution under user instruction; planned teammate roles do not prove individual human contributions",
   "not_run": [
     "18 optional capacity fits",
-    "deployment",
     "course submission",
-    "email",
     "recorded backup demo video"
   ],
   "excluded_history": "pre-review tuning/smoke assets preserved, not included in current research summaries",
@@ -29,7 +27,7 @@
   "git_baseline": "6fcccff",
   "local_demo_url": "http://127.0.0.1:5172",
   "web_models": 6,
-  "web_status": "complete locally; independent review passed; partial mobile visual scope documented",
+  "web_status": "Public production live; anonymous HTTP inference and browser model switching verified; full mobile acceptance pending",
   "web_review": "No Critical or Important issues; minor runbook path already corrected; independent 47 tests passed and all 397 experiment-artifact hashes matched.",
   "git_status": "Local history retained on codex/ecs171; private GitHub main and phase tags published for the October 18 delivery",
   "service_restart": "identical classes, probabilities and metadata; see reports/demo/restart_consistency.json",
@@ -61,5 +59,17 @@
     "fresh_web_models_verified": 6,
     "maximum_http_probability_difference": 0.0,
     "evidence": "docs/Fresh_Reproduction_Verification.json"
+  },
+  "demo_url": "https://ecs171-label-demo.vercel.app",
+  "deployment": {
+    "status": "READY",
+    "provider": "Vercel",
+    "plan": "Hobby",
+    "url": "https://ecs171-label-demo.vercel.app",
+    "verified_date_local": "2026-10-18",
+    "model_example_comparisons": 42,
+    "maximum_probability_difference": 2.7755575615628914e-17,
+    "no_paid_upgrade_or_integrations": true,
+    "evidence": "docs/Deployment_Verification.json"
   }
 }

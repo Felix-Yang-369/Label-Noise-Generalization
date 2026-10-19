@@ -72,3 +72,8 @@ outputs with historical freezes or receipts.
 
 The manuscript's final body page contains the actual GitHub URL, roadmap,
 completion status, and an evidence-based contribution statement.
+
+## Deployment update — October 18, 2026
+
+Online Demo: https://ecs171-label-demo.vercel.app
+Public production deployment and anonymous inference are verified on Vercel Hobby. The saved models and research results are unchanged. Team acceptance, backup recording, rehearsal, and course submission remain pending.

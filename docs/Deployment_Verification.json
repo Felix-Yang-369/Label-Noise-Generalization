@@ -1,0 +1,29 @@
+{
+  "url": "https://ecs171-label-demo.vercel.app",
+  "provider": "Vercel",
+  "environment": "production",
+  "status": "READY",
+  "verified_date_local": "2026-10-18",
+  "plan": "Hobby",
+  "anonymous_access": true,
+  "saved_models": 6,
+  "validation_examples": 7,
+  "model_example_comparisons": 42,
+  "maximum_probability_difference": 2.7755575615628914e-17,
+  "probability_tolerance": 1e-12,
+  "classes_and_metadata_match": true,
+  "http_checks": 31,
+  "browser_prediction_and_model_switching": "passed",
+  "adapter_tests_passed": 18,
+  "scientific_training_sources_and_results": "unchanged",
+  "paid_plan_upgrade": false,
+  "paid_integrations": false,
+  "remaining": [
+    "full mobile acceptance",
+    "backup video",
+    "team contribution sign-off",
+    "timed rehearsal",
+    "course submission"
+  ],
+  "course_submission": "not submitted"
+}
