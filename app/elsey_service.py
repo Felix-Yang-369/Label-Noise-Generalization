@@ -6,6 +6,7 @@ import threading
 from pathlib import Path
 
 import joblib
+import numpy as np
 import pandas as pd
 from threadpoolctl import threadpool_limits
 
@@ -82,6 +83,8 @@ class ElseyInferenceService:
                 estimator, meta = self.models[name, key], self.metadata[name, key]
                 probabilities = estimator.predict_proba(x)[0]
                 prediction = estimator.predict(x)[0]
+                steps = getattr(estimator[-1], 'n_iter_', None)
+                iterations = int(np.asarray(steps).max()) if steps is not None else None
                 predictions.append({
                     'class': str(prediction), 'condition': key, 'label_p': CONDITIONS[key],
                     'run_id': f'{name}_p{CONDITIONS[key]*100:03}_s17',
@@ -90,7 +93,7 @@ class ElseyInferenceService:
                                       for label, probability in zip(estimator.classes_, probabilities)],
                     'training_label_accuracy': meta['train_noisy_accuracy'],
                     'validation_macro_f1': meta['validation_macro_f1'],
-                    'params': meta['params'], 'iterations': getattr(estimator[-1], 'n_iter_', None),
+                    'params': meta['params'], 'iterations': iterations,
                     'stop_reason': 'Notebook iteration budget',
                     'model_sha256': meta['sha256'],
                 })
