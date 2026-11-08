@@ -1,6 +1,6 @@
 # Fresh-workspace reproduction verification
 
-Verified on 2026-10-18 using the repository-root `Reproduce.ps1` helper. The original scientific implementation and recorded experiment were preserved. No frozen scientific source change or helper repair was required.
+Verified on 2026-10-18 using the repository-root `Reproduce.ps1` helper. The original scientific implementation and recorded experiment were left unchanged.
 
 ## Execution
 
@@ -50,7 +50,5 @@ Detailed evidence in this folder:
 - `Fresh_Reproduction.log`: environment installation, all stages, and test output.
 - `Fresh_Reproduction_Verification.json`: 197 checks, table comparisons, receipt verification, and HTTP prediction checks.
 - `Fresh_Comparison_and_HTTP.log`: compact independent verification output.
-- `Fresh_Web_Server.log`: actual Flask listener and requests.
-- `verify_fresh_reproduction.py`: read-only comparator and temporary-server verifier.
 
-The complete generated reproduction assets remain in the dedicated fresh workspace. No original experimental asset, Git commit, remote, or push was changed by this reproduction subtask.
+The complete generated reproduction assets remain in the separate reproduction workspace; no original experimental asset was modified.

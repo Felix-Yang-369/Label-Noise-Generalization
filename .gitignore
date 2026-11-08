@@ -13,3 +13,9 @@ __pycache__/
 /paper/*.log
 /paper/*.out
 /paper/*.synctex.gz
+
+# Run-time logs (the folder itself is kept)
+/logs/*
+!/logs/.gitkeep
+/results/exploratory/*.json.tmp
+/paper/main.pdf

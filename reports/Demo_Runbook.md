@@ -1,14 +1,10 @@
-# Online deployment update — October 18, 2026
-
-Primary Demo: https://ecs171-label-demo.vercel.app
-
-Open this URL before presenting; no local setup or sign-in is required. Select LR and Compare both, load the default BARBUNYA validation example, and run prediction; clean LR predicts SIRA and randomized LR predicts CALI. Switch to RF with the same input. The 72-second sequence and interpretation below still apply. The existing local launcher is a fallback. Public inference is verified; backup video and timed rehearsal remain pending.
-
 # ECS171 live demo runbook
+
+Primary demo: <https://ecs171-label-demo.vercel.app> (no setup or sign-in). Open it before presenting. The local launcher below is the fallback; keep `reports/demo/01_desktop_comparison.png` ready in case neither is reachable.
 
 ## Start and check
 
-Open a terminal in `12_Implementation`, run `./Run_Demo.ps1`, then open <http://127.0.0.1:5172>. Keep the server terminal running. Use `-Port 5173` if 5172 is occupied. This command starts the local fallback; the primary public deployment is linked above.
+For the local fallback, open a terminal in a reproduced run directory, run `./Run_Demo.ps1` (or `python -m app --port 5172` on macOS/Linux), then open <http://127.0.0.1:5172>. Keep the server terminal running. Use `-Port 5173` if 5172 is occupied. This command starts the local fallback; the primary public deployment is linked above.
 
 1. Confirm the page loads 16 numeric fields and the validation-example selector.
 2. Load the default BARBUNYA example (validation row 2032), select LR, choose Compare both, and click Predict & compare.
@@ -27,7 +23,7 @@ Open a terminal in `12_Implementation`, run `./Run_Demo.ps1`, then open <http://
 | 3:00–4:30 | Live input → saved Pipeline → real output, same-input clean/random comparison |
 | 4:30–5:00 | One dataset, three noise/model seeds on one fixed split, uncalibrated probabilities, MLP budget limits |
 
-Open `reports/experiments/index.html` within this repository for the offline research report. Screenshots in `reports/demo` document actual execution; they are visual evidence, not a substitute for live inference. A recorded backup video is not yet produced.
+Open `reports/experiments/index.html` within this repository for the offline research report. Screenshots in `reports/demo` document actual execution; they are visual evidence, not a substitute for live inference.
 
 ## Recover
 
