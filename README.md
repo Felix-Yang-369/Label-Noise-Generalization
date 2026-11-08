@@ -1,4 +1,6 @@
-# Memorization and Generalization under Training-Label Randomization
+# Label Noise & Generalization
+
+**Memorization and Generalization under Training-Label Randomization on Tabular Data**
 
 **ECS 171 · UC Davis · Group 8**
 
