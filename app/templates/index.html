@@ -1,17 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ECS171 · Memorization & Generalization</title>
+<title>Label Noise &amp; Generalization</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <script defer src="{{ url_for('static', filename='demo.js') }}"></script></head>
 <body>
-<header><a class="brand" href="/">ECS<span>171</span> <small>RESEARCH DEMO</small></a><span class="status"><i></i> Local inference</span></header>
+<header><a class="brand" href="/">Label Noise <span>&amp;</span> Generalization <small>RESEARCH DEMO</small></a><span class="status"><i></i> Live inference</span></header>
 <main>
 <section class="intro"><p class="eyebrow">LABEL RANDOMIZATION · UCI DRY BEAN</p><h1>Learning patterns.<br><em>Or memorizing labels?</em></h1><p class="lede">One bean. The same features. Compare models trained with clean labels and randomly reassigned labels.</p><div class="facts"><span><b>16</b> features</span><span><b>7</b> classes</span><span><b>3</b> models</span><span><b>45</b> experiment runs</span></div></section>
 <div class="workspace">
 <section class="panel inputs"><div class="section-top"><div><p class="eyebrow">01 / INPUT</p><h2>Bean measurements</h2></div><span class="pill">Validation examples</span></div>
 <div class="example-controls"><label for="example">Example class<select id="example" disabled><option>Loading…</option></select></label><button id="load-example" type="button" disabled>Load example ↗</button></div>
-<p id="example-info" class="muted">Connecting to the saved models…</p>
+<p id="example-info" class="muted">Loading the saved models… The first visit after a quiet period can take a few seconds.</p>
 <form id="prediction-form" novalidate><div id="features" class="feature-grid"></div>
 <div class="selectors"><label for="model">Model<select id="model"><option value="LR">Logistic Regression</option><option value="RF">Random Forest</option><option value="MLP">Multilayer Perceptron</option></select></label><label for="condition">Training labels<select id="condition"><option value="compare">Compare both</option><option value="clean">Clean · p = 0</option><option value="random">Random · p = 1</option></select></label></div>
 <button id="predict" type="submit" disabled>Predict & compare <span>→</span></button></form>
@@ -23,5 +23,5 @@
 <div class="interpretation"><h3>A demonstration, not a performance test</h3><p>Each request runs a saved Pipeline. No training happens here. One example shows how a model behaves; research conclusions come from all 2,709 held-out test rows.</p><p>At p = 1 every training label is redrawn uniformly from seven classes. A redraw can keep the original label.</p></div>
 </section></div>
 <section class="closing"><p class="eyebrow">READING THE OUTPUT</p><div><p><b>Training fit</b> measures agreement with the labels used to train that particular model.</p><p><b>Validation Macro-F1</b> measures agreement with clean validation labels for that run.</p><p><b>Probability bars</b> are raw, uncalibrated probabilities. They do not represent calibrated confidence.</p></div></section>
-</main><footer><span>ECS171 · Memorization & Generalization</span><span>Local demo · Public deployment pending</span></footer>
+</main><footer><span>Label Noise &amp; Generalization · ECS 171 · UC Davis</span><nav aria-label="Project links"><a href="https://github.com/Felix-Yang-369/Label-Noise-Generalization/blob/main/paper/ECS171_Final_Report.pdf">Paper (PDF)</a><a href="https://github.com/Felix-Yang-369/Label-Noise-Generalization">Source code</a></nav></footer>
 </body></html>
