@@ -1,5 +1,12 @@
 """Smoke tests for the selected notebook demo (run after exporting models)."""
+from pathlib import Path
+
 import pytest
+
+BUNDLE = Path(__file__).resolve().parents[1] / 'integration/elsey/demo_artifacts/manifest.json'
+pytestmark = pytest.mark.skipif(
+    not BUNDLE.exists(),
+    reason='Run integration/elsey/export_demo_models.py first to create the demo model bundle.')
 
 
 @pytest.mark.parametrize('name', ['LR', 'RF', 'MLP'])

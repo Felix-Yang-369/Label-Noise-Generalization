@@ -19,3 +19,4 @@ __pycache__/
 !/logs/.gitkeep
 /results/exploratory/*.json.tmp
 /paper/main.pdf
+/integration/elsey/demo_artifacts/
