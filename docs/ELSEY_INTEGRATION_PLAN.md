@@ -22,3 +22,24 @@ The team has selected the experiment in `integration/elsey/ECS171_Group8_Project
 7. Review and confirm each person's actual contributions before using completed-work attribution.
 
 The historical deployed Demo and existing final paper are **not yet validated** against the selected notebook. Keep this change on an integration branch until scientific and web acceptance tests pass.
+
+## New optional demo adapter (work in progress)
+
+`integration/elsey/export_demo_models.py` reconstructs the notebook's exact
+70/15/15 split, selected LR/RF/MLP hyperparameters, seed 17, and the notebook's
+label-resampling procedure. It exports the six clean (`p=0`) and fully random
+(`p=1`) model pipelines required by the existing compare-mode UI, as well as
+validation examples and model checksums. **It never reads test labels during
+model selection or demo prediction.**
+
+From the repository root, with the dependencies installed:
+
+```bash
+python integration/elsey/export_demo_models.py
+ECS171_EXPERIMENT=elsey python -m app
+```
+
+This uses the new `app/elsey_service.py` through the existing Flask routes and
+front-end. Without `ECS171_EXPERIMENT=elsey`, the legacy demo remains selected.
+Switching the *public deployment* requires updating its deployment environment
+and supplying the new model bundle; this has not been done automatically.
