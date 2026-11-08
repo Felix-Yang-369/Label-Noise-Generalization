@@ -4,7 +4,7 @@ This guide separates the original recorded experiment from a new execution. It p
 
 ## 1. Requirements and scope
 
-The original execution used Windows 11, Python 3.12.14, scikit-learn 1.7.2, and the package versions in `requirements.lock.txt`. The commands below use Windows PowerShell. Python 3.12 and Git must already be installed. Only the new run's local environment and files are created; no cloud service, GPU, or paid API is used.
+The original execution used Windows 11, Python 3.12.14, scikit-learn 1.7.2, and the package versions in `requirements.lock.txt`. The commands below use Windows PowerShell; an equivalent macOS/Linux sequence follows in Section 2. Python 3.12 and Git must already be installed. Only the new run's local environment and files are created; no cloud service, GPU, or paid API is used.
 
 The raw UCI archive and spreadsheet are already tracked. Dependency installation requires internet access unless wheels are cached. On October 18, 2026, the helper completed a new-directory, new-environment local reproduction: all 55 research fits, 47 tests, and six-model HTTP/offline checks passed. All compared non-runtime numerical fields matched the original exactly. See `docs/Fresh_Reproduction_Verification.json`; no cross-platform reproduction is claimed.
 
@@ -55,6 +55,29 @@ The `logs` directory is required before preparation because environment capture 
 
 The scientific code is copied byte-for-byte. The raw archive hash is checked against the protocol; the spreadsheet is checked against the verified archive member. No sibling course-material folder is required when both tracked raw inputs are present.
 
+### macOS and Linux
+
+The same inputs can be copied with a POSIX shell:
+
+```bash
+src="$(pwd)"; dst="$(dirname "$src")/ecs171-reproduction"
+[ -e "$dst" ] && { echo "Destination exists; choose another"; exit 1; }
+mkdir -p "$dst/config" "$dst/data/raw" "$dst/logs"
+cp -R src tests app "$dst/"
+cp Run_Project.ps1 Run_Demo.ps1 pytest.ini requirements.txt requirements.lock.txt "$dst/"
+cp config/protocol.json config/main_matrix.json "$dst/config/"
+cp data/raw/UCI_Dry_Bean_Original.zip data/raw/Dry_Bean_Dataset.xlsx "$dst/data/raw/"
+cd "$dst"
+python3.12 -m venv .venv && . .venv/bin/activate
+pip install -r requirements.lock.txt
+python -m src.pipeline all
+python -m pytest -q
+```
+
+Each stage in Section 4 can also be run on its own with `python -m src.pipeline <stage>`, and the demo with `python -m app --port 5172`.
+
+This sequence was checked on Ubuntu with Python 3.12.3 on 2026-11-08: all stages completed and 49 tests passed. The ten tuning scores and selected parameters were identical to the original Windows run, and 40 of the 45 main runs matched exactly. Five iterative LR/MLP fits differed slightly (at most 0.0017 Macro-F1 per run and 0.0006 in any condition mean), which is expected from platform-dependent floating-point kernels.
+
 ## 3. Create the environment
 
 From the new run directory:
@@ -92,7 +115,7 @@ Alternatively, `Run_Project.ps1 -Stage all` executes preparation through report 
 | `report` | Regenerates experiment plots, HTML/Markdown analysis, and overview CSV. |
 | `verify` | Runs the Python test suite, including independent metric calculations and checks of saved model inference. |
 
-There are **55 research fits** plus four diagnostic smoke fits. The optional 18-fit capacity study is specified in the protocol but is not implemented as an executed stage or included in the reported experiment.
+There are **55 research fits** plus four diagnostic smoke fits. The 18-fit MLP capacity study specified in the protocol is not a pipeline stage; it was run after the holdout evaluation as an exploratory analysis (Section 9).
 
 ## 5. Check completion
 
@@ -135,3 +158,19 @@ The final holdout is already revealed in the recorded study. The evaluation gate
 `.venv`, temporary files, trained model files, processed/noise CSVs, and row-level test predictions are ignored. Their absence keeps the code repository small and avoids committing redundant generated assets. The original ZIP and XLSX are retained because preparation requires both verified raw files and because the public dataset permits redistribution with attribution.
 
 The project does not download model objects. Load only model artifacts from a trusted execution or validated project package; serialized Python model files are executable objects when deserialized. For this workflow, generate them locally through the documented pipeline.
+
+## 9. Exploratory follow-up (after the holdout)
+
+`exploratory/capacity_and_oob.py` runs two analyses that were not part of the confirmatory matrix:
+
+- **Random-forest out-of-bag accuracy.** The 15 main RF conditions are refitted with the frozen settings plus `oob_score=True`. OOB scoring does not change how the trees are built, and the script confirms that every refit reproduces the recorded clean-test Macro-F1 before using its OOB values.
+- **MLP capacity study.** The protocol's `optional_capacity` block: a fixed 3,000-row stratified training subset (seed 173), widths `(32,)`, `(128, 64)`, `(512, 256)`, `p ∈ {0, 1}`, seeds 17/29/43, `alpha = 0`, and exactly 1,000 epochs. Only training and validation data are used.
+
+From the repository root (the raw data are tracked, so no pipeline run is needed first):
+
+```bash
+python -m exploratory.capacity_and_oob --jobs 4
+```
+
+Outputs are written to `results/exploratory/`. These results were produced after the test set had been seen and must be reported as exploratory.
+

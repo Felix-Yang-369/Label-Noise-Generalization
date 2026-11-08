@@ -1,6 +1,6 @@
 {
   "fresh_directory": "D:\\Projects\\ECS 171\\work\\final_report\\fresh_reproduction",
-  "original_directory": "C:\\Users\\Felix\\Documents\\Codex\\2026-10-12\\phonetics\\outputs\\ECS171 Project\\12_Implementation",
+  "original_directory": "D:\\Projects\\ECS 171\\ecs171-label-randomization",
   "metric_tolerance": 1e-12,
   "main_table": {
     "rows": 45,

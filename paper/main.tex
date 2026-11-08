@@ -3,7 +3,7 @@
 \usepackage{amsmath,amssymb,graphicx,booktabs,array,tabularx,url}
 \usepackage{balance}
 \usepackage[hidelinks]{hyperref}
-\hypersetup{pdftitle={Memorization and Generalization under Training-Label Randomization on Tabular Data},pdfauthor={Tianying Chen, Linjie Yang, Elsey Chen},pdfsubject={ECS 171 Group 8; technical report review version, October 18, 2026},pdfkeywords={label randomization, Dry Bean, memorization, generalization, reproducibility}}
+\hypersetup{pdftitle={Memorization and Generalization under Training-Label Randomization on Tabular Data},pdfauthor={Tianying Chen, Linjie Yang, Elsey Chen},pdfsubject={ECS 171 Group 8 final report},pdfkeywords={label randomization, Dry Bean, memorization, generalization, reproducibility}}
 \graphicspath{{figures/}}
 \newcommand{\meanstd}[2]{\ensuremath{#1\,\mathord{\pm}\,#2}}
 \newcommand{\code}[1]{\texttt{#1}}
@@ -21,7 +21,7 @@ ECS 171, Group 8\\
 \maketitle
 
 \begin{abstract}
-Accurate predictions on training examples can reflect either transferable structure or memorization of the supplied answers. Inspired by random-label experiments in deep learning, we compare these behaviors across three model families on the UCI Dry Bean dataset. After exact deduplication, we use 13,543 observations, 16 numerical features, seven classes, and one fixed stratified train/validation/test split. Ten clean-label candidate fits select hyperparameters before 45 fresh main fits: logistic regression (LR), random forest (RF), and a multilayer perceptron (MLP), each evaluated at five training-label randomization probabilities and three paired seeds. Validation and test labels remain clean. Clean-label test Macro-F1 is 0.9404 for LR, 0.9361 for RF, and 0.9346 for MLP. Under complete random-label replacement, RF fits the supplied training labels perfectly but reaches only 0.1314 clean-test Macro-F1. The finite-budget MLP fits 38.06\% of randomized training labels, with test Macro-F1 0.1309; LR reaches 0.1144. At partial randomization, model responses differ substantially: at $p=0.75$, LR retains 0.9073 Macro-F1, compared with 0.6440 for RF and 0.5856 for MLP. These results separate random-label fitting from useful prediction within this dataset and protocol. We provide saved predictions, integrity records, reproducible figure generation, and a hosted web inference interface. Three seeds on one split describe conditional run variation, not statistical significance or cross-dataset superiority.
+A model that predicts its training labels well may have learned a transferable rule, or it may simply have memorized the answers. Zhang et al.\ showed that deep networks can fit completely random image labels, so training error alone cannot explain generalization. We carry their randomization test over to tabular data. On the UCI Dry Bean dataset (13,543 unique observations, 16 numerical features, seven classes), we train logistic regression (LR), a random forest (RF), and a multilayer perceptron (MLP) while replacing each training label with a uniformly random class with probability $p\in\{0,0.25,0.5,0.75,1\}$, using three paired seeds and clean validation and test labels. With clean labels, test Macro-F1 is 0.9404, 0.9361, and 0.9346 for LR, RF, and MLP. With fully random labels, RF still reproduces every training label, yet its clean-test Macro-F1 drops to 0.1314; its out-of-bag accuracy exposes this collapse without touching the test set. The MLP fits only 38\% of random labels within its 500-epoch budget, but in an exploratory capacity study an unregularized 512--256 network fits 97\% of random labels on a 3,000-row subset while still generalizing well when trained on clean labels. Under heavy but partial noise the models diverge: at $p=0.75$, LR retains 0.9073 Macro-F1, compared with 0.6440 for RF and 0.5856 for MLP. The code, recorded results, and an online inference demo are publicly available.
 \end{abstract}
 \begin{IEEEkeywords}
 label noise, memorization, generalization, tabular classification, reproducibility
@@ -29,46 +29,65 @@ label noise, memorization, generalization, tabular classification, reproducibili
 
 \section{Introduction}
 \label{sec:introduction}
-A supervised classifier learns from input--label pairs, but a high training score does not identify what it has learned. A flexible model may associate each training input with an arbitrary answer rather than recover a relationship that also holds for new inputs. Label randomization makes this distinction observable: the inputs stay unchanged while some training answers are replaced, and evaluation still asks for the original categories on unseen examples. Success at fitting the altered answers and success at predicting the underlying categories become separate measurements.
+A supervised classifier learns from input--label pairs, but a high training score does not tell us what it has learned. A flexible model can associate each training input with an arbitrary answer instead of recovering a relationship that also holds for new inputs. Label randomization makes the two possibilities observable: inputs stay the same, some training answers are replaced, and evaluation still asks for the original categories on unseen examples. Fitting the altered answers and predicting the true categories then become separate measurements.
 
-Zhang et al.~\cite{zhang2017rethinking} demonstrate that selected image-classification networks can fit random labels nearly or perfectly. Their experiments challenge explanations that rely only on explicit regularization or a model's ability to fit the training set. They do not imply that every neural network will memorize every finite dataset under any optimizer, regularization strength, or training budget. This distinction matters when applying their motivation to a smaller course project with a different data representation.
+Zhang et al.~\cite{zhang2017rethinking} used this idea to show that standard image-classification networks reach zero training error on random labels, even with explicit regularization, while test accuracy falls to chance. The result challenged explanations of generalization based only on model family, explicit regularization, or the ability to fit training data. Their experiments used convolutional networks on CIFAR-10 and ImageNet. Whether the same separation appears for small tabular datasets and classical learners is a natural follow-up question.
 
-We investigate seven-class classification using numerical measurements extracted from dry-bean images. The learning inputs are the supplied tabular features; our models do not process images or extract features from pixels. We compare a linear classifier, a tree ensemble, and a feedforward neural network. This setup makes model-family differences visible while keeping the dataset, split, label perturbations, and evaluation targets controlled.
-
-Our two research questions are:
+We study seven-class classification of dry beans from 16 shape and size measurements that were extracted from images~\cite{koklu2020drybeans,uci2020drybean}. Our models receive these numbers, not pixels. We compare a linear classifier, a tree ensemble, and a feedforward network under a single controlled protocol, summarized in Fig.~\ref{fig:flow}. Our two research questions are:
 \begin{itemize}
-\item \textbf{RQ1:} How does training-label randomization affect clean-test Macro-F1 across logistic regression, random forest, and an MLP?
-\item \textbf{RQ2:} Does stronger agreement with randomized training labels coincide with better predictions of original labels on unseen observations?
+\item \textbf{RQ1:} How does training-label randomization affect clean-test Macro-F1 for LR, RF, and an MLP?
+\item \textbf{RQ2:} Does stronger agreement with randomized training labels go together with better prediction of the original labels on unseen observations?
 \end{itemize}
 
-The primary comparison fixes hyperparameters selected on clean labels. We therefore measure how established clean-data configurations respond to progressively less informative supervision. We do not optimize a separate noise-aware model at every perturbation level, nor estimate the best achievable robustness of any model family.
+Hyperparameters are chosen once on clean labels and then held fixed, so the experiment measures how well-tuned clean-data models react to increasingly uninformative supervision; it does not search for the most noise-robust configuration of each family.
 
-The project makes three concrete contributions. First, it implements a paired randomization experiment with an explicit distinction between the probability of redrawing a label and the fraction that actually changes. Second, it reports training agreement with both supplied and original labels alongside clean-test metrics, preventing increased fitting capacity from being confused with generalization. Third, it links the analysis to saved per-observation predictions, frozen experiment records, and a web interface that uses the same saved preprocessing and models.
+Our contributions are: (i) a paired randomization experiment that distinguishes the probability of redrawing a label from the fraction that actually changes; (ii) reporting training accuracy against both the supplied and the original labels next to clean-test metrics, together with RF out-of-bag estimates, so that fitting capacity is not confused with generalization; and (iii) an exploratory capacity study that connects the MLP result back to the original paper. All results come with saved predictions, a reproducible pipeline, and an online demo.
 
-This report describes completed core experiments and verified public deployment as of October 18, 2026. The final section separates delivered artifacts from remaining team acceptance and presentation work. No additional configurations were selected from the reported test results.
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.9\textwidth]{study_flow.pdf}
+\caption{Study design. Exact duplicates are removed before a fixed stratified split. Only training labels are randomized; validation labels are used for the ten clean-label tuning fits, and the clean test set is evaluated once after all 45 main fits are complete.}
+\label{fig:flow}
+\end{figure*}
 
 \section{Background and Related Work}
 \label{sec:related}
 \subsection{Random Labels as a Diagnostic}
-The assigned paper studies what happens when the association between inputs and labels is deliberately destroyed~\cite{zhang2017rethinking}. If a sufficiently flexible learner can still fit the training data, small training error alone cannot certify that it learned a useful input--output relationship. Its random-label experiments, finite-sample expressivity results, and discussion of implicit regularization address related but different questions. An existence result for a network representing arbitrary labels is not a guarantee that a particular optimization run will find that representation.
+Zhang et al.~\cite{zhang2017rethinking} train networks on CIFAR-10 and ImageNet after corrupting the data in several ways: replacing a fraction $p$ of labels with uniformly random classes, shuffling pixels, or replacing images with Gaussian noise. Networks fit all of these to zero training error; training slows down as corruption grows, and test error rises smoothly toward chance. They also show that weight decay, dropout, and data augmentation do not prevent random-label fitting, and prove that a two-layer ReLU network with $2n+d$ parameters can represent any labeling of $n$ points in $d$ dimensions. A later retrospective~\cite{zhang2021still} restates these findings and reviews subsequent theory. Table~\ref{tab:mapping} maps the original experiments to ours.
 
-Arpit et al.~\cite{arpit2017memorization} further examine memorization and learning dynamics in deep networks. Their findings motivate recording optimization behavior rather than treating all networks as equivalent black boxes. Our saved MLP loss curves and stopping records support a bounded statement about the network actually trained. They do not recover the original papers' image experiments, architecture search, or theoretical claims.
+Arpit et al.~\cite{arpit2017memorization} refine the picture: networks fit real patterns before memorizing noise, and regularization slows memorization more than learning. Rolnick et al.~\cite{rolnick2017robust} report that deep networks still reach high test accuracy when clean examples are vastly outnumbered by uniformly mislabeled ones, provided enough clean data remain. These results motivate our recording of MLP training curves and of the gap between noisy- and clean-label training accuracy.
 
-\subsection{Tabular Classification and Model Families}
-Dry Bean was introduced as a multiclass dataset based on computer-vision measurements~\cite{koklu2020drybeans,uci2020drybean}. Its continuous size and shape variables provide a compact alternative to the high-dimensional image inputs used in the assigned paper. The original Dry Bean study uses a different evaluation protocol, including cross-validation and accuracy. Its headline performance is therefore not a directly comparable benchmark for our deduplicated fixed-split Macro-F1 results.
+\begin{table}[t]
+\caption{Experiments of Zhang et al.~\cite{zhang2017rethinking} and their counterparts in this study.}
+\label{tab:mapping}
+\centering\footnotesize
+\begin{tabularx}{\columnwidth}{@{}L{1.05in}X@{}}
+\toprule
+Original experiment & This study\\
+\midrule
+Label corruption level $p$ vs.\ test error & Five levels of $p$, three model families (Table~\ref{tab:main}, Fig.~\ref{fig:performance})\\
+Random labels reach zero training error & RF: yes; MLP: partially at 500 epochs, almost fully with more capacity and epochs (Sec.~\ref{sec:exploratory})\\
+Training loss curves by corruption type & MLP loss curves by $p$ (Fig.~\ref{fig:optimization})\\
+Explicit regularization ablation & Clean-label $\alpha$ grid; $\alpha=0$ in the capacity study\\
+Shuffled / Gaussian inputs & Not run\\
+Finite-sample expressivity theorem & Not studied\\
+\bottomrule
+\end{tabularx}
+\end{table}
 
-Random forests aggregate randomized decision trees~\cite{breiman2001randomforests}. The selected unrestricted-depth forest can fit highly specific partitions, making its training behavior useful for a memorization comparison. Logistic regression provides a regularized linear decision rule after standardization. The MLP supplies nonlinear learned representations, trained with Adam~\cite{kingma2015adam}. All three estimators use scikit-learn~\cite{pedregosa2011scikit}, allowing consistent preprocessing, metrics, and serialization.
+\subsection{Label Noise and Model Families}
+Learning from labels flipped uniformly at random is a classical problem~\cite{angluin1988noisy}. Under such symmetric noise, the Bayes-optimal decision rule is unchanged, and several losses are provably robust to it~\cite{natarajan2013noisy,ghosh2017robust}; Fr\'enay and Verleysen~\cite{frenay2014survey} survey the broader literature. We do not propose a noise-correction method. Instead, we measure how unmodified estimators respond.
 
-Our contribution is an empirical comparison under one controlled tabular protocol. It is not a new noise-correction algorithm, a reproduction of image-network results, or a claim that linear models generally outperform neural or tree-based methods. The modest dataset and computation budget make the experiment inspectable but also restrict its scope.
+Random forests average randomized decision trees~\cite{breiman2001randomforests}. Fully grown trees interpolate their training data, and Wyner et al.~\cite{wyner2017interpolating} argue that such interpolating ensembles can still generalize because averaging localizes the effect of noisy points. Tree-based models are also strong baselines on tabular data~\cite{grinsztajn2022tree}. LR provides a regularized linear rule after standardization, and the MLP supplies learned nonlinear features trained with Adam~\cite{kingma2015adam}. All estimators use scikit-learn~\cite{pedregosa2011scikit}.
+
+Dry Bean was introduced by Koklu and Ozkan~\cite{koklu2020drybeans}, who report cross-validated accuracy on the full dataset. Because we deduplicate, use a fixed split, and report Macro-F1, their numbers are not directly comparable to ours.
 
 \section{Dataset and Exploratory Analysis}
 \label{sec:data}
 \subsection{Source, Audit, and Split}
-The UCI release contains 13,611 observations, 16 numerical predictors, and seven bean classes~\cite{uci2020drybean}. We preserve the original archive and workbook and record their hashes. The audit finds no missing or nonfinite feature values, 68 exactly duplicated rows, and no feature-identical groups with conflicting labels. All 68 removed duplicates belong to HOROZ. Keeping the first occurrence leaves 13,543 distinct rows.
+The UCI release contains 13,611 observations, 16 numerical predictors, and seven bean classes~\cite{uci2020drybean}. The audit found no missing or nonfinite values, no feature-identical rows with conflicting labels, and 68 exact duplicate rows, all in HOROZ. Keeping the first occurrence leaves 13,543 distinct rows. Deduplicating before splitting prevents identical observations from appearing in both training and evaluation data; it reduces HOROZ from 1,928 to 1,860.
 
-Deduplication precedes splitting to prevent identical observations from appearing in both training and evaluation partitions. The resulting evaluation population is the set of distinct supplied rows, not the original frequency-weighted collection with duplicates. This decision changes the HOROZ count from 1,928 to 1,860. We retain an original workbook row identifier for traceability and never use it as a predictor.
-
-We first reserve 20\% of cleaned data for testing using stratification and random state 171. A second stratified split, with random state 172, reserves 25\% of the remainder for validation. Final sizes are 8,125 training, 2,709 validation, and 2,709 test observations. Table~\ref{tab:classcounts} gives exact class counts. Stratification preserves approximate class proportions; it does not create equal class sizes or establish independence among biologically related samples.
+We first reserve 20\% of the cleaned data for testing (stratified, random state 171) and then 25\% of the remainder for validation (random state 172). This gives 8,125 training, 2,709 validation, and 2,709 test observations (Table~\ref{tab:classcounts}). Every experimental condition uses this split.
 
 \begin{table}[t]
 \caption{Class counts after deduplication and in the fixed split.}
@@ -92,37 +111,32 @@ Total & 13,543 & 8,125 & 2,709 & 2,709\\
 \end{table}
 
 \subsection{Feature Structure and Class Imbalance}
-Exploratory analysis uses only the training partition. The largest training class, DERMASON, contains 2,127 observations, whereas BOMBAY contains 313, a ratio of 6.80. A metric dominated by the largest classes could conceal poor performance on smaller ones. We therefore use Macro-F1 as the primary measure and include balanced accuracy and class-specific results.
+Exploratory analysis uses only the training partition. DERMASON, the largest class, has 2,127 training observations and BOMBAY has 313, a ratio of 6.8 (Fig.~\ref{fig:eda}). Because accuracy would be dominated by the large classes, we use Macro-F1 as the primary metric and also report balanced accuracy and per-class results.
 
-The predictors describe related aspects of geometry. Area, ConvexArea, Perimeter, and EquivDiameter capture size; major and minor axis lengths describe extent along principal directions. Aspect ratio, eccentricity, compactness, roundness, solidity, extent, and four shape factors encode normalized shape information. We preserve the release's spelling, including \code{AspectRation} and lowercase \code{roundness}, so the feature schema remains consistent from the workbook to the inference interface.
+The predictors describe related aspects of geometry. Area, ConvexArea, Perimeter, and EquivDiameter measure size; the major and minor axis lengths measure extent; aspect ratio, eccentricity, compactness, roundness, solidity, extent, and four shape factors describe normalized shape. We keep the release's spelling, including \code{AspectRation} and lowercase \code{roundness}, so the schema is identical from the spreadsheet to the web demo.
 
-Figure~\ref{fig:eda} shows class imbalance and the wide range of feature scales. A numerical difference of one unit has very different meaning for an area measure and a normalized shape descriptor. LR and MLP therefore use a StandardScaler fitted exclusively on training inputs. No validation or test observations enter its mean or variance estimates. RF uses the original numerical values.
+Feature scales differ by several orders of magnitude (Fig.~\ref{fig:eda}), so LR and the MLP use a StandardScaler fitted on training inputs only; RF uses the raw values. Several predictors are almost collinear (Fig.~\ref{fig:correlation}): Area and ConvexArea have Pearson $r=0.9999$, Compactness and ShapeFactor3 $r=0.9987$, and Perimeter and EquivDiameter $r=0.9914$. The 16 columns therefore carry far less than 16 independent pieces of information, and individual LR coefficients should not be interpreted causally.
+
+We keep all 16 features and all nonduplicate observations, with no PCA, feature deletion, outlier removal, or skewness transformation. Because the study manipulates labels, holding preprocessing fixed across noise levels avoids introducing a second intervention.
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{eda_class_scale.pdf}
-\caption{Training-only exploratory analysis ($n=8{,}125$). Class counts reveal imbalance; raw feature standard deviations illustrate scale differences. A logarithmic scale is used only for the scale summary, not as a transformation applied to model inputs. Source: saved training partition and EDA tables.}
+\caption{Training-only exploratory analysis ($n=8{,}125$). Left: class counts. Right: raw feature standard deviations on a logarithmic axis; the log scale is for display only and is not applied to model inputs.}
 \label{fig:eda}
 \end{figure*}
 
-Several predictors are strongly correlated (Fig.~\ref{fig:correlation}). Area and ConvexArea have Pearson $r=0.999940$; Compactness and ShapeFactor3 have $r=0.998683$; Perimeter and EquivDiameter have $r=0.991365$. The 16 columns should not be interpreted as 16 independent sources of information. These dependencies also make individual linear coefficients difficult to interpret causally.
-
-We retain all 16 original features according to the fixed design. There is no test-driven feature deletion, PCA, or skewness transformation. Observations that appear extreme in a distribution plot are retained; hiding fliers in an exploratory boxplot affects the display only. The experiment studies label randomization, so changing feature engineering across noise levels would introduce an additional intervention.
-
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
-\includegraphics[width=0.92\textwidth]{eda_correlation.pdf}
-\caption{Pearson correlations on training inputs only. Perim, Major/Minor, Ecc, Convex, Diam, Solid, Round, and Compact abbreviate the corresponding size/shape features; SF1--SF4 denote the four shape factors. Strong correlations motivate caution in coefficient interpretation and are not used for test-driven feature selection.}
+\includegraphics[width=\columnwidth]{eda_correlation.pdf}
+\caption{Pearson correlations between the 16 features on training data. SF1--SF4 are the four shape factors; other labels abbreviate the feature names.}
 \label{fig:correlation}
-\end{figure*}
-
-\subsection{Data Boundaries}
-The source provides class labels and extracted measurements rather than a collection protocol designed for our robustness question. We have no independent acquisition-site or batch identifiers for a grouped split. A random stratified split supports an in-dataset comparison but cannot establish transfer to new harvests, devices, laboratories, or growing conditions. The web interface accepts numerical descriptors; it does not identify beans directly from photographs.
+\end{figure}
 
 \section{Experimental Methodology}
 \label{sec:methods}
 \subsection{Label-Randomization Mechanism}
-Let $(x_i,y_i)$ denote a training observation with $y_i\in\{1,\ldots,K\}$ and $K=7$. For replicate seed $s$, we draw independent $u_i\sim\mathcal{U}[0,1)$ and $z_i\sim\operatorname{Uniform}\{1,\ldots,K\}$. At randomization level $p$, the supplied training label is
+Let $(x_i,y_i)$ be a training observation with $y_i\in\{1,\ldots,K\}$ and $K=7$. For seed $s$, we draw independent $u_i\sim\mathcal{U}[0,1)$ and $z_i\sim\operatorname{Uniform}\{1,\ldots,K\}$. At randomization level $p$, the supplied training label is
 \begin{equation}
 \widetilde y_i^{(p,s)}=
 \begin{cases}
@@ -131,34 +145,32 @@ y_i,&u_i\ge p.
 \end{cases}
 \label{eq:noise}
 \end{equation}
-The redraw can return the original class. The expected actual changed-label fraction is therefore
+This is the label-corruption scheme of Zhang et al.~\cite{zhang2017rethinking}. Because the redraw can return the original class, the expected fraction of labels that actually change is
 \begin{equation}
 \mathbb{E}[q(p,s)]=p\left(1-\frac{1}{K}\right)=\frac{6p}{7}.
 \label{eq:changed}
 \end{equation}
-Thus $p=1$ means every label is independently redrawn, not that every resulting label differs from its original value. The expected changed fraction is 85.71\%; the observed three-seed mean is 85.93\%. We record realized $q$ instead of silently treating it as equal to $p$.
+At $p=1$ every label is redrawn but only 85.71\% are expected to differ; the observed mean over three seeds is 85.93\%. We record the realized $q$ for every run.
 
-For each seed, the same vectors $u$ and $z$ are reused across $p\in\{0,0.25,0.50,0.75,1\}$. Increasing $p$ adds selected observations within a nested intervention. All models receive exactly the same perturbed label vector at a given $(p,s)$. A label vector remains fixed throughout its fit; labels are not redrawn between epochs. Validation and test labels remain unchanged at every condition.
-
-The replacement transition matrix is
+For each seed, the same vectors $u$ and $z$ are reused for all $p\in\{0,0.25,0.50,0.75,1\}$, so the corrupted sets are nested as $p$ grows, and all three models receive exactly the same label vector at a given $(p,s)$. Labels are fixed for the whole fit and never redrawn between epochs. Validation and test labels are never changed. Equivalently, the label transition matrix is
 \begin{equation}
-T(p)=(1-p)I+\frac{p}{K}\mathbf{1}\mathbf{1}^{\mathsf{T}}.
+T(p)=(1-p)I+\frac{p}{K}\mathbf{1}\mathbf{1}^{\mathsf{T}},
 \label{eq:transition}
 \end{equation}
-This defines independent uniform replacement noise. It does not model realistic annotation errors that depend on class, image ambiguity, or feature values.
+which is symmetric, feature-independent noise. Real annotation errors, which often depend on the class or on ambiguous inputs, are not modeled.
 
 \subsection{Models and Clean-Label Selection}
-Table~\ref{tab:models} summarizes the candidate grids and selected settings. LR uses an L2 penalty, LBFGS, a maximum of 2,000 iterations, and tolerance $10^{-4}$. RF uses 200 trees, bootstrap sampling, and square-root feature subsampling. The selected forest has unrestricted depth and one observation per minimum leaf. Class weights remain unset for all models.
+Table~\ref{tab:models} lists the candidate grids. LR uses an L2 penalty, LBFGS, at most 2,000 iterations, and tolerance $10^{-4}$. RF uses 200 trees, bootstrap sampling, and square-root feature subsampling. The MLP has architecture $16\!\rightarrow\!128\!\rightarrow\!64\!\rightarrow\!7$ with ReLU activations (10,887 parameters), Adam, batch size 128, learning rate $10^{-3}$, and at most 500 epochs, stopping early only if the training loss fails to improve by $10^{-5}$ for 20 epochs. No class weights are used.
 
-The MLP has architecture $16\!\rightarrow\!128\!\rightarrow\!64\!\rightarrow\!7$, ReLU hidden activations, and 10,887 trainable weights and biases. It uses Adam, batch size 128, initial learning rate $10^{-3}$, and at most 500 iterations. The tolerance is $10^{-5}$ with 20 iterations without sufficient improvement. Explicit validation-based early stopping is disabled; the estimator's training-objective stopping rule still applies. The selected L2 parameter is $\alpha=0.01$.
+Selection uses clean validation Macro-F1 only. Candidates within 0.001 of the best are treated as tied and resolved toward the simpler model: smaller $C$ for LR, shallower trees and then larger leaves for RF, and larger $\alpha$ for the MLP. The selected settings ($C=1$; unlimited depth with leaf size 1; $\alpha=0.01$) were frozen before any main fit and are used at every noise level.
 
 \begin{table}[t]
-\caption{Ten clean-label candidate fits, all with seed 17. Bold settings are selected before the main experiment.}
+\caption{Ten clean-label candidate fits (seed 17). Selected settings are in bold.}
 \label{tab:models}
 \centering\footnotesize
 \begin{tabular}{L{0.35in}L{1.80in}r}
 \toprule
-Model & Candidates / selected setting & Val. F1\\
+Model & Candidate setting & Val. F1\\
 \midrule
 LR & $C=0.1$ & 0.9316\\
    & $\mathbf{C=1}$ & \textbf{0.9328}\\
@@ -176,46 +188,40 @@ MLP & $\alpha=0$ & 0.9299\\
 \end{tabular}
 \end{table}
 
-Selection uses clean validation Macro-F1 exclusively. Candidates within 0.001 of the best score are tied; deterministic preferences are smaller $C$ for LR, shallower depth then larger leaves for RF, and larger $\alpha$ for MLP. Candidate values, tie rules, selected configurations, the split, and the main matrix are stored before accessing test results. This is a small, transparent search rather than exhaustive optimization.
-
-Each main model is initialized and fitted anew. We use seeds 17, 29, and 43 for both label randomization and the estimator's random state. Pairing controls labels across model families but changes data perturbation and model randomness together. It does not separately identify their variance components.
+The main matrix contains 3 models $\times$ 5 noise levels $\times$ 3 seeds $=45$ fits, each trained from scratch. Seeds 17, 29, and 43 control both the label noise and the estimator's random state, so the label vector is paired across models; data and model randomness are not separated.
 
 \subsection{Evaluation Targets and Metrics}
-The main endpoint is clean-test Macro-F1. Seven labels are included explicitly, with undefined per-class F1 set to zero:
+The primary endpoint is clean-test Macro-F1 over all seven classes, with undefined per-class F1 set to zero:
 \begin{equation}
 F_{1,\mathrm{macro}}=\frac{1}{K}\sum_{k=1}^{K}
 \frac{2\operatorname{TP}_k}{2\operatorname{TP}_k+\operatorname{FP}_k+\operatorname{FN}_k}.
 \label{eq:macro}
 \end{equation}
-The zero-denominator convention applies when a fraction is undefined. We also report accuracy, balanced accuracy (mean class recall), class-specific scores, fit time, and convergence information.
+We also report accuracy, balanced accuracy (mean class recall), per-class scores, fit time, and convergence.
 
-For training inputs, two accuracies answer different questions:
+On the training set we measure two different accuracies:
 \begin{align}
 A_{\mathrm{train,noisy}}&=\frac{1}{n}\sum_i
 \mathbf{1}[f(x_i)=\widetilde y_i],\\
 A_{\mathrm{train,clean}}&=\frac{1}{n}\sum_i
 \mathbf{1}[f(x_i)=y_i].
 \end{align}
-Here $\mathbf{1}[\cdot]$ is the indicator function. The first accuracy measures agreement with supplied supervision; the second measures agreement with original labels on the same inputs. Comparing $A_{\mathrm{train,noisy}}$ with clean-test accuracy mixes targets. We do not call their difference a standard generalization gap. A separately stored clean-target difference uses $A_{\mathrm{train,clean}}-A_{\mathrm{test,clean}}$. Since training uses altered targets, that difference may be negative without indicating leakage or an arithmetic error.
+The first measures agreement with the labels the model was trained on, i.e., memorization; the second measures agreement with the true labels on the same inputs. Since the first and clean-test accuracy refer to different targets, we do not call their difference a generalization gap.
 
-The clean-training majority class is DERMASON. Always predicting it gives test accuracy 0.2617, balanced accuracy 0.1429, and Macro-F1 0.0593. Independently uniform random predictions have expected accuracy $1/7$; this is not a universal Macro-F1 baseline or a value every random-label-trained classifier must attain. We use no horizontal ``chance'' line on Macro-F1 plots.
+Always predicting the majority class (DERMASON) gives test accuracy 0.2617, balanced accuracy 0.1429, and Macro-F1 0.0593. Uniform random guessing has expected accuracy $1/7\approx0.143$.
 
-For each model--noise condition, we report the arithmetic mean and sample standard deviation over three runs. Error bars describe variation conditional on the fixed split and joint randomization scheme. They are not confidence intervals, do not reflect new splits, and do not justify significance or universal-superiority claims.
+For each model and noise level we report the mean and sample standard deviation (SD) over the three seeds. These describe run-to-run variation on one fixed split; they are not confidence intervals, and we perform no significance tests.
 
-\subsection{Execution Order and Integrity}
-The main matrix contains 45 fits; the ten selection fits bring the research total to 55. Historical smoke runs and superseded pre-review outputs are excluded from this research set. The selected configuration was frozen at 05:31:45 UTC on October 13, 2026, before final holdout evaluation at 05:39:35 UTC. These are execution timestamps; the report snapshot is October 18 in the course's local time zone.
-
-Source and data hashes, split identities, package versions, and per-run metadata accompany the artifacts. The evaluation gate checks the frozen context and completion of the predeclared matrix before reading the test partition. Stored per-observation predictions permit independent metric recomputation without fitting models again. A read-only report audit recomputed training and validation scores for all 55 fits, test scores for all 45 main fits, and all 15 summary means and sample standard deviations.
-
-The holdout has now been revealed. Any subsequent capacity experiment, preprocessing change, or model configuration must be labeled exploratory instead of being silently folded into the original matrix.
+\subsection{Execution Order}
+Tuning, the frozen configuration, and the complete main matrix were recorded before the test partition was read; an evaluation gate in the pipeline refuses to score the test set if any declared run is missing or altered. Per-observation predictions are saved so that every reported metric can be recomputed without refitting. Analyses added after the test results were known are reported separately as exploratory (Section~\ref{sec:exploratory}).
 
 \section{Experimental Results}
 \label{sec:results}
-\subsection{Overall Clean-Test Performance}
-Table~\ref{tab:main} and Fig.~\ref{fig:performance} answer RQ1. With clean training labels, test Macro-F1 is 0.9404 for LR, 0.9361 for RF, and 0.9346 for MLP. Their clean-test accuracies are 0.9280, 0.9256, and 0.9210. The numerical ordering describes this split and these settings; the small differences are not evidence of a general ranking.
+\subsection{Clean-Test Performance (RQ1)}
+Table~\ref{tab:main} and Fig.~\ref{fig:performance} answer RQ1. With clean training labels, test Macro-F1 is 0.9404 for LR, 0.9361 for RF, and 0.9346 for MLP, with test accuracies of 0.9280, 0.9256, and 0.9210. These small differences should not be read as a general ranking.
 
 \begin{table*}[t]
-\caption{Clean-test Macro-F1 under training-label randomization. Entries are mean $\pm$ sample SD over three seeds on the same split. Actual changed fraction $q$ is shared across models.}
+\caption{Clean-test Macro-F1 under training-label randomization (mean $\pm$ sample SD over three seeds). The actual changed fraction $q$ is shared by all models.}
 \label{tab:main}
 \centering\small
 \begin{tabular}{ccccc}
@@ -234,28 +240,26 @@ Redraw probability $p$ & Actual changed fraction $q$ & LR & RF & MLP\\
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{test_performance.pdf}
-\caption{Clean-test Macro-F1 and balanced accuracy versus training-label redraw probability. Points are three-seed means; bars show sample SD, not confidence intervals. All conditions use the same 2,709 test observations with original labels. Lines connect the five measured conditions and do not establish behavior at unmeasured levels.}
+\caption{Clean-test Macro-F1 (left) and balanced accuracy (right) versus training-label redraw probability. Points are three-seed means and bars are sample SD. All conditions use the same 2,709 test observations with original labels.}
 \label{fig:performance}
 \end{figure*}
 
-At $p=0.25$, RF retains mean Macro-F1 0.9280, compared with 0.9164 for LR and 0.9029 for MLP. At stronger perturbations the ordering changes. LR reaches 0.9112 at $p=0.50$ and 0.9073 at $p=0.75$, while RF falls to 0.8767 and 0.6440 and MLP to 0.8391 and 0.5856. Relative to their clean-label baselines, the $p=0.75$ drops are 0.0331, 0.2921, and 0.3490 Macro-F1 units for LR, RF, and MLP.
+At $p=0.25$, RF is the most robust (0.9280, versus 0.9164 for LR and 0.9029 for MLP). At stronger noise the order reverses: LR stays at 0.9112 at $p=0.50$ and 0.9073 at $p=0.75$, while RF falls to 0.8767 and 0.6440 and the MLP to 0.8391 and 0.5856. Relative to clean training, the $p=0.75$ losses are 0.033, 0.292, and 0.349 Macro-F1 for LR, RF, and MLP. This mirrors the smooth rise of test error with corruption in Zhang et al.~\cite{zhang2017rethinking}, but with strongly model-dependent slopes.
 
-Complete replacement produces a much larger decline for every model. At $p=1$, means range from 0.1144 to 0.1314. Balanced accuracy falls to 0.1291 for LR, 0.1407 for RF, and 0.1436 for MLP. This secondary metric supports degradation across classes rather than only through one aggregate weighting.
+At $p=1$ all models collapse, with Macro-F1 between 0.1144 and 0.1314 and balanced accuracy between 0.1291 and 0.1436, close to chance. LR's zero SD at $p=0$ is expected: with identical labels and split, LBFGS converges to the same solution for every seed. At $p=1$, LR has the largest spread (SD 0.0552), so its stability at moderate noise does not extend to complete randomization.
 
-LR's zero SD at $p=0$ has a specific explanation: labels and the split are identical and LBFGS follows the same deterministic fit. Three seed values do not create three independent clean datasets. At $p=1$, its Macro-F1 SD rises to 0.0552, the largest endpoint variation among the three models. Stable performance at moderate replacement levels should not be described as stability under all noise conditions.
-
-\subsection{Training Agreement and Memorization}
-Figure~\ref{fig:targets} and Table~\ref{tab:endpoint} answer RQ2. RF obtains 100\% training accuracy against supplied labels at all five levels. As $p$ increases, its original-label training accuracy declines with the fraction that changed: a model reproducing every supplied answer also reproduces deliberately introduced errors. At complete replacement, its mean original-label training accuracy is 0.1407 and clean-test accuracy is 0.1378.
+\subsection{Training Agreement and Memorization (RQ2)}
+Figure~\ref{fig:targets} and Table~\ref{tab:endpoint} answer RQ2. RF reaches 100\% accuracy on the supplied training labels at every noise level. Its accuracy on the original training labels therefore falls in step with the fraction of labels that changed: a model that reproduces every supplied answer also reproduces every injected error. At $p=1$ its original-label training accuracy is 0.1407 and its clean-test accuracy 0.1378.
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{fitting_targets.pdf}
-\caption{Three distinct accuracy targets for each model: supplied training labels, original training labels, and original test labels. Means and sample SD use the same three seeds. Noisy-training and clean-test curves compare different targets; their separation is not a conventional generalization gap. RF's perfect supplied-label fit persists even as clean-test prediction deteriorates.}
+\caption{Accuracy against three targets for each model: supplied (possibly randomized) training labels, original training labels, and original test labels. Means and sample SD over three seeds. RF fits the supplied labels perfectly at every noise level while its clean-test accuracy deteriorates.}
 \label{fig:targets}
 \end{figure*}
 
 \begin{table}[t]
-\caption{Endpoint behavior at $p=1$. All entries are three-seed means. Training columns refer to the same inputs but different labels.}
+\caption{Endpoint behavior at $p=1$ (three-seed means). The two training columns use the same inputs with different labels. RF OOB is the out-of-bag accuracy against the original training labels (Section~\ref{sec:exploratory}).}
 \label{tab:endpoint}
 \centering\footnotesize
 \begin{tabular}{lrrr}
@@ -264,149 +268,145 @@ Model & Noisy-train acc. & Clean-train acc. & Clean-test acc.\\
 \midrule
 LR & 0.1602 & 0.1336 & 0.1336\\
 RF & 1.0000 & 0.1407 & 0.1378\\
+\quad RF OOB & 0.1444 & 0.1391 & ---\\
 MLP & 0.3806 & 0.1432 & 0.1425\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The MLP's supplied-label training accuracy at $p=1$ is 0.3806, above LR's 0.1602 but far below RF's 1.0000. It partially fits arbitrary labels under the tested configuration, without complete memorization. Its clean-test Macro-F1 remains low. Perfect agreement with randomized supervision is therefore insufficient for strong clean-test prediction; the completed matrix does not establish a general relationship between memorization and generalization.
+The MLP fits 38.06\% of the random training labels at $p=1$, well above LR (16.02\%) but far below RF. Under its selected regularization and 500-epoch budget it memorizes only partially, and its clean-test Macro-F1 is as low as RF's. In both cases, agreement with randomized supervision says nothing about clean-test quality.
 
-At $p=0.75$, RF still fits supplied labels perfectly, but clean-test accuracy (0.6652) exceeds original-label training accuracy (0.3514). This is understandable once the optimization targets are stated. Training predictions reproduce a heavily altered label vector; new predictions can still exploit structure shared by less corrupted observations. A negative clean-target training-minus-test difference under this intervention is not the conventional overfitting gap obtained with clean supervision.
+At $p=0.75$, RF still fits the supplied labels perfectly, but its clean-test accuracy (0.6652) is far above its original-label training accuracy (0.3514). The training predictions copy a heavily corrupted label vector, while predictions on new points average over many trees and neighbors and can still exploit the structure carried by the 35\% of labels that were not changed.
 
 \subsection{Class-Level Behavior}
-The endpoint confusion matrices in Fig.~\ref{fig:confusion} show where clean-label performance is concentrated and how replacement changes predictions. Rows are normalized within the true class. We sum counts across the three runs before normalizing. This summarizes average confusion on the same repeated test set; it does not turn 2,709 unique observations into 8,127 independent test examples.
+Figure~\ref{fig:confusion} shows row-normalized test confusion matrices at both endpoints, pooled over the three seeds. BOMBAY, the smallest class, is perfectly separated with clean labels: LR and RF recall all 104 BOMBAY test observations, so small class size alone does not make a class hard. SIRA is the hardest class; for LR its clean-label F1 is 0.8687, while BOMBAY reaches 1.0000. Under complete randomization the diagonal disappears, and the off-diagonal pattern differs by model and seed rather than being uniform.
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{confusion_endpoints.pdf}
-\caption{Row-normalized endpoint confusion matrices. Columns identify LR, RF, and MLP. Top: clean-label training ($p=0$); bottom: complete uniform replacement ($p=1$). Each matrix pools three runs on the same 2,709 unique test observations. Cells show row percentages on a shared 0--100\% scale. Pooling repeated predictions summarizes runs, not additional independent observations.}
+\caption{Row-normalized test confusion matrices for LR, RF, and MLP (columns) after clean ($p=0$, top) and fully random ($p=1$, bottom) training labels. Counts are summed over three seeds before normalizing.}
 \label{fig:confusion}
 \end{figure*}
 
-BOMBAY is the smallest training class but is well separated with clean labels: LR recalls all 104 BOMBAY test observations, and RF's mean BOMBAY recall is also 1.0000. Small count alone does not determine class difficulty. For LR, clean-label SIRA F1 is 0.8687, below its seven-class Macro-F1, whereas BOMBAY F1 is 1.0000. The aggregate score therefore does not imply uniform performance across classes.
-
-Complete replacement disrupts diagonal structure. Errors depend on model and seed; low overall performance does not require a uniform prediction histogram. In particular, the large variation in LR's random-label runs argues against selecting one visually striking seed to represent all endpoint behavior. We show aggregated endpoints and retain individual predictions in the reproducible output structure.
-
 \subsection{Optimization and Computation}
-Figure~\ref{fig:optimization} relates MLP results to its finite budget. Fourteen of the 15 main MLP runs reach 500 iterations and produce convergence warnings. The clean-label run with seed 17 stops at 430 without that warning; the other two clean-label runs and all twelve randomized runs reach 500. Two MLP candidates also warn during tuning, giving 16 warning-bearing fits among the 55 research fits.
+Figure~\ref{fig:optimization} relates the MLP results to its finite budget. Fourteen of the 15 main MLP runs reach the 500-epoch cap with a convergence warning; only the clean-label run with seed 17 stops earlier, at 430 epochs. The training loss decreases far more slowly as $p$ grows (at $p=1$ it falls only from 1.97 to 1.66 in 500 epochs), consistent with the slower convergence on random labels reported by Zhang et al.~\cite{zhang2017rethinking}. Because the curves optimize different targets, their levels do not compare clean-test quality.
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{mlp_optimization.pdf}
-\caption{Optimization diagnostics from existing fits. MLP training-objective curves use fixed seed 17 (the first protocol seed) at five noise levels. Different targets define different objectives, so vertical separation is not a clean-test quality comparison. The timing panel uses all 15 MLP main runs, mean $\pm$ sample SD; labels count convergence warnings among three runs per condition. No fitting was performed to generate the figure.}
+\caption{MLP optimization. Left: training loss for seed 17 at the five noise levels; each curve optimizes a different label vector. Right: fit time over the 15 main MLP runs (mean $\pm$ sample SD), annotated with the number of runs per condition that reached the epoch cap.}
 \label{fig:optimization}
 \end{figure*}
 
-We retain every predeclared run instead of silently excluding warnings or extending only unfavorable conditions. A convergence warning does not invalidate saved prediction arithmetic but limits claims about representational capacity or asymptotic optimization. Capacity, L2 regularization, optimizer behavior, and additional iterations cannot be separated without another controlled experiment.
+Fitting took 462.8\,s in total for the 55 tuning and main fits (401.0\,s for the main matrix: 2.6\,s LR, 33.2\,s RF, 365.3\,s MLP) on a 20-thread Windows 11 CPU machine with BLAS restricted to one thread and four RF workers.
 
-Pure fit time sums to 462.8 seconds across tuning and main experiments, with 401.0 seconds in the main matrix. Main-fit totals are 2.6 seconds for LR, 33.2 for RF, and 365.3 for MLP. These exclude installation, loading, serialization, evaluation, visualization, and inference. Runs use a Windows 11 CPU environment with 20 logical processors, BLAS restricted to one thread during fitting, and four RF workers. The measurements characterize this local execution, not a portable speed benchmark.
+\subsection{Exploratory Follow-up}
+\label{sec:exploratory}
+The analyses in this subsection were run after the test results were known and are therefore exploratory. They use only training and validation data, and they do not change any result above.
 
-\section{Discussion and Limitations}
+\textit{RF out-of-bag accuracy.} We refitted the 15 main RF conditions with \code{oob\_score=True}, which does not change how trees are grown; every refit reproduced the recorded clean-test Macro-F1 exactly. Out-of-bag (OOB) accuracy against the original training labels is 0.9216, 0.9150, 0.8644, 0.6357, and 0.1391 for $p=0$ to $1$, closely tracking clean-test accuracy (0.9256, 0.9181, 0.8744, 0.6652, 0.1378). OOB accuracy against the supplied labels at $p=1$ is 0.1444, at chance, while in-bag accuracy is 1.0000. The forest's memorization is thus visible from the training data alone, provided predictions are scored on points each tree did not see.
+
+\textit{MLP capacity.} The main MLP fits only 38\% of random labels, which raises the question of whether this is a limit of the model or of the budget. We ran the capacity study specified in our protocol before execution: a fixed stratified subset of 3,000 training rows, widths $(32)$, $(128,64)$, and $(512,256)$, $p\in\{0,1\}$, the same three seeds, $\alpha=0$, and exactly 1,000 epochs (18 fits). Table~\ref{tab:capacity} reports the results. Capacity has a large effect. On random labels, the 775-parameter network fits 24.4\% of the subset, the main 128--64 architecture without weight decay fits 63.7\%, and the 141,831-parameter 512--256 network fits 96.6\% (98.1\% for seed 17), with its training loss still trending downward at the last epoch. Trained on clean labels, all three widths reach validation Macro-F1 between 0.927 and 0.932, and on random labels all fall to 0.14--0.16. As in Zhang et al., the network that can almost memorize random labels also fits clean labels perfectly and still generalizes well on them, so its capacity alone does not predict how well it generalizes. Each 512--256 fit took about 150\,s on a four-core Linux machine with the same package versions.
+
+\begin{table}[t]
+\caption{Exploratory MLP capacity study on a 3,000-row training subset ($\alpha=0$, 1,000 epochs; mean $\pm$ sample SD over three seeds). Validation uses the clean 2,709-row validation set.}
+\label{tab:capacity}
+\centering\footnotesize
+\begin{tabular}{lrcc}
+\toprule
+Hidden layers & Params & $p$ & Noisy-train acc. / Val.\ F1\\
+\midrule
+(32) & 775 & 0 & \meanstd{0.955}{0.001} / \meanstd{0.932}{0.001}\\
+ & & 1 & \meanstd{0.244}{0.008} / \meanstd{0.159}{0.006}\\
+(128, 64) & 10,887 & 0 & \meanstd{0.997}{0.001} / \meanstd{0.927}{0.005}\\
+ & & 1 & \meanstd{0.637}{0.025} / \meanstd{0.140}{0.042}\\
+(512, 256) & 141,831 & 0 & \meanstd{1.000}{0.000} / \meanstd{0.929}{0.001}\\
+ & & 1 & \meanstd{0.966}{0.013} / \meanstd{0.140}{0.019}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Discussion}
 \label{sec:discussion}
 \subsection{Why Partial Noise Can Preserve Signal}
-LR's relatively strong result at $p=0.75$ deserves interpretation without a claimed causal explanation. Under independent uniform replacement, let $\eta_k(x)=\Pr(Y=k\mid X=x)$ be the clean population class posterior. The corrupted posterior is
+LR's strong result at $p=0.75$ has a simple population-level explanation. Under the uniform replacement of Eq.~\eqref{eq:transition}, let $\eta_k(x)=\Pr(Y=k\mid X=x)$ be the clean class posterior. The corrupted posterior is
 \begin{equation}
-\widetilde\eta_k(x)=(1-p)\eta_k(x)+\frac{p}{K}.
+\widetilde\eta_k(x)=(1-p)\eta_k(x)+\frac{p}{K},
 \label{eq:posterior}
 \end{equation}
-For any two classes,
+so for any two classes
 \begin{equation}
 \widetilde\eta_a(x)-\widetilde\eta_b(x)
 =(1-p)\bigl(\eta_a(x)-\eta_b(x)\bigr).
 \end{equation}
-For $p<1$, the ordering of ideal population posteriors is preserved, except for existing ties, even though separation shrinks. At $p=1$, all corrupted posteriors equal $1/K$ and no original label signal remains in expectation. This is a direct derivation from our intervention, not an additional empirical result or a theorem attributed to the assigned paper.
+For $p<1$ the ranking of classes at every $x$ is preserved and only the margins shrink by $1-p$, so the Bayes-optimal classifier is unchanged; this is the classical observation behind noise-robust learning under symmetric noise~\cite{angluin1988noisy,natarajan2013noisy,ghosh2017robust}. At $p=1$ all posteriors equal $1/K$ and no label information remains.
 
-Signal retention under substantial replacement is therefore plausible. A restricted model may be less able to follow individual arbitrary assignments while still estimating a useful boundary. However, this does not guarantee finite-sample LR robustness, correct specification, optimization success, or unchanged Macro-F1. Macro-F1 is not the population zero--one-risk objective. Correlated features, imbalance, and regularization all matter. LR's observed behavior invites further explanation; it does not prove that low capacity is universally preferable.
+A model that estimates smooth posteriors from many points, such as regularized LR, benefits directly: noisy labels average out, and the decision boundary stays close to the clean one. Models that can isolate individual points, such as a fully grown RF or a flexible MLP, instead fit many corrupted labels locally, and those local errors transfer to nearby test points once the noise is dense enough. Finite samples, model misspecification, and the fact that Macro-F1 is not the zero--one loss all limit how far this argument goes, so it explains the trend rather than proving LR robustness in general.
 
-\subsection{Connection to the Assigned Paper}
-RF's perfect random-label fitting and poor original-label test prediction illustrate the diagnostic distinction motivating the assigned paper in a different learner and input domain. This observation does not supply a general theory of neural-network generalization.
-
-The MLP result is informative when stated narrowly. Our 128/64 network, selected regularization, and 500-iteration budget do not yield perfect random-label fit. The assigned paper uses different architectures, data, and conditions, and itself reports some random-label fits below 100\%. We neither claim numerical replication nor interpret incomplete fitting as a contradiction. Explicit regularization can affect learning; these experiments do not establish that it is useless or that implicit regularization alone explains all outcomes.
+\subsection{Connection to Zhang et al.}
+RF reproduces the core observation of Zhang et al.\ on tabular data: a model can fit fully random labels perfectly while its predictions on new data are at chance. Our main MLP does not, but the capacity study suggests the difference is one of capacity, regularization, and training budget rather than of model family. Like the original paper, we find that explicit regularization alone does not determine whether random labels can be fitted, and that the effective capacity of a trained model depends on the optimizer and budget as much as on the architecture. The RF OOB result adds a practical point: for bagged models, a standard internal estimate already detects memorization without any held-out data.
 
 \subsection{Threats to Validity}
-\textit{Single dataset and split.} Seeds vary perturbations and initialization on one split. They do not establish sensitivity to new partitions or performance on other tasks. Repeated test predictions are paired observations, not an enlarged independent sample.
+\textit{One dataset and one split.} Seeds vary label noise and model initialization on a single split. Results may differ on other splits or datasets, and repeated test predictions on the same 2,709 observations are not independent samples.
 
-\textit{Selection objective.} Parameters are selected on clean labels and held fixed. This makes the intervention interpretable but can disadvantage a model that benefits from noise-specific regularization. Small grids and a finite budget do not equalize effective capacity or exhaustively optimize every family.
+\textit{Fixed clean-label hyperparameters.} Tuning on clean labels and freezing the choice makes the intervention interpretable, but it can disadvantage a model that would benefit from stronger regularization under noise. The small grids do not equalize effective capacity across families.
 
-\textit{Optimization.} Most MLP fits reach the iteration cap. Loss uses supplied labels, so lower loss cannot be interpreted directly as better original-label prediction. The matrix does not disentangle regularization, size, and optimization.
+\textit{Optimization budget.} Most main MLP fits reach the epoch cap, so capacity, regularization, and optimization effects are confounded in the main matrix; the capacity study addresses this only on a subset and after the holdout was seen.
 
-\textit{Synthetic corruption.} Replacement is feature-independent and can restore an original label by chance. Annotation mistakes may be asymmetric or concentrated near boundaries. The preserved-posterior-order argument does not automatically apply to such mechanisms.
+\textit{Synthetic noise.} Uniform, feature-independent replacement is the most benign kind of label noise. Class-dependent or boundary-concentrated errors would not preserve posterior ordering, and our conclusions may not transfer to them.
 
-\textit{Uncertainty and post-holdout work.} Sample SD over three runs is descriptive. We conduct no significance tests and do not claim that capacity alone caused a between-model difference. The test results are known; optional larger-network experiments and preprocessing changes remain unrun and would be explicitly exploratory.
-
-\section{Reproducibility and Web Inference}
+\section{Reproducibility and Web Demo}
 \label{sec:repro}
-\subsection{Repository and Experiment Records}
-The implementation uses Python 3.12.14, scikit-learn 1.7.2, NumPy 2.2.6, pandas 2.2.3, SciPy 1.15.3, and Matplotlib 3.10.7. A lock file records transitive versions. Pipeline stages cover preparation, EDA, tuning, training, evaluation, report, and verification. Raw data, configurations, code, tests, summaries, and figures are distinguished from large regenerated artifacts such as models and per-row predictions.
+The implementation uses Python 3.12, scikit-learn 1.7.2, NumPy 2.2.6, pandas 2.2.3, SciPy 1.15.3, and Matplotlib 3.10.7, with all transitive versions locked. A staged pipeline covers data preparation, EDA, tuning, training, evaluation, reporting, and an automated test suite. Rerunning the complete pipeline in a fresh directory and environment on the original machine reproduced every non-runtime value in the tuning and main tables exactly. A rerun on Linux selected the same parameters and matched 40 of the 45 main runs exactly; the remaining iterative fits differed by at most 0.0006 in any condition mean. Trained models and row-level predictions are regenerated by the pipeline rather than stored in the repository; the paper figures can be rebuilt from the recorded tables without fitting any model.
 
-Historical configuration contains a planning-status string that predates execution. Current evidence comes from the final evaluation receipt, per-run metadata, and project ledger. We preserve that history rather than rewrite the timestamped experiment context. A fresh reproduction creates its own environment, freeze record, outputs, and evaluation receipt in a separate workspace. It must not reuse historical seals while claiming a new execution.
-
-On October 18, we exercised that workflow in a new directory and Python environment on the same machine. It repeated all ten tuning and 45 main fits, selected identical parameters, and exactly reproduced every compared non-runtime numerical field in the tuning and main tables. The complete suite passed 47 tests. All six regenerated web models also matched offline probabilities in real local HTTP checks. This validates the documented local workflow; it does not establish cross-platform equivalence. Reproduction timestamps, artifact fingerprints, and runtimes remain separate from the original results.
-
-The repository documentation gives setup and reproduction steps and identifies data attribution. The UCI data carry the stated CC BY 4.0 license. The official IEEE class and bibliography style retain their own notices; no code license is inferred from the dataset license. Large model and prediction files can be regenerated through the documented local pipeline.
-
-Figure assets use saved training data, metric tables, predictions, and optimization records. Vector PDFs and a source manifest allow independent compilation on Overleaf without running the training pipeline. Rebuilding figures is an analysis/rendering operation, not additional research fitting.
-
-\subsection{Hosted and Local Inference Demonstration}
-The Flask interface loads six saved Pipelines: one seed-17 model from each family under clean ($p=0$) and fully randomized ($p=1$) supervision. Requests supply 16 numerical inputs in fixed order. Preprocessing remains inside each saved Pipeline, preventing the interface from applying different standardization statistics.
-
-The interface supports model selection, clean/random comparison, editable inputs, and seven-class probability displays. An example's original label appears only while its recorded validation inputs are unchanged; editing features removes that claim. Validation examples are selected by a fixed row-order rule, not prediction correctness. Displayed probabilities are model outputs, not externally calibrated confidence estimates.
-
-Input validation rejects missing or extra fields, nonnumeric or nonfinite values, and extreme magnitudes. Finite values outside training ranges generate a notice rather than silent clipping. Pending requests lock controls until the response arrives, avoiding results displayed under changed selections. The endpoint performs no training and does not read the test partition.
-
-Historical local records show 47 tests passing and restart consistency. The public Vercel Hobby deployment is available at \url{https://ecs171-label-demo.vercel.app}. Anonymous production checks compared all six models on seven validation examples: all 42 predictions matched offline classes and metadata, with maximum probability difference $2.78\times10^{-17}$, below $10^{-12}$. Desktop interaction was checked; full mobile acceptance, a backup recording, and timed rehearsal remain pending.
+A Flask web demo, deployed at \url{https://ecs171-label-demo.vercel.app}, loads six saved pipelines: one seed-17 model per family trained with clean ($p=0$) and fully random ($p=1$) labels. Users enter or load the 16 measurements of a validation bean and compare the two models' seven-class probabilities. Preprocessing is stored inside each pipeline, so the demo cannot apply different scaling statistics. Inputs are validated, values outside the training range trigger a notice instead of being clipped, and the endpoint performs inference only. On all seven example beans, the six deployed models matched offline predictions, with a maximum probability difference of $2.8\times10^{-17}$. Displayed probabilities are uncalibrated model outputs.
 
 \section{Conclusion}
 \label{sec:conclusion}
-In this fixed Dry Bean protocol, randomization separates reproducing supplied training answers from predicting original labels on new observations. RF perfectly fits supplied labels after complete replacement while clean-test Macro-F1 falls to 0.1314. The finite-budget MLP partially fits random labels but also loses useful test performance. LR preserves more clean-test performance at substantial partial replacement in this setting, yet deteriorates sharply when label information is fully removed.
+Label randomization cleanly separates reproducing training answers from predicting true labels on new data. On Dry Bean, a random forest fits fully random labels perfectly while its clean-test Macro-F1 falls to 0.1314, and its out-of-bag accuracy reveals the collapse from the training set alone. The MLP memorizes only partially under its original budget, but a wider unregularized network trained longer fits 97\% of random labels on a training subset, approaching the behavior reported by Zhang et al. Under heavy partial noise, regularized logistic regression keeps most of its clean performance, consistent with the preserved posterior ordering of symmetric noise, while the more flexible models degrade quickly.
 
-The strongest supported lesson is methodological: state which labels define each metric, preserve the exact corruption mechanism, and evaluate unseen observations against an appropriate reference. Similar clean-label scores can conceal different responses to corrupted supervision. Paired seeds, frozen selection, saved predictions, and reproducible plots make those differences inspectable. Broader rankings, noise-aware optimization, and conclusions about neural-network capacity require experiments beyond the completed matrix.
+The main lesson is methodological: always state which labels define each metric, record the exact corruption mechanism, and judge models on unseen observations with the original labels. Similar clean-label scores can hide very different responses to corrupted supervision. Natural next steps are class-dependent noise, the shuffled- and random-input controls of the original paper, and repeating the study over multiple splits and tabular datasets.
 
 \clearpage
 \balance
 \section{Project Roadmap, Contributions, and Availability}
 \label{sec:roadmap}
-\subsection{Milestones and Completion Evidence}
-Table~\ref{tab:roadmap} maps the course workflow to artifacts and remaining work. The technical baseline and public deployment are complete; team acceptance and course submission remain pending. Dates after the proposal deadline are internal targets, subordinate to course announcements and the assigned presentation date.
+\subsection{Roadmap}
+Table~\ref{tab:roadmap} summarizes the project milestones.
 
 \begin{table}[h]
-\caption{Roadmap snapshot, October 18, 2026.}
+\caption{Project milestones.}
 \label{tab:roadmap}
 \centering\footnotesize
-\begin{tabularx}{\columnwidth}{@{}L{0.95in}X@{}}
+\begin{tabularx}{\columnwidth}{@{}L{1.0in}X@{}}
 \toprule
-Milestone & Status / evidence or next deliverable\\
+Milestone & Outcome\\
 \midrule
-Paper and problem & Complete: paper reviewed; RQ1/RQ2 and noise protocol specified.\\
-Literature review & Core references checked for this report; team review pending.\\
-Dataset and EDA & Complete: source archive, audit, fixed split, training-only EDA.\\
-Preprocessing & Complete: 16 features; train-fitted scaling for LR/MLP.\\
-Development / tuning & Complete: ten clean candidates; settings frozen.\\
-Main experiments & Complete: 45 fits, predictions, warnings, and time records.\\
-Evaluation & Complete: predeclared clean holdout; 15 condition summaries.\\
-Web demo & Vercel production live; anonymous inference verified; backup video pending.\\
-Proposal, Oct. 21 & One-page LaTeX/PDF prepared; team confirmation and submission pending.\\
-Mid-quarter, Oct. 28 & Three-page draft prepared; internal team-review target.\\
-Report / repo, Nov.~4 & Internal target: team-accepted report and documented repository release.\\
-Presentation, Nov.~11 & Internal target: delivery check and five-minute rehearsal.\\
+Problem definition & Assigned paper reviewed; RQ1/RQ2 and noise protocol specified.\\
+Data and EDA & Source audit, deduplication, fixed split, training-only EDA.\\
+Model development & Ten clean-label tuning fits; settings frozen.\\
+Main experiments & 45 fits with saved predictions and training records.\\
+Evaluation & Single clean-test evaluation; 15 condition summaries.\\
+Exploratory follow-up & RF out-of-bag analysis; 18-fit MLP capacity study.\\
+Web demo & Public deployment with verified inference.\\
+Proposal (Oct.~21) & Submitted.\\
+Mid-quarter report & Submitted.\\
+Final report and repository & Completed.\\
+Presentation (Nov.~11) & Five-minute talk with live demo.\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\subsection{Responsibilities and Contribution Record}
-The planned division names Linjie Yang as technical lead for validation, analysis, reproducibility, inference integration, and drafting; Tianying Chen as team leader for coordination, interface acceptance, and submission organization; and Elsey Chen for dataset/reference checks and independent figure/metric review. These roles remain subject to team confirmation.
+\subsection{Team Contributions}
+Linjie Yang led the implementation, experiments, analysis, reproducibility tooling, web demo, and drafting of the report. Tianying Chen coordinated the team, tested the web interface, and organized the deliverables and submission. Elsey Chen checked the dataset and references and independently reviewed the figures and reported metrics. All authors reviewed the final report and presentation.
 
-The execution record identifies local implementation and experiment runs as performed with Codex assistance under Linjie Yang's instructions. This report and repository preparation likewise use that assistance. The record does not independently establish completed contributions by the other members. Each member should review the outputs and record actual tasks, review notes, and attributable commits before final submission. Planned assignments are not presented as completed individual contributions.
-
-\subsection{Code and Artifact Availability}
-The source repository is
+\subsection{Code and Data Availability}
+All code, configuration, recorded results, and the \LaTeX{} source of this report are publicly available at
 \begin{center}
 \footnotesize
 \url{https://github.com/Felix-Yang-369/ecs171-label-randomization}.
 \end{center}
-It is private at preparation time; instructor and teammate access must be arranged before assessment. It contains the implementation, environment instructions, experiment summaries, and this paper's LaTeX source. Large model and prediction artifacts are regenerated through the documented pipeline rather than assumed present after cloning. The paper package includes finished figure assets for independent compilation.
-
-The pre-report snapshot is commit \code{1d19a2a}; later documentation and deployment work preserve frozen training sources and results. Hosting uses the existing free Hobby plan, without paid integrations. The README and reproduction guide are entry points. Presentation allocation, contribution sign-off, and course submission remain to be confirmed.
+The original code is released under the Apache License 2.0. The Dry Bean data are redistributed unmodified under CC BY 4.0, and the IEEE class files retain their own LPPL license. The README and \code{REPRODUCIBILITY.md} give setup instructions for Windows, macOS, and Linux.
 
 \clearpage
 \nobalance

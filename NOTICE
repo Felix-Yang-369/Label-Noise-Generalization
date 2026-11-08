@@ -1,0 +1,51 @@
+ECS 171 Label-Randomization Study
+Copyright 2026 Tianying Chen, Linjie Yang, and Elsey Chen
+
+This product includes software developed by the authors listed above as part
+of ECS 171 (Machine Learning), University of California, Davis. The original
+source code in this repository is licensed under the Apache License, Version
+2.0 (see LICENSE). The Apache License applies only to material the authors
+have the right to license; it does not extend to the third-party material
+listed below.
+
+-------------------------------------------------------------------------------
+Third-party material distributed in this repository
+-------------------------------------------------------------------------------
+
+1. Dry Bean Dataset (data/raw/)
+   Files: data/raw/UCI_Dry_Bean_Original.zip, data/raw/Dry_Bean_Dataset.xlsx
+   Source: UCI Machine Learning Repository, dataset 602
+           https://archive.ics.uci.edu/dataset/602/dry+bean+dataset
+   Citation: Dry Bean [Dataset]. (2020). UCI Machine Learning Repository.
+             https://doi.org/10.24432/C50S4B
+   Original study: M. Koklu and I. A. Ozkan, "Multiclass classification of dry
+             beans using computer vision and machine learning techniques,"
+             Computers and Electronics in Agriculture, vol. 174, 105507, 2020.
+   License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+            https://creativecommons.org/licenses/by/4.0/
+   The raw files are redistributed unmodified. Deduplicated splits, perturbed
+   labels, statistics, and results derived from them are adaptations of the
+   dataset and are shared under the same CC BY 4.0 terms with the attribution
+   above.
+
+2. IEEEtran LaTeX class and BibTeX style (paper/)
+   Files: paper/IEEEtran.cls, paper/IEEEtran.bst
+   Copyright (c) 1993-2000 Gerry Murray, Silvano Balemi, Jon Dixon, Peter
+   N"uchter, Juergen von Hagen; (c) 2001-2015 Michael Shell (IEEEtran.cls);
+   (c) 2003-2007 Michael Shell (IEEEtran.bst).
+   License: LaTeX Project Public License (LPPL), version 1.3, as stated in
+   the header of each file. The files are distributed unmodified.
+
+-------------------------------------------------------------------------------
+Project material not covered by the Apache License
+-------------------------------------------------------------------------------
+
+The report text, its figures, and the compiled PDF in paper/ (main.tex,
+references.bib, figures/, ECS171_Final_Report.pdf) are Copyright 2026
+Tianying Chen, Linjie Yang, and Elsey Chen. All rights reserved, except that
+they may be read, cited, and reproduced for course assessment and academic
+review. The scripts paper/tools/build_figures.py and exploratory/ are source
+code and are covered by the Apache License, Version 2.0.
+
+Python dependencies listed in requirements.txt are not distributed with this
+repository; each is governed by its own license.

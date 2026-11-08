@@ -1,12 +1,12 @@
 {
   "fresh_directory": "D:\\Projects\\ECS 171\\work\\final_report\\fresh_reproduction",
-  "original_directory": "C:\\Users\\Felix\\Documents\\Codex\\2026-10-12\\phonetics\\outputs\\ECS171 Project\\12_Implementation",
+  "original_directory": "D:\\Projects\\ECS 171\\ecs171-label-randomization",
   "metric_tolerance": 1e-12,
   "setup_receipt": {
     "created_utc": "2026-10-18T22:46:20.4453288Z",
-    "source_checkout": "C:\\Users\\Felix\\Documents\\Codex\\2026-10-12\\phonetics\\outputs\\ECS171 Project\\12_Implementation",
+    "source_checkout": "D:\\Projects\\ECS 171\\ecs171-label-randomization",
     "new_run_directory": "D:\\Projects\\ECS 171\\work\\final_report\\fresh_reproduction",
-    "python_executable": "C:\\Users\\Felix\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "python_executable": "C:\\Python312\\python.exe",
     "python_version": "3.12.14",
     "raw_archive_sha256": "0a64eff5be87f48c3dbbfc0a12a56c5d5b5167ef8e61cd45d69b3e7c7130c06f",
     "copied_scientific_source": {
