@@ -1,4 +1,5 @@
 """Flask application factory. Startup verifies all artifacts; requests only infer."""
+import os
 from pathlib import Path
 from flask import Flask, jsonify, render_template, request
 from werkzeug.exceptions import BadRequest, RequestEntityTooLarge
@@ -7,7 +8,11 @@ from .service import InferenceService
 ROOT = Path(__file__).resolve().parents[1]
 
 def create_app(root=ROOT):
-    service = InferenceService(root)
+    if os.getenv('ECS171_EXPERIMENT') == 'elsey':
+        from .elsey_service import ElseyInferenceService
+        service = ElseyInferenceService(root)
+    else:
+        service = InferenceService(root)
     app = Flask(__name__)
     app.config.update(MAX_CONTENT_LENGTH=32768, DEBUG=False)
     app.extensions['inference_service'] = service
