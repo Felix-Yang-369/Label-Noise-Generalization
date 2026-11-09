@@ -1,0 +1,17 @@
+feature,main_rank,main_kept_0.90,main_kept_0.95,main_kept_0.98,notebook_rank,notebook_kept_0.90,notebook_kept_0.95,notebook_kept_0.98
+Area,1,True,True,True,1,True,True,True
+ConvexArea,2,False,False,False,2,False,False,False
+EquivDiameter,3,False,False,False,3,False,False,False
+Perimeter,4,False,False,True,4,False,False,True
+MinorAxisLength,5,False,False,True,5,False,False,True
+MajorAxisLength,6,False,True,True,6,False,True,True
+ShapeFactor2,7,True,True,True,7,True,True,True
+ShapeFactor1,8,True,True,True,8,True,True,True
+AspectRation,9,True,True,True,9,True,True,True
+Compactness,10,False,False,False,10,False,False,False
+ShapeFactor3,11,False,False,True,11,False,False,True
+Eccentricity,12,False,True,False,12,False,True,False
+roundness,13,True,True,True,13,True,True,True
+ShapeFactor4,14,True,True,True,14,True,True,True
+Solidity,15,True,True,True,15,True,True,True
+Extent,16,True,True,True,16,True,True,True
