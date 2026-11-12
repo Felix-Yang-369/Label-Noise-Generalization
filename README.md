@@ -23,7 +23,7 @@ Zhang et al. (ICLR 2017) showed that deep networks can fit completely random lab
 
 Mean ± sample SD over three paired seeds on one fixed split. The random forest reproduces fully random training labels perfectly while its clean-test score collapses, which is the gap between fitting and generalizing that Zhang et al. describe. At `p = 0.75`, LR still reaches 0.9073 Macro-F1, compared with 0.6440 for RF and 0.5856 for MLP.
 
-A post-holdout exploratory follow-up (`exploratory/`, `results/exploratory/`) adds random-forest out-of-bag accuracy and the predeclared 18-fit MLP capacity study; see Section V-E of the report.
+A post-holdout exploratory follow-up (`exploratory/`, `results/exploratory/`) adds random-forest out-of-bag accuracy and the predeclared 18-fit MLP capacity study; see Section V-E of the report. The feature analyses compare [feature selection on the validation set](reports/eda/feature_selection_notes.md), [feature rankings and subsets across training splits](reports/eda/feature_stability.md), and [SIRA and DERMASON measurements](reports/eda/sira_dermason_profiles.md).
 
 ## Quick start
 
@@ -68,7 +68,7 @@ python -m app --port 5172
 | `src/` | Data audit, splitting, label noise, models, metrics, and the staged pipeline |
 | `app/` | Flask inference service and browser interface |
 | `tests/` | Protocol, execution, results-acceptance, and HTTP tests |
-| `exploratory/` | Post-holdout analyses (RF out-of-bag accuracy, MLP capacity study) |
+| `exploratory/` | RF out-of-bag accuracy, MLP capacity, feature selection, selection stability across splits, and class feature profiles |
 | `config/` | Protocol, run matrix, selected parameters, and freeze record |
 | `data/raw/` | Unmodified UCI Dry Bean archive and spreadsheet |
 | `results/` | Recorded metrics, per-class reports, and the final evaluation receipt |
