@@ -10,7 +10,7 @@ At each seed, logistic regression had the smallest drop in test Macro-F1 when th
 
 The MLP lost the most at every seed. Its largest drop was 0.3932 at seed 29. All three seeds used the same 2,709 test beans, so this comparison covers one data split.
 
-Source: [run-level results at 8d2653d](https://github.com/Felix-Yang-369/ecs171-label-randomization/blob/8d2653dfaafb571139511d7c488bb48aef8509d2/results/test_metrics.csv).
+Source: [run-level results at 8d2653d](https://github.com/Felix-Yang-369/Label-Noise-Generalization/blob/8d2653dfaafb571139511d7c488bb48aef8509d2/results/test_metrics.csv).
 
 To reproduce the table from a repository checkout:
 
