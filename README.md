@@ -30,8 +30,8 @@ A post-holdout exploratory follow-up (`exploratory/`, `results/exploratory/`) ad
 Python 3.12 is required. On macOS or Linux:
 
 ```bash
-git clone https://github.com/Felix-Yang-369/ecs171-label-randomization
-cd ecs171-label-randomization
+git clone https://github.com/Felix-Yang-369/Label-Noise-Generalization
+cd Label-Noise-Generalization
 python3.12 -m venv .venv && . .venv/bin/activate
 pip install -r requirements.lock.txt
 ```
