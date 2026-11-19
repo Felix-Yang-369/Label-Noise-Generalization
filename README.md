@@ -59,6 +59,7 @@ python -m app --port 5172
 - **Label randomization:** with probability `p`, a training label is replaced by a uniform draw from all seven classes (the corruption scheme of Zhang et al.). The draw can return the original class, so the expected fraction of changed labels is `6p/7`. For each seed the same random draws are reused across `p`, and every model receives the same label vector. Validation and test labels are never changed.
 - **Models:** LR (`C = 1`), RF (200 trees, unlimited depth, leaf size 1), MLP (16-128-64-7, `alpha = 0.01`, Adam, 500 epochs). Settings were chosen from ten clean-label candidates by validation Macro-F1 and then frozen.
 - **Main matrix:** 3 models × `p ∈ {0, 0.25, 0.5, 0.75, 1}` × seeds `{17, 29, 43}` = 45 fits, evaluated once on the clean test set after the matrix was complete.
+- **Seed limitation:** seeds 17, 29 and 43 control both the label noise and the estimator's random state, so data randomness and model randomness are not separated. The reported SDs describe run-to-run variation on one fixed split. They are not confidence intervals, and no significance tests were run.
 - **Metrics:** clean-test Macro-F1 (primary), accuracy, balanced accuracy, training accuracy against both the supplied and the original labels, convergence, and fit time.
 
 ## Repository layout
